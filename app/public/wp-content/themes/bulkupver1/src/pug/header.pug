@@ -1,0 +1,13 @@
+doctype
+html(<?php language_attributes(); ?>)
+  head
+    include ./components/_head.pug
+  body
+    header
+      .header-waku
+        #nav-button.nav-menu <i class="fa-solid fa-bars"></i>
+          <?php include("header-sp-menu.php"); ?>
+        a.logo-top(href="/")
+          img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/logo/BULKUPtopsp_min.png" alt="BULKUPのサイトロゴ")
+      .header-afmongon 当サイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。
+// header end 

@@ -1,0 +1,29 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+
+/* -------------------------------
+ *  list components
+ * ---------------------------- */
+.search-list {
+  @media only screen and (max-width: 480px) {
+    p {
+      font-size: medium;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    li {
+      border: 1px solid $glay;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      padding: 4px 8px;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

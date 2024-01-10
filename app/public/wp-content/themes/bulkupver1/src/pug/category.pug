@@ -1,0 +1,58 @@
+<?php get_header(); ?>
+block pageContent
+  article
+    section
+      .container 
+        .main-waku
+          div.breadcrumb <?php get_template_part('breadcrumb'); ?>
+          h1.eriah1 <?php $cat = get_the_category(); foreach ( $cat as $category ) {echo $category->name ;}?>のフィットネスジム・トレーニングジム
+          div.seacheria
+            p <i class="fa-solid fa-magnifying-glass"></i>検索条件
+            div.erianame <?php $cat = get_the_category(); foreach ( $cat as $category ) {echo $category->name ;}?>
+            div.eriacity より詳しいを追加する
+              ul
+                li 市レベル
+                li 市レベル
+            <?php $area_terms = get_terms('gym_area_category'); echo'<pre>'; print_r($area_terms);echo '</pre>';?>
+            div.setsubi <?php $tags = get_tags();?>
+              ul <?php foreach ( $tags as $tag) {?>
+                li <?php echo $tag->name ;?>
+                <?php } ?>
+            <?php $args = array('post_type' => 'gym_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
+            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+          div.gymlist-waku
+            div.gymlist-gymkind
+              ul
+                <?php foreach(get_field('gym_kind')as $data):?>
+                li <?php echo $data;?>
+                <?php endforeach;?>
+            div.gymlist-caset
+              div.gymlist-name
+                a(href!= "<?php the_permalink(); ?>") <?php the_field('gym_name'); ?>
+              div 住所：<?php the_field('address'); ?>
+              div アクセス:<?php the_field('access'); ?>
+            div.setsubi
+              ul <?php foreach(get_field('facility')as $data):?>
+                li <?php echo $data;?>
+                <?php endforeach;?>
+            div.gymlist-detail
+              div.detailthum
+                img(src!= "<?php echo get_template_directory_uri(); ?>/dist/assets/img/_min/01.jpg")
+              div.detailpoint-waku
+                ul.recpoint <?php if (!empty(get_field('point1_title'))) :?>
+                  li <?php the_field('point1_title'); ?><?php endif; ?>
+                    <?php if (!empty(get_field('point2_title'))) :?>
+                  li <?php the_field('point2_title'); ?><?php endif; ?>
+                    <?php if (!empty(get_field('point3_title'))) :?>
+                  li <?php the_field('point3_title'); ?><?php endif; ?> 
+              <?php if (!empty(get_field('aflink'))) :?>
+            div.gymlist-bottum
+              button.btn2-blue
+                a(href!= "<?php the_field('aflink'); ?>") 見学やお申込みはこちらから
+              button.btn2-orange
+                a(href!= "<?php the_field('aflink'); ?>") 公式サイトでもっと詳しく
+              <?php endif; ?>
+            <?php endwhile;?>
+            <?php wp_reset_query(); ?>
+            <?php endif;?>  
+<?php get_footer(); ?>

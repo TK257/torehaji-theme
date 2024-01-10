@@ -1,0 +1,141 @@
+<?php get_header(); ?>
+main.l-main.p-page.p-front-page
+  article
+    section
+      .container
+        img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/13.png")
+        h2#prteinsearch.kon プロテイン検索
+        div.search
+          div.searchta
+            <?php include("searchform.php"); ?>
+        h2#gymsearch.kon フィットネスジム・トレーニングジム検索
+        div.search
+          div.searchta
+            <?php include("gym-searchform.php"); ?>
+        h2.kon 新規掲載フィットネス・トレーニングジム
+        div
+          <?php $args = array('post_type' => 'gym_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
+          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+          div.gymlist-waku
+            div.gymlist-gymkind
+              ul
+                <?php foreach(get_field('gym_kind')as $data):?>
+                li <?php echo $data;?>
+                <?php endforeach;?>
+            div.gymlist-caset
+              div.gymlist-name 
+                a(href!= "<?php the_permalink(); ?>") <?php the_field('gym_name'); ?>
+              div 住所：<?php the_field('address'); ?>
+              div アクセス:<?php the_field('access'); ?>
+            div.gymlist-detail
+              div.detailthum
+                <?php the_post_thumbnail(); ?>
+              div
+                table.table-pc
+                  tr 
+                    th 営業時間
+                    td <?php the_field('business_hours'); ?>
+                    th 駐車場
+                    td <?php the_field('parking'); ?>
+                  tr
+                    th 初期費用
+                    td <?php the_field('initial_cost'); ?>
+                    th 月額・プラン料金
+                    td <?php the_field('price1'); ?>
+                table.table-smp
+                  tr 
+                    th 営業時間
+                    td <?php the_field('business_hours'); ?>
+                  tr
+                    th 駐車場
+                    td <?php the_field('parking'); ?>
+                  tr
+                    th 初期費用
+                    td <?php the_field('initial_cost'); ?>
+                  tr
+                    th 月額・プラン料金
+                    td <?php the_field('price1'); ?>
+            div.setsubi 設備
+              ul <?php foreach(get_field('facility')as $data):?>
+                li <?php echo $data;?>
+                <?php endforeach;?>
+              <?php if (!empty(get_field('aflink'))) :?>
+            div.gymlist-bottum
+              button.btn2-blue
+                a(href!= "<?php the_field('aflink'); ?>") 見学やお申込みはこちらから
+              button.btn2-orange
+                a(href!= "<?php the_field('aflink'); ?>") 公式サイトでもっと詳しく
+              <?php endif;?>
+          <?php endwhile;?>
+          <?php wp_reset_query(); ?>
+          <?php endif;?>
+        h2.kon フィットネスジム・トレーニングジム別に探す
+        div
+          div.oote-hako
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/rizap'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/rizap/rizap0.webp" alt="RIZAPを選ぶ理由")
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/rizapwoman'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/rizap/rizapwoman1.webp" alt="RIZAPWOMANを選ぶ理由")
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/beyond'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/beyond/beyond1.webp" alt="BEYONDを選ぶ理由")
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/chocozap'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap1.webp" alt="chocoZAPを選ぶ理由")
+        h2.kon 新規掲載プロテイン情報
+        div
+          <?php $args = array('post_type' => 'protein_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
+          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+        div.gymlist-waku
+          div.none.gymlist-gymkind
+            ul
+              li <?php $terms = get_the_terms($post->ID, 'protein_type'); foreach($terms as $term): echo $term->name; ?> <?php endforeach;?>
+          div.gymlist-caset
+            div.gymlist-name
+              a(href!= "<?php the_permalink(); ?>") <?php the_field('name'); ?>
+            div.gymlist-detail
+              div.detailthum  
+                img(src!= "<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt!="<?php the_field('altphoto01'); ?>")
+              div 
+                table.table-pc
+                  tr 
+                    th 1食分の量
+                    td <?php the_field('gpermeel'); ?>g
+                    th １食あたりのタンパク質量
+                    td <?php the_field('maxprotein'); ?>g 
+                  tr
+                    th １食あたりの価格（税込み）
+                    td ¥<?php the_field('pricepermeel'); ?>
+                    th 1gあたりの価格（税込み）
+                    td ¥<?php the_field('priceperg'); ?>
+                table.table-smp
+                  tr 
+                    th 1食分の量
+                    td <?php the_field('gpermeel'); ?>g
+                  tr
+                    th １食あたりのタンパク質量
+                    td <?php the_field('maxprotein'); ?>g 
+                  tr
+                    th １食あたりの価格（税込み）
+                    td ¥<?php the_field('pricepermeel'); ?>
+                  tr
+                    th 1gあたりの価格（税込み）
+                    td ¥<?php the_field('priceperg'); ?>
+                  div.textsmall ＊フレーパーにより異なる場合があります。
+                div.none フレーバーの種類：これもリストで出したい
+                div <?php the_excerpt(); ?>
+          div.gymlist-bottum
+            button.btn2.btn2-blue
+              <?php the_field('aflink'); ?> 【PR】
+            button.btn2.btn2-orange
+              a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
+          <?php endwhile;?>
+          <?php endif;?>  
+    section
+<?php get_footer(); ?>

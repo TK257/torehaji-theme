@@ -1,0 +1,551 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+
+/* -------------------------------
+ *  common
+ * ---------------------------- */
+
+/* -------------------------------
+ *  single pages
+ * ---------------------------- */
+h1.gym {
+  border-left: solid 10px $darkblue;
+  border-bottom: 10px solid $darkblue;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+.gymkind-woman {
+  text-align: center;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  margin-right: 4px;
+  font-size: 1.2em;
+  color: $white;
+  background-color: $pink;
+  border-radius: 5px;
+  padding: 4px 6px;
+}
+.gymkind {
+  ul {
+    margin-left: 15px;
+    margin-bottom: 15px;
+    li {
+      font-size: 1.2em;
+      color: $white;
+      display: inline;
+      margin-right: 4px;
+      background-color: $orange;
+      border-radius: 5px;
+      padding: 4px 6px;
+      @media only screen and (max-width: 480px) {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+table {
+  margin-left: 15px;
+  tr {
+    border: solid 1px $glay;
+    &.table_none {
+      border: none;
+    }
+  }
+  th {
+    background-color: $lightglay;
+    padding: 5px 10px;
+    &.th_color_none {
+      background-color: $white;
+    }
+  }
+  td {
+    padding: 5px 10px;
+  }
+}
+.table_left {
+  margin-left: 0;
+  text-align: left;
+}
+h2 {
+  p {
+    display: inline-block;
+    border-bottom: 3px solid $glay;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+  &.h2_dotglay {
+    border-bottom: 3px dotted $glay;
+  }
+}
+h3 {
+  font-size: 1.2em;
+  margin: 10px 0 10px 10px;
+  &.h3_dotglay {
+    border-bottom: 3px dotted $glay;
+  }
+}
+.slideshow {
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+  max-width: 800px;
+  width: 100%;
+  img {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+}
+.slideshow-protein {
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+  max-width: 400px;
+  width: 100%;
+  img {
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+}
+#slideshow-image {
+  aspect-ratio: 3 / 2;
+  img {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+}
+.thumbnail {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+.thumbnail li {
+  width: calc(100% / 3);
+  cursor: pointer;
+}
+.setsubi {
+  ul {
+    margin-left: 10px;
+    li {
+      display: inline-block;
+      margin-right: 4px;
+      margin-top: 8px;
+      background-color: $lightblue;
+      border-radius: 5px;
+      padding: 4px 6px;
+    }
+  }
+}
+.point {
+  margin: 0 50px;
+  border: solid 2px $glay;
+  border-radius: 15px;
+  padding: 20px;
+  @media only screen and (max-width: 480px) {
+    margin: 0 10px;
+    padding: 10px 5px;
+  }
+}
+ul.recpoint {
+  margin-left: 10px;
+  li {
+    font-weight: 700;
+    padding: 0 10px;
+    color: $orange;
+    font-size: 20px;
+    @media only screen and (max-width: 480px) {
+      margin-top: 15px;
+    }
+    p {
+      color: $black;
+      font-size: 1.6rem;
+      font-weight: 400;
+      padding-left: 35px;
+    }
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f04b";
+      font-weight: 900;
+      font-size: 25px;
+      margin-right: 10px;
+    }
+  }
+}
+ul.recpoint-woman {
+  margin-left: 10px;
+  li {
+    font-weight: 700;
+    padding: 0 10px;
+    color: $pink;
+    font-size: 20px;
+    @media only screen and (max-width: 480px) {
+      margin-top: 15px;
+    }
+    p {
+      color: $black;
+      font-size: 1.6rem;
+      font-weight: 400;
+      padding-left: 35px;
+    }
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f04b";
+      font-weight: 900;
+      font-size: 25px;
+      margin-right: 10px;
+    }
+  }
+}
+.gymplan-left {
+  font-weight: 700;
+  width: 30%;
+  background-color: $lightblue;
+  margin-right: 40px;
+  @media only screen and (max-width: 480px) {
+    margin-right: 20px;
+  }
+}
+.gymplan-left-woman {
+  font-weight: 700;
+  width: 30%;
+  background-color: $lightpink;
+  margin-right: 40px;
+  @media only screen and (max-width: 480px) {
+    margin-right: 20px;
+  }
+}
+.gymplan-right {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+.planname {
+  background-color: $darkblue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 0px;
+  color: $white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.step {
+  background-color: $orange;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 0px;
+  color: $white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.stepwaku {
+  padding: 15px;
+  background-color: $lightyellow;
+  border-radius: 5px;
+}
+.process {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and (max-width: 480px) {
+    display: block;
+  }
+  img {
+    width: 30%;
+    border: solid 1px $black;
+    border-radius: 20px;
+    margin: 10px 5px;
+  }
+  @media only screen and (max-width: 480px) {
+    img {
+      display: block;
+      margin: 10px auto;
+      width: 85%;
+    }
+  }
+}
+.process-wrap {
+  flex-wrap: wrap;
+}
+.process-noborder {
+  img {
+    border: none;
+    border-radius: 5px;
+  }
+}
+.process-bun {
+  padding-left: 15px;
+  margin: 10px 0 30px;
+}
+.plan2name {
+  background-color: $blue;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  margin: 0px;
+  color: $white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.plancontent {
+  margin: 10px 20px;
+  ul {
+    margin-top: 10px;
+    border: solid 1px $glay;
+    padding: 10px;
+  }
+  li {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+}
+.planname-woman {
+  background-color: $darkpink;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 0px;
+  color: $white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.planwaku {
+  padding: 15px;
+  background-color: $lightglay;
+  border-radius: 5px;
+  ul {
+    column-count: 2;
+    @media only screen and (max-width: 480px) {
+      column-count: auto;
+    }
+    li {
+      vertical-align: middle;
+      min-height: 40px;
+      display: flex;
+      margin-bottom: 10px;
+      break-inside: avoid;
+    }
+  }
+}
+.initialname {
+  background-color: $darkblue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 0px;
+  color: $white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.initialname-woman {
+  background-color: $darkpink;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 0px;
+  color: $white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+.initialwaku {
+  padding: 15px;
+  background-color: $lightglay;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.access {
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+.googlemap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+iframe {
+  max-width: 100%;
+}
+.officialhp {
+  margin: 30px 0;
+  text-align: center;
+}
+.affibtn-copy {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 0.2em;
+  text-align: center;
+  ::before {
+    margin-right: 1rem;
+    content: "＼";
+  }
+  ::after {
+    margin-left: 1rem;
+    content: "／";
+  }
+}
+.affibtn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+.margintop {
+  margin-top: 20px;
+}
+.itembox {
+  font-weight: 400;
+  &.itembox_blue li {
+    background-color: $blue;
+    color: $white;
+  }
+  &.itembox_darkblue li {
+    background-color: $darkblue;
+    color: $white;
+  }
+  &.itembox_orange li {
+    background-color: $orange;
+    color: $white;
+  }
+  &.itembox_border li {
+    border: 1px solid $black;
+  }
+  ul {
+    font-size: 1.2em;
+    li {
+      &.itembox_blue {
+        background-color: $blue;
+        color: $white;
+      }
+      display: inline-block;
+      margin: 3px 4px auto 5px;
+      border-radius: 9999px;
+      padding: 8px 16px;
+      @media only screen and (max-width: 480px) {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-size: 1.4rem;
+        padding: 0px 7px;
+      }
+    }
+  }
+}
+
+.table_base {
+  td {
+    text-align: right;
+  }
+  th,
+  td {
+    border: 1px solid $glay;
+  }
+}
+.midashi {
+  padding: 10px 20px;
+  border-radius: 5px;
+  &.midashi_lightblue {
+    background-color: $lightblue;
+    color: $black;
+  }
+  &.midashi_darkblue {
+    background-color: $darkblue;
+    color: $white;
+  }
+  &.midashi_orange {
+    background-color: $orange;
+    color: $white;
+  }
+  &.midashi_blue {
+    background-color: $blue;
+    color: $white;
+  }
+}
+table.table_yoko {
+  margin-left: 0;
+  table-layout: fixed;
+  width: 100%;
+  @media only screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+  th.flavor {
+    width: 55%;
+    @media only screen and (max-width: 480px) {
+      padding: 0;
+    }
+  }
+  td.flavor {
+    @media only screen and (max-width: 480px) {
+      padding: 0;
+      text-align: center;
+    }
+  }
+  th.kpfc {
+    width: 15%;
+    @media only screen and (max-width: 480px) {
+      padding: 0;
+    }
+  }
+  td.kpfc {
+    text-align: right;
+    @media only screen and (max-width: 480px) {
+      padding: 0;
+    }
+  }
+  th {
+    border: 1px solid $glay;
+  }
+  td {
+    border: 1px solid $glay;
+    &.td_center {
+      text-align: center;
+    }
+  }
+}
+h3.protein {
+  margin: 30px 0 20px 0;
+}
+ul.protein {
+  margin-left: 30px;
+  li {
+    list-style: square;
+  }
+}
+.itemtitle {
+  font-weight: 700;
+  margin: 10px;
+}

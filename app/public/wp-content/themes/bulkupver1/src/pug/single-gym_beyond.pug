@@ -1,0 +1,232 @@
+<?php /** * Template Name: BEYONDtpl *//** * Template Post Type: post,gym_info */  get_header(); ?>
+block pageContent
+  article
+    section
+      .container 
+        div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
+        h2.gym <?php echo get_the_title(); ?>
+        div.gymkind 
+          ul
+            <?php foreach(get_field('gym_kind')as $data):?>
+            li <?php echo $data;?>
+            <?php endforeach;?>
+        table
+          tr
+            th パーソナル対応
+            td <?php the_field('parsonal'); ?>
+          tr 
+            th 住所
+            td <?php the_field('address'); ?>
+          tr 
+            th アクセス
+            td <?php the_field('access'); ?>
+          tr 
+            th 駐車場
+            td <?php the_field('parking'); ?>
+          tr 
+            th 営業時間
+            td <?php the_field('business_hours'); ?>
+        h2.flex-center-center  
+          p 設備・サービス情報
+        div.slideshow
+          div#slideshow-image
+            img(src!= "<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt!="<?php the_field('gym_name'); ?>の外観")
+          ul#thumbnail.thumbnail
+            li: img(src!= "<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt!="<?php the_field('gym_name'); ?>の外観")
+            <?php if (!empty(get_field('gym_photo02'))) :?>
+            li: img(src!= "<?php the_field('gym_photo02'); ?>")
+            <?php endif; ?>
+            <?php if (!empty(get_field('gym_photo03'))) :?>
+            li: img(src!= "<?php the_field('gym_photo03'); ?>")
+            <?php endif; ?>
+            <?php if (!empty(get_field('gym_photo04'))) :?>
+            li: img(src!= "<?php the_field('gym_photo04'); ?>")
+            <?php endif; ?>
+            <?php if (!empty(get_field('gym_photo05'))) :?>
+            li: img(src!= "<?php the_field('gym_photo05'); ?>")
+            <?php endif; ?>
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js")
+        h3.h3_dotglay 設備
+        div.setsubi
+          ul
+            <?php foreach(get_field('facility')as $data):?>
+            li <?php echo $data;?>
+            <?php endforeach;?>
+        h3.h3_dotglay 支払い方法
+        div.setsubi
+          ul
+            <?php foreach(get_field('payment')as $data):?>
+            li <?php echo $data;?>
+            <?php endforeach;?>
+        h3.h3_dotglay サービス情報
+        div.setsubi
+          ul 
+            <?php foreach(get_field('service_info')as $data):?>
+            li <?php echo $data;?>
+            <?php endforeach;?>
+        h2.flex-center-center  
+          p おすすめポイント
+        div.point
+          div
+          ul.recpoint <?php if (!empty(get_field('point1_title'))) :?>
+            li <?php the_field('point1_title'); ?>
+              p <?php the_field('point1_naiyou'); ?><?php endif; ?>
+              <?php if (!empty(get_field('point2_title'))) :?>
+            li <?php the_field('point2_title'); ?>
+              p <?php the_field('point2_naiyou'); ?><?php endif; ?>
+              <?php if (!empty(get_field('point3_title'))) :?>
+            li <?php the_field('point3_title'); ?>
+              p <?php the_field('point3_naiyou'); ?><?php endif; ?>
+        div.margintop.flex-center-center
+          button.btn1-orange
+            a(href= "/gym-brand/beyond/") ビヨンドを選ぶ理由・メリット/デメリットを解説
+        h2.flex-center-center 
+          p 料金プラン
+        div.planname <?php the_field('planname1'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price1'); ?>
+            li 
+              div.gymplan-left.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time1'); ?>
+            li
+              div.gymplan-left.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range1'); ?>
+            li 
+              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices1'); ?>
+        div.planname 回数券
+        div.plancontent
+          p 通常１回　11,000円（税込）のパーソナルトレーニングをお得に利用できる回数券です。
+          p １０枚、２０枚、３０枚のプランがあります。
+          ul 
+            li マンツーマンでトレーニング指導
+            li 継続できる無理のないプラン作成
+        div.plan2name <?php the_field('planname2'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price2'); ?>
+            li 
+              div.gymplan-left.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+            li
+              div.gymplan-left.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range2'); ?>
+            li 
+              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices2'); ?>
+        div.plan2name <?php the_field('planname3'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price3'); ?>
+            li 
+              div.gymplan-left.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+            li
+              div.gymplan-left.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range3'); ?>
+            li 
+              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices3'); ?>
+        div.plan2name <?php the_field('planname4'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price4'); ?>
+            li 
+              div.gymplan-left.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+            li
+              div.gymplan-left.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range4'); ?>
+            li 
+              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices4'); ?>
+        div.planname ライフプランニングコース
+        div.plancontent
+          p パーソナルトレーニングに、プロテインと食事管理がセットされたコースです。
+          p 期間中毎食の食事管理をしてもらえ、指導を受けている間に知識もついてきます。
+          p 知識がつくことでダイエット期間が終了しても、一生使える食事のノウハウとして健康管理に役にたちます。
+          ul 
+            li 毎日の食事管理
+            li 毎日の生活習慣アドバイス
+            li マンツーマンでトレーニング指導
+            li 継続できる無理のないプラン作成
+            li リバウンドしづらい体質づくり
+        div.plan2name <?php the_field('planname5'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price5'); ?>
+            li 
+              div.gymplan-left.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+            li
+              div.gymplan-left.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range5'); ?>
+            li 
+              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices5'); ?>
+        div.plan2name <?php the_field('planname6'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price6'); ?>
+            li 
+              div.gymplan-left.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+            li
+              div.gymplan-left.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range6'); ?>
+            li 
+              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices6'); ?>
+        h2.flex-center-center 
+          p 初期費用・入会金
+        div.initialname <?php the_field('initial_costname'); ?>
+        div.initialwaku <?php the_field('initial_cost'); ?>
+        h2.flex-center-center 
+          p 地図・アクセス
+        div.access <?php the_field('access'); ?>
+          div.googlemap
+            <?php the_field('gym_googlemap'); ?>
+        h2.flex-center-center 
+          p 基本情報
+        div.flex-center-center 
+          table 
+            tr
+              th 施設名
+              td <?php the_field('gym_name'); ?>
+            tr
+              th 営業時間
+              td <?php the_field('business_hours'); ?>
+            tr 
+              th アクセス
+              td <?php the_field('access'); ?>
+            tr
+              th 駐車場
+              td <?php the_field('parking'); ?>
+        <?php if (!empty(get_field('aflink'))) :?>
+        div.btn-basyo
+          div.flex-center-center
+            button.btn1.btn1-blue
+              a(href!= "<?php the_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
+          div.flex-center-center
+            button.btn1.btn1-orange
+              a(href="<?php the_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
+              <?php else:?>
+          div.officialhp
+            a(href!= "<?php the_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
+              <?php endif; ?>
+    section 
+block append bodyScript
+<?php get_footer(); ?>

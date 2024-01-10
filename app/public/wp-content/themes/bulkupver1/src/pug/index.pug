@@ -1,0 +1,14 @@
+<?php get_header(); ?>
+main.l-main.p-page.p-front-page
+  article
+    section
+      .container
+        div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
+        <?php if ( have_posts() ) : ?>
+        <?php while ( have_posts() ) : the_post(); ?>
+        h2.kon <?php the_title(); ?>
+        div <?php the_content();?>
+        <?php endwhile; //繰り返し処理終了 ?>
+        <?php else : //投稿がない場合 ?> 記事が見つかりませんよ。
+        <?php endif; //条件分岐終了 ?>
+<?php get_footer(); ?>

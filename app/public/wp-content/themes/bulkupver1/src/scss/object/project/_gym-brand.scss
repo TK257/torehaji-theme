@@ -1,0 +1,164 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+
+/* -------------------------------
+ *  common
+ * ---------------------------- */
+
+/* -------------------------------
+ *  single pages
+ * ---------------------------- */
+.gymmain-waku {
+  margin: 15px auto 50px;
+  max-width: 1200px;
+  @media only screen and (max-width: 480px) {
+    width: auto;
+  }
+  p {
+    margin: 15px 0;
+  }
+}
+.gymbrand-waku {
+  box-shadow: 0 0 4px gray;
+  margin-top: 10px;
+  padding: 10px 20px;
+  @media only screen and (max-width: 480px) {
+    width: auto;
+  }
+}
+.gymbrand-list {
+  box-shadow: 0 0 2px gray;
+  margin: 10px;
+  padding: 10px 20px;
+}
+.brandtoc {
+  padding: 15px 25px;
+  border: solid 2px gray;
+  font-weight: 700;
+  background-color: $lightglay;
+  li {
+    text-align: left;
+    color: blue;
+    font-weight: 700;
+    font-size: 1.2em;
+    ::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f04b";
+      font-size: 25px;
+      margin-right: 10px;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+h2.gym-brand {
+  border-bottom: 5px solid $darkblue;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+h3.gym-brand {
+  border-bottom: 3px solid $glay;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  text-align: center;
+}
+#menu {
+  text-align: center;
+}
+.brandmain-good {
+  border: solid 2px $glay;
+  border-radius: 5px;
+  padding: 10px;
+  li {
+    text-align: left;
+    font-weight: 700;
+    font-size: 1em;
+  }
+  li::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    content: "\f164";
+    margin-right: 5px;
+  }
+}
+.brandmain-nomal {
+  border: solid 2px $glay;
+  border-radius: 5px;
+  padding: 10px;
+  li {
+    text-align: left;
+    font-weight: 700;
+    font-size: 1em;
+  }
+  li::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f111";
+    font-size: 5px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
+.brandmain-box {
+  border: solid 2px $glay;
+  border-radius: 5px;
+  padding: 10px;
+}
+.gymbrand-img {
+  height: 630px;
+  text-align: center;
+  margin: 10px 0 20px;
+  @media only screen and (max-width: 480px) {
+    height: 200px;
+  }
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+.imgattn {
+  text-align: right;
+  font-size: 8px;
+}
+.flow {
+  list-style: none;
+}
+.brandmain-flow {
+  border: solid 2px $glay;
+  border-radius: 5px;
+  padding: 10px;
+  li {
+    text-align: left;
+    font-size: 1em;
+  }
+}
+.flow-item {
+  margin-top: 15px;
+  margin-bottom: 2em;
+  padding: 1em;
+  background: $lightglay;
+  position: relative;
+  font-weight: 500;
+}
+.flow-item span {
+  margin-right: 1em;
+  font-weight: bold;
+}
+
+.flow-item:not(:last-of-type)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: calc(50% - 20px);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px;
+  border-color: #f2c200 transparent transparent transparent;
+}

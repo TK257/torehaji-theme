@@ -1,0 +1,131 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+
+/* -------------------------------
+ *  common
+ * ---------------------------- */
+
+/* -------------------------------
+ *  tag pages
+ * ---------------------------- */
+//tag.php用
+.eriah1 {
+  font-size: 1.5em;
+}
+.seacheria {
+  background-color: $lightyellow;
+  margin-top: 20px;
+  padding: 10px 20px;
+  box-shadow: 0 0 4px gray;
+  p {
+    margin-bottom: 3px;
+  }
+}
+.erianame {
+  background-color: $white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: solid 1px $glay;
+  display: inline-block;
+}
+.eriacity {
+  ul {
+    li {
+      background-color: $white;
+      margin: 5px 2px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      border: solid 1px $glay;
+      display: inline-block;
+    }
+  }
+}
+.gymlist-waku {
+  margin: 30px 0 10px;
+  padding: 10px 20px;
+  box-shadow: 0 0 8px gray;
+}
+.gymlist-gymkind {
+  ul {
+    li {
+      font-size: 0.8em;
+      color: $white;
+      display: inline;
+      margin-right: 2px;
+      background-color: $orange;
+      border-radius: 5px;
+      padding: 2px 3px;
+      @media only screen and (max-width: 480px) {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+.gymlist-caset {
+  border-bottom: 2px solid gray;
+  margin-bottom: 10px;
+}
+.gymlist-name {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: blue;
+  text-decoration: underline;
+}
+.gymlist-detail {
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (max-width: 480px) {
+    display: block;
+  }
+}
+.detailthum {
+  margin: 10px auto;
+  width: 30%;
+  padding-top: 10px;
+  text-align: center;
+  img {
+    max-height: 150px;
+    height: auto;
+    width: auto;
+  }
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    max-height: 100%;
+    text-align: center;
+  }
+}
+.detailpoint-waku {
+  background-color: $white;
+  max-width: 70%;
+  width: 70%;
+  margin: 10px;
+  padding: 10px;
+  @media only screen and (max-width: 480px) {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+}
+.detailpoint {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.detailpoint:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: $black;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+.gymlist-bottum {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  @media only screen and (max-width: 480px) {
+    display: block;
+  }
+}

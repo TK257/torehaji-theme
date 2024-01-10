@@ -1,0 +1,73 @@
+@use "../foundation/import" as *;
+@use "../colorlayout" as *;
+
+/* -------------------------------
+ *  header
+ * ---------------------------- */
+.l-header {
+  grid-area: header;
+}
+header {
+  background-color: $white;
+  box-shadow: 0 0 8px gray;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  @media (min-width: 769px) {
+    height: auto;
+  }
+}
+.header-waku {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  @media (min-width: 769px) {
+    height: auto;
+  }
+}
+.nav-menu {
+  color: $darkblue;
+  margin-left: 20px;
+  font-size: 2.5rem;
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+.logo-top {
+  height: auto;
+  margin: auto;
+  @media only screen and (max-width: 480px) {
+    height: auto;
+    width: 50%;
+  }
+}
+.header-afmongon {
+  background-color: $black;
+  text-align: center;
+  color: $white;
+}
+.sp-nav {
+  position: absolute;
+  left: 0;
+  display: none;
+  z-index: 1000;
+  width: 60%;
+  background-color: $darkblue;
+  opacity: 0.9;
+  color: $white;
+}
+.sp-nav-list {
+  width: 100%;
+  padding: 0 10%;
+  font-size: 1.5rem;
+  text-align: left;
+  list-style: none;
+  li {
+    margin: 1rem;
+    a {
+      text-decoration: none;
+    }
+  }
+}

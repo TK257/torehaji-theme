@@ -1,0 +1,163 @@
+@use "../../foundation/import" as *;
+
+/* -------------------------------
+ *  common
+ * ---------------------------- */
+
+/* -------------------------------
+ *  02_******
+ * ---------------------------- */
+
+.page_base h2 {
+  text-align: center;
+}
+/*　　MW WP Formカスタマイズ　　*/
+/*ーーーーーーーーーーーーーーーー*/
+
+.mw_wp_form input[type="email"],
+.mw_wp_form input[type="tel"],
+.mw_wp_form input[type="text"],
+.mw_wp_form textarea {
+  padding: 1em;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 15px;
+  border: 1px solid #ccc;
+}
+
+.mw_wp_form select {
+  display: block;
+  position: relative;
+  width: 80%;
+  height: 38px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0 10px;
+  //background-color: #ffffff;
+}
+
+.mw_wp_form selectt:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 50%;
+  right: 10px;
+  margin-top: -3px;
+  pointer-events: none;
+}
+
+/*――――「表」デザイン――――*/
+
+.cform th {
+  font-size: 15px;
+  width: 25%;
+  border-bottom: solid 1px #d6d6d6;
+  padding: 10px 0px 10px 15px;
+  font-weight: bolder;
+}
+.cform tr:nth-child(1) {
+  border-top: solid 1px #ccc;
+}
+.cform th:nth-child(1) {
+  border-top: solid 1px #ccc;
+}
+.cform td:nth-child(1) {
+  border-top: solid 1px #ccc;
+}
+.cform tr:nth-child(6) {
+  border-bottom: solid 1px #ccc;
+}
+.cform td {
+  font-size: 20px;
+  line-height: 200%;
+  border-bottom: solid 1px #d6d6d6;
+  padding: 10px 10px;
+}
+
+/*―――――表示―――――*/
+
+.cform {
+  width: 94%;
+  margin: auto;
+}
+
+.cform option,
+.cform textarea,
+.cform input[type="text"],
+.cform input[type="email"],
+.cform input[type="search"],
+.cform input[type="url"] {
+  width: 90%;
+  border-radius: 4px;
+  //background-color: white;
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .cform th,
+  .cform td {
+    width: 100%;
+    padding: 5px 7px;
+    display: block;
+    border-bottom: none;
+  }
+  table tr.contact-tr {
+    border-top: none;
+    border-bottom: none;
+  }
+  .cform tr:nth-child(1) {
+    border-top: none;
+  }
+}
+
+/*――「送信ボタン」デザイン――*/
+
+.submit-btn input {
+  background-color: #f7adc3;
+  border: 0;
+  color: #ffffff;
+  font-size: 1.3em;
+  font-weight: bolder;
+  margin: 0 auto;
+  padding: 10px 35px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submit-btn {
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.submit-btn input:hover {
+  background: #ef5b9c;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/*―――「必須」デザイン―――*/
+.required-srt {
+  font-size: 0.9em;
+  padding: 6px;
+  border-radius: 5px;
+  margin: 0 10px;
+  background: #f7adc3;
+  color: #ffffff;
+}

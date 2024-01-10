@@ -1,0 +1,71 @@
+<?php get_header(); ?>
+block pageContent
+  article
+    section
+      .container 
+        .main-waku
+          div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
+          h1.eriah1 <?php single_term_title(); ?>の一覧
+          div.seacheria
+            div.eriacity <i class="fa-solid fa-magnifying-glass"></i>種類から探す
+              ul.area
+                <?php  $terms = get_terms('protein_type'); foreach ( $terms as $term ) {  echo '<li>'; echo  '<a href="'.home_url().'/protein_info/protein-type/'.$term->slug.'">'.$term->name.'</a></li>';}?>
+            div.eriacity <i class="fa-solid fa-magnifying-glass"></i>ブランドから探す
+              ul.area
+                <?php  $terms = get_terms('protein_brand'); foreach ( $terms as $term ) {  echo '<li>'; echo  '<a href="'.home_url().'/protein_info/protein-brand/'.$term->slug.'">'.$term->name.'</a></li>';}?>
+            div.eriacity <i class="fa-solid fa-magnifying-glass"></i>フレーバーから探す
+              ul.area
+                <?php  $terms = get_terms('protein_flavor'); foreach ( $terms as $term ) {  echo '<li>'; echo  '<a href="'.home_url().'/protein_info/protein-flavor/'.$term->slug.'">'.$term->name.'</a></li>';}?>
+            <?php if(have_posts()): ?><?php while(have_posts()): the_post(); ?>
+          div.gymlist-waku
+            div.none.gymlist-gymkind
+              ul
+                li <?php $terms = get_the_terms($post->ID, 'protein_type'); foreach($terms as $term): echo $term->name; ?> <?php endforeach;?>
+            div.gymlist-caset
+              div.gymlist-name
+                a(href!= "<?php the_permalink(); ?>") <?php the_field('name'); ?>
+              div.gymlist-detail
+                div.detailthum  
+                  img(src!= "<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt!="<?php the_field('altphoto01'); ?>")
+                div 
+                  table.table-pc
+                    tr 
+                      th 1食分の量
+                      td <?php the_field('gpermeel'); ?>g
+                      th １食あたりのタンパク質量
+                      td <?php the_field('maxprotein'); ?>g 
+                    tr
+                      th １食あたりの価格（税込み）
+                      td ¥<?php the_field('pricepermeel'); ?>
+                      th 1gあたりの価格（税込み）
+                      td ¥<?php the_field('priceperg'); ?>
+                  table.table-smp
+                    tr 
+                      th 1食分の量
+                      td <?php the_field('gpermeel'); ?>g
+                    tr
+                      th １食あたりのタンパク質量
+                      td <?php the_field('maxprotein'); ?>g 
+                    tr
+                      th １食あたりの価格（税込み）
+                      td ¥<?php the_field('pricepermeel'); ?>
+                    tr
+                      th 1gあたりの価格（税込み）
+                      td ¥<?php the_field('priceperg'); ?>
+                    div.textsmall ＊フレーパー・サイズにより異なる場合があります。
+                  div.none フレーバーの種類：これもリストで出したい
+                  div <?php the_excerpt(); ?>
+            div.gymlist-bottum
+              <?php if (!empty(get_field('aflink'))) :?>
+              button.btn2.btn2-blue
+                <?php the_field('aflink'); ?> 
+              button.btn2.btn2-orange
+                a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
+              <?php else:?>
+              button.btn2.btn2-orange
+                a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
+              <?php endif; ?>
+            <?php endwhile;?>
+            <?php endif;?>   
+          div <?php get_template_part('functions/pagenation'); ?>
+<?php get_footer(); ?>

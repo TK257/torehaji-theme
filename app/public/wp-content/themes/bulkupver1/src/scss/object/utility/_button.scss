@@ -1,0 +1,112 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+/* -------------------------------
+ *  button components
+ * ---------------------------- */
+/*ボタンの設定*/
+button {
+  img {
+    height: auto;
+    width: auto;
+  }
+}
+.btn1 {
+  text-align: center;
+  border: 1px solid $black;
+  border-radius: 0.5rem;
+  padding: 1rem 4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s ease 0.1s;
+  margin-bottom: 20px;
+  :hover {
+    transform: translateY(30px);
+  }
+  a {
+    text-decoration: none;
+  }
+  &.btn1-yel {
+    background-color: $yellow;
+  }
+  &.btn1-darkblue {
+    background-color: $darkblue;
+  }
+  &.btn1-blue {
+    background-color: $blue;
+  }
+  &.btn1-orange {
+    background-color: $orange;
+  }
+  &.btn1-green {
+    background-color: $green;
+  }
+  &.btn1-glay {
+    background-color: $glay;
+  }
+}
+
+//長めのボタン
+.btn2 {
+  text-align: center;
+  color: $white;
+  border: 1px solid $glay;
+  border-radius: 0.5rem;
+  padding: 1rem 4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  width: 40%;
+  transition: all 0.4s ease 0.1s;
+  margin-bottom: 20px;
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    padding: 1rem 1rem;
+    margin-bottom: 10px;
+  }
+  :hover {
+    transform: translateY(30px);
+  }
+  a {
+    text-decoration: none;
+  }
+  &.btn2-darkblue {
+    background-color: $darkblue;
+  }
+  &.btn2-yel {
+    background-color: $yellow;
+  }
+  &.btn2-blue {
+    background-color: $blue;
+  }
+  &.btn2-orange {
+    background-color: $orange;
+  }
+  &.btn2-iherb {
+    background-color: $green;
+  }
+  &.btn2-amazon {
+    background-color: $amazon;
+  }
+  &.btn2-rakuten {
+    background-color: $rakuten;
+  }
+  &.btn2-yahoo {
+    background-color: $yahoo;
+  }
+  &.btn2-official {
+    background-color: $official;
+  }
+}
+
+.btn-basyo {
+  margin-top: 30px;
+}
+.btn-center {
+  margin: 30px auto 10px;
+}
+.btn-search {
+  margin: 15px 0px 15px 15px;
+  @media only screen and (max-width: 480px) {
+    width: 90%;
+  }
+}

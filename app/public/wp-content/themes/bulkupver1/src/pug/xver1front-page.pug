@@ -1,0 +1,371 @@
+<?php get_header(); ?>
+//検索機能を付ける前の状態
+main.l-main.p-page.p-front-page
+  article
+    section
+      .container
+        img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/top-cover-image.webp")
+        h2#prteinsearch.kon プロテイン検索
+        div.search
+          div.searchta
+            <?php include("searchform.php"); ?>
+            p <i class="fa-solid fa-magnifying-glass"></i>プロテインの種類から探す
+            table.searchtable
+              tr 
+                <?php $terms = get_terms('protein_type'); foreach ( $terms as $term ) { if($term->parent == 0) { echo '<td>'; echo  '<a href="'.home_url().'/protein-type/'.$term->slug.'">'.$term->name.'</a></td>';}}?>
+            p <i class="fa-solid fa-magnifying-glass"></i>ブランドから探す
+            table.searchtable
+              tr
+                <?php  $terms = get_terms('protein_brand'); foreach ( $terms as $term ) {  echo '<td>'; echo  '<a href="'.home_url().'/protein-brand/'.$term->slug.'">'.$term->name.'</a></td>';}?>
+        h2#gymsearch.kon フィットネスジム・トレーニングジム検索
+        div.search
+          div.searchta
+            p <i class="fa-solid fa-map-location"></i>地域から探す
+            table.table-pc.searchtable
+              tr 
+                th 関東
+                td 
+                  a(href!= "<?php echo esc_url('/gym-area/tokyo'); ?>") 東京都
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kanagawa'); ?>") 神奈川県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/chiba'); ?>")  千葉県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/ibaraki'); ?>")   茨城県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/gunma'); ?>")   群馬県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/tochigi'); ?>")   栃木県
+              tr
+                th 東海
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/aichi'); ?>")   愛知県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/gifu'); ?>")   岐阜県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/mie'); ?>")   三重県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/shizuoka'); ?>")   静岡県
+              tr 
+                th 関西
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/osaka'); ?>")   大阪府
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/hyogo'); ?>")   兵庫県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kyoto'); ?>")   京都府
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/shiga'); ?>")   滋賀県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/nara'); ?>")   奈良県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/wakayama'); ?>")   和歌山県
+              tr 
+                th 北海道・東北
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/hokkaido'); ?>")   北海道
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/aomori'); ?>")   青森県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/akita'); ?>")   秋田県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/iwate'); ?>")   岩手県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/miyagi'); ?>")   宮城県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/yamagata'); ?>")   山形県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/fukushima'); ?>")   福島県
+              tr 
+                th 甲信越・北陸
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/yamanashi'); ?>")   山梨県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/nagano'); ?>")   長野県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/niigata'); ?>")   新潟県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/toyama'); ?>")   富山県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/ishikawa'); ?>")   石川県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/fukui'); ?>")   福井県
+              tr 
+                th 中国・四国
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/hiroshima'); ?>")   広島県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/okayama'); ?>")   岡山県
+                td.junbityu  鳥取県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/yamaguchi'); ?>")   山口県
+                td.junbityu  島根県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kagawa'); ?>")   香川県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/ehime'); ?>")   愛媛県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/tokushima'); ?>")   徳島県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kochi'); ?>")   高知県
+              tr 
+                th 九州・沖縄
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/fukuoka'); ?>")   福岡県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/saga'); ?>")   佐賀県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/nagasaki'); ?>")  長崎県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kumamoto'); ?>")  熊本県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/oita'); ?>")  大分県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/miyazaki'); ?>")  宮崎県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kagoshima'); ?>")  鹿児島県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/okinawa'); ?>")  沖縄県
+            div.table-smp.search-list 
+              p 関東
+              ul 
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/tokyo'); ?>") 東京都
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kanagawa'); ?>") 神奈川県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/chiba'); ?>")  千葉県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/ibaraki'); ?>")   茨城県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/gunma'); ?>")   群馬県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/tochigi'); ?>")   栃木県
+              p 東海
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/aichi'); ?>")   愛知県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/gifu'); ?>")   岐阜県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/mie'); ?>")   三重県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/shizuoka'); ?>")   静岡県 
+              p 関西
+              ul 
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/osaka'); ?>")   大阪府
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/hyogo'); ?>")   兵庫県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kyoto'); ?>")   京都府
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/shiga'); ?>")   滋賀県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/nara'); ?>")   奈良県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/wakayama'); ?>")   和歌山県
+              p 北海道・東北
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/hokkaido'); ?>")   北海道
+                li 
+                  a(href!= "<?php echo esc_url('/gym-area/aomori'); ?>")   青森県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/akita'); ?>")   秋田県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/iwate'); ?>")   岩手県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/miyagi'); ?>")   宮城県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/yamagata'); ?>")   山形県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/fukushima'); ?>")   福島県 
+              p 甲信越・北陸
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/yamanashi'); ?>")   山梨県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/nagano'); ?>")   長野県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/niigata'); ?>")   新潟県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/toyama'); ?>")   富山県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/ishikawa'); ?>")   石川県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/fukui'); ?>")   福井県
+              p 中国・四国
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/hiroshima'); ?>")   広島県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/okayama'); ?>")   岡山県
+                li.junbityu  鳥取県<br>
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/yamaguchi'); ?>")   山口県
+                li.junbityu  島根県<br>
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kagawa'); ?>")   香川県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/ehime'); ?>")   愛媛県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/tokushima'); ?>")   徳島県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kochi'); ?>")   高知県 
+              p 九州・沖縄
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/fukuoka'); ?>")   福岡県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/saga'); ?>")   佐賀県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/nagasaki'); ?>")  長崎県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kumamoto'); ?>")  熊本県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/oita'); ?>")  大分県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/miyazaki'); ?>")  宮崎県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kagoshima'); ?>")  鹿児島県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/okinawa'); ?>")  沖縄県
+            div.searchta.none
+              p <i class="fa-solid fa-magnifying-glass"></i>設備から探す
+              table 
+                tr
+                  td.searchtd 
+                    a(href="#") 24時間
+                  td.searchtd ヨガ
+                  td.searchtd パーソナルトレーニング
+                  td.searchtd 完全個室
+                  td.searchtd プール
+                  td.searchtd 湯船
+        h2.kon 新規掲載フィットネス・トレーニングジム
+        div
+          <?php $args = array('post_type' => 'gym_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
+          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+          div.gymlist-waku
+            div.gymlist-gymkind
+              ul
+                <?php foreach(get_field('gym_kind')as $data):?>
+                li <?php echo $data;?>
+                <?php endforeach;?>
+            div.gymlist-caset
+              div.gymlist-name 
+                a(href!= "<?php the_permalink(); ?>") <?php the_field('gym_name'); ?>
+              div 住所：<?php the_field('address'); ?>
+              div アクセス:<?php the_field('access'); ?>
+            div.gymlist-detail
+              div.detailthum
+                <?php the_post_thumbnail(); ?>
+              div
+                table.table-pc
+                  tr 
+                    th 営業時間
+                    td <?php the_field('business_hours'); ?>
+                    th 定休日
+                    td <?php the_field('maxprotein'); ?>
+                  tr
+                    th 初期費用
+                    td <?php the_field('initial_cost'); ?>
+                    th 月額・プラン料金
+                    td <?php the_field('price1'); ?>
+                table.table-smp
+                  tr 
+                    th 営業時間
+                    td <?php the_field('business_hours'); ?>
+                  tr
+                    th 定休日
+                    td <?php the_field('regular_holiday'); ?>
+                  tr
+                    th 初期費用
+                    td <?php the_field('initial_cost'); ?>
+                  tr
+                    th 月額・プラン料金
+                    td <?php the_field('price1'); ?>
+            div.setsubi 設備
+              ul <?php foreach(get_field('facility')as $data):?>
+                li <?php echo $data;?>
+                <?php endforeach;?>
+              <?php if (!empty(get_field('aflink'))) :?>
+            div.gymlist-bottum
+              button.btn2-blue
+                a(href!= "<?php the_field('aflink'); ?>") 見学やお申込みはこちらから
+              button.btn2-orange
+                a(href!= "<?php the_field('aflink'); ?>") 公式サイトでもっと詳しく
+              <?php endif;?>
+          <?php endwhile;?>
+          <?php wp_reset_query(); ?>
+          <?php endif;?>
+        h2.kon フィットネスジム・トレーニングジム別に探す
+        div
+          div.oote-hako
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/rizap'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/rizap/rizap0.webp" alt="RIZAPを選ぶ理由")
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/rizapwoman'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/rizap/rizapwoman1.webp" alt="RIZAPWOMANを選ぶ理由")
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/beyond'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/beyond/beyond1.webp" alt="BEYONDを選ぶ理由")
+            div.oote 
+              a(href!="<?php echo esc_url('/gym-brand/chocozap'); ?>")
+                div
+                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap1.webp" alt="chocoZAPを選ぶ理由")
+        h2.kon 新規掲載プロテイン情報
+        div
+          <?php $args = array('post_type' => 'protein_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
+          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+        div.gymlist-waku
+          div.none.gymlist-gymkind
+            ul
+              li <?php $terms = get_the_terms($post->ID, 'protein_type'); foreach($terms as $term): echo $term->name; ?> <?php endforeach;?>
+          div.gymlist-caset
+            div.gymlist-name
+              a(href!= "<?php the_permalink(); ?>") <?php the_field('name'); ?>
+            div.gymlist-detail
+              div.detailthum  
+                img(src!= "<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt!="<?php the_field('altphoto01'); ?>")
+              div 
+                table.table-pc
+                  tr 
+                    th 1食分の量
+                    td <?php the_field('gpermeel'); ?>g
+                    th １食あたりのタンパク質量
+                    td <?php the_field('maxprotein'); ?>g 
+                  tr
+                    th １食あたりの価格（税込み）
+                    td ¥<?php the_field('pricepermeel'); ?>
+                    th 1gあたりの価格（税込み）
+                    td ¥<?php the_field('priceperg'); ?>
+                table.table-smp
+                  tr 
+                    th 1食分の量
+                    td <?php the_field('gpermeel'); ?>g
+                  tr
+                    th １食あたりのタンパク質量
+                    td <?php the_field('maxprotein'); ?>g 
+                  tr
+                    th １食あたりの価格（税込み）
+                    td ¥<?php the_field('pricepermeel'); ?>
+                  tr
+                    th 1gあたりの価格（税込み）
+                    td ¥<?php the_field('priceperg'); ?>
+                  div.textsmall ＊フレーパーにより異なる場合があります。
+                div.none フレーバーの種類：これもリストで出したい
+                div <?php the_excerpt(); ?>
+          div.gymlist-bottum
+            button.btn2.btn2-blue
+              <?php the_field('aflink'); ?> 
+            button.btn2.btn2-orange
+              a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
+          <?php endwhile;?>
+          <?php endif;?>  
+    section
+<?php get_footer(); ?>

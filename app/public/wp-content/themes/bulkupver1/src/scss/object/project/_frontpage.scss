@@ -1,0 +1,102 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+
+/* -------------------------------
+ *  common
+ * ---------------------------- */
+
+/* -------------------------------
+ *  01_home
+ * ---------------------------- */
+
+.search {
+  border: none;
+  background-color: $glay;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    padding: 10px;
+  }
+  tr {
+    border: none;
+  }
+  th {
+    border: solid 1px #fff;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 110px;
+    vertical-align: top;
+    text-align: left;
+  }
+  td {
+    border: solid 1px $glay;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    a {
+      text-decoration: none;
+      display: block;
+    }
+  }
+}
+.junbityu {
+  background-color: grey;
+}
+.searchta {
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px 0 15px 0;
+  p {
+    padding: 0 0 10px 10px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+}
+table.searchtable {
+  margin-top: 0;
+}
+td.searchtd {
+  border: solid 1px $white;
+  background-color: $lightblue;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.oote-hako {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 480px) {
+    display: block;
+  }
+}
+.oote {
+  max-width: 40%;
+  margin: 10px 5px 5px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: $black;
+  color: $white;
+  a {
+    text-decoration: none;
+    display: block;
+  }
+  @media only screen and (max-width: 480px) {
+    max-width: 100%;
+  }
+}
+.oote-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}

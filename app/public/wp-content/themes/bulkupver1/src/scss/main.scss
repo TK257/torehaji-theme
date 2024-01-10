@@ -1,0 +1,77 @@
+/* -------------------------------
+ *  file import (Foundation)
+ * ---------------------------- */
+@use "foundation/import";
+
+/* -------------------------------
+ *  file import (Layout)
+ * ---------------------------- */
+@use "layout/base";
+@use "layout/header";
+@use "layout/footer";
+@use "layout/content";
+@use "layout/module";
+
+/* -------------------------------
+ *  file import (Object_Component)
+ * ---------------------------- */
+@use "object/component/common";
+@use "object/component/parts";
+
+/* -------------------------------
+ *  file import (Object_Project)
+ * ---------------------------- */
+@use "object/project/frontpage";
+@use "object/project/page";
+@use "object/project/contact";
+@use "object/project/archive";
+@use "object/project/single";
+@use "object/project/tag";
+@use "object/project/gym-brand";
+
+/* -------------------------------
+ *  file import (Object_Utility)
+ * ---------------------------- */
+@use "object/utility/text";
+@use "object/utility/heading";
+@use "object/utility/button";
+@use "object/utility/list";
+@use "object/utility/table";
+@use "object/utility/form";
+@use "object/utility/box";
+@use "object/utility/margin";
+@use "object/utility/padding";
+@use "colorlayout";
+/*
+Theme Name: bulkup-ver2
+*/
+.inner {
+  max-width: 1260px;
+  width: 100%;
+  height: 106px;
+  margin: 0 auto;
+  z-index: 7000;
+}
+article {
+  margin-top: 10px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  @media only screen and (max-width: 480px) {
+    margin: 0 20px;
+  }
+}
+.page-main {
+  text-align: center;
+}
+.main-waku {
+  margin: 15px auto 50px;
+  max-width: 1200px;
+  @media only screen and (max-width: 480px) {
+    width: auto;
+  }
+}
+.none {
+  display: none;
+}

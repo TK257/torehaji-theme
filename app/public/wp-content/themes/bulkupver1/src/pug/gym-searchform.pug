@@ -1,0 +1,223 @@
+block variables
+            p <i class="fa-solid fa-map-location"></i>地域から探す
+            table.table-pc.searchtable
+              tr 
+                th 関東
+                td 
+                  a(href!= "<?php echo esc_url('/gym-area/tokyo'); ?>") 東京都
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kanagawa'); ?>") 神奈川県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/chiba'); ?>")  千葉県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/ibaraki'); ?>")   茨城県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/gunma'); ?>")   群馬県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/tochigi'); ?>")   栃木県
+              tr
+                th 東海
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/aichi'); ?>")   愛知県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/gifu'); ?>")   岐阜県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/mie'); ?>")   三重県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/shizuoka'); ?>")   静岡県
+              tr 
+                th 関西
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/osaka'); ?>")   大阪府
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/hyogo'); ?>")   兵庫県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kyoto'); ?>")   京都府
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/shiga'); ?>")   滋賀県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/nara'); ?>")   奈良県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/wakayama'); ?>")   和歌山県
+              tr 
+                th 北海道・東北
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/hokkaido'); ?>")   北海道
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/aomori'); ?>")   青森県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/akita'); ?>")   秋田県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/iwate'); ?>")   岩手県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/miyagi'); ?>")   宮城県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/yamagata'); ?>")   山形県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/fukushima'); ?>")   福島県
+              tr 
+                th 甲信越・北陸
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/yamanashi'); ?>")   山梨県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/nagano'); ?>")   長野県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/niigata'); ?>")   新潟県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/toyama'); ?>")   富山県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/ishikawa'); ?>")   石川県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/fukui'); ?>")   福井県
+              tr 
+                th 中国・四国
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/hiroshima'); ?>")   広島県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/okayama'); ?>")   岡山県
+                td.junbityu  鳥取県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/yamaguchi'); ?>")   山口県
+                td.junbityu  島根県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kagawa'); ?>")   香川県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/ehime'); ?>")   愛媛県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/tokushima'); ?>")   徳島県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kochi'); ?>")   高知県
+              tr 
+                th 九州・沖縄
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/fukuoka'); ?>")   福岡県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/saga'); ?>")   佐賀県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/nagasaki'); ?>")  長崎県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kumamoto'); ?>")  熊本県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/oita'); ?>")  大分県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/miyazaki'); ?>")  宮崎県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/kagoshima'); ?>")  鹿児島県
+                td
+                  a(href!= "<?php echo esc_url('/gym-area/okinawa'); ?>")  沖縄県
+            div.table-smp.search-list 
+              p 関東
+              ul 
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/tokyo'); ?>") 東京都
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kanagawa'); ?>") 神奈川県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/chiba'); ?>")  千葉県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/ibaraki'); ?>")   茨城県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/gunma'); ?>")   群馬県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/tochigi'); ?>")   栃木県
+              p 東海
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/aichi'); ?>")   愛知県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/gifu'); ?>")   岐阜県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/mie'); ?>")   三重県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/shizuoka'); ?>")   静岡県 
+              p 関西
+              ul 
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/osaka'); ?>")   大阪府
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/hyogo'); ?>")   兵庫県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kyoto'); ?>")   京都府
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/shiga'); ?>")   滋賀県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/nara'); ?>")   奈良県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/wakayama'); ?>")   和歌山県
+              p 北海道・東北
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/hokkaido'); ?>")   北海道
+                li 
+                  a(href!= "<?php echo esc_url('/gym-area/aomori'); ?>")   青森県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/akita'); ?>")   秋田県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/iwate'); ?>")   岩手県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/miyagi'); ?>")   宮城県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/yamagata'); ?>")   山形県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/fukushima'); ?>")   福島県 
+              p 甲信越・北陸
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/yamanashi'); ?>")   山梨県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/nagano'); ?>")   長野県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/niigata'); ?>")   新潟県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/toyama'); ?>")   富山県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/ishikawa'); ?>")   石川県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/fukui'); ?>")   福井県
+              p 中国・四国
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/hiroshima'); ?>")   広島県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/okayama'); ?>")   岡山県
+                li.junbityu  鳥取県<br>
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/yamaguchi'); ?>")   山口県
+                li.junbityu  島根県<br>
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kagawa'); ?>")   香川県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/ehime'); ?>")   愛媛県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/tokushima'); ?>")   徳島県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kochi'); ?>")   高知県 
+              p 九州・沖縄
+              ul
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/fukuoka'); ?>")   福岡県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/saga'); ?>")   佐賀県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/nagasaki'); ?>")  長崎県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kumamoto'); ?>")  熊本県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/oita'); ?>")  大分県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/miyazaki'); ?>")  宮崎県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/kagoshima'); ?>")  鹿児島県
+                li
+                  a(href!= "<?php echo esc_url('/gym-area/okinawa'); ?>")  沖縄県
+            div.searchta.none
+              p <i class="fa-solid fa-magnifying-glass"></i>設備から探す
+              table 
+                tr
+                  td.searchtd 
+                    a(href="#") 24時間
+                  td.searchtd ヨガ
+                  td.searchtd パーソナルトレーニング
+                  td.searchtd 完全個室
+                  td.searchtd プール
+                  td.searchtd 湯船
