@@ -5,51 +5,25 @@
 <div class="step">WEBで会員登録</div>
 <div class="stepwaku">
   <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面1.webp" alt="chocozap入会画面1">
-    <div class="process-bun">メールアドレスを入力して、仮登録メールを送信をタップ<br>＊この先の画面で[戻る]や[更新]ボタンを押さないでください。</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面2.webp" alt="chocozap入会画面2">
-    <div class="process-bun">認証コードを入力する画面になりますので、メール入力したメールアドレスのメールボックスをご確認ください。<br>もし、メールが届いていない場合は、迷惑メールボックスをご確認ください。そこにも届いていない場合は、メールアドレスの入力を間違えている可能性がございますので、再度最初から入力してください。</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面4.webp" alt="chocozap入会画面3">
-    <div class="process-bun">メールアドレス「no-reply@sys.zap-id.jp」から件名「【ZAP ID】本人確認のお知らせ」のメールに記載のある６桁の認証コードをコピーします。</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面3.webp" alt="chocozap入会画面4">
-    <div class="process-bun">メールからコピーした６桁の認証コードをペーストして「次へ」をタップ</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面5.webp" alt="chocozap入会画面5">
-    <div class="process-bun">パスワードを設定して「次へ」をタップ</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面6.webp" alt="chocozap入会画面6">
-    <div class="process-bun">名前・ふりがな・生年月日・郵便番号・住所・電話番号・性別を入力して「次へ」をタップ</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面7.webp" alt="chocozap入会画面7">
-    <div class="process-bun">月額プランと年額プランを選択します。友達紹介やクーポンをご利用される方は、月額定額プランしか利用できません。<br>年額プランは２ヶ月分が費用が安くなりますので、１ヶ月あたり2,732円（税込）になりお得です。<br><br>利用開始日を選択します。いつから店舗を利用するかを選びます。選択する日によって、日割りで会費が計算され、初期費用が変動します。<br>通いたい店舗がまだオープンしていない場合は、オープン日を確認し、オープン日以降に設定してください。<br></div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面8.webp" alt="chocozap入会画面8">
-    <div class="process-bun">友達紹介コードやクーポンコードをお持ちの方は、この画面で入力してください。<br>友達紹介コードを利用すると1年間月会費が300円割引されます。友達紹介コードを利用されたい方は、「JO7NV2C6」をご利用ください。<br>＊年額プランを選択された方は、友達紹介やクーポンは利用できません。<br>画面下部の「カード情報を登録」をタップする。</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面9.webp" alt="chocozap入会画面9">
-    <div class="process-bun">カード情報を入力</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面11.webp" alt="chocozap入会画面10">
-    <div class="process-bun">登録内容を確認して、間違いがなければ、「この内容で登録する」をタップ</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面12.webp" alt="chocozap入会画面11">
+    <div class="process-bun">メールアドレスを入力して、仮登録メールを送信をタップ<br>＊この先の画面で[戻る]や[更新]ボタンを押さないでください。</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面2.webp" alt="chocozap入会画面2">
+    <div class="process-bun">認証コードを入力する画面になりますので、メール入力したメールアドレスのメールボックスをご確認ください。<br>もし、メールが届いていない場合は、迷惑メールボックスをご確認ください。そこにも届いていない場合は、メールアドレスの入力を間違えている可能性がございますので、再度最初から入力してください。</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面4.webp" alt="chocozap入会画面3">
+    <div class="process-bun">メールアドレス「no-reply@sys.zap-id.jp」から件名「【ZAP ID】本人確認のお知らせ」のメールに記載のある６桁の認証コードをコピーします。</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面3.webp" alt="chocozap入会画面4">
+    <div class="process-bun">メールからコピーした６桁の認証コードをペーストして「次へ」をタップ</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面5.webp" alt="chocozap入会画面5">
+    <div class="process-bun">パスワードを設定して「次へ」をタップ</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面6.webp" alt="chocozap入会画面6">
+    <div class="process-bun">名前・ふりがな・生年月日・郵便番号・住所・電話番号・性別を入力して「次へ」をタップ</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面7.webp" alt="chocozap入会画面7">
+    <div class="process-bun">月額プランと年額プランを選択します。友達紹介やクーポンをご利用される方は、月額定額プランしか利用できません。<br>年額プランは２ヶ月分が費用が安くなりますので、１ヶ月あたり2,732円（税込）になりお得です。<br><br>利用開始日を選択します。いつから店舗を利用するかを選びます。選択する日によって、日割りで会費が計算され、初期費用が変動します。<br>通いたい店舗がまだオープンしていない場合は、オープン日を確認し、オープン日以降に設定してください。<br></div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面8.webp" alt="chocozap入会画面8">
+    <div class="process-bun">友達紹介コードやクーポンコードをお持ちの方は、この画面で入力してください。<br>友達紹介コードを利用すると1年間月会費が300円割引されます。友達紹介コードを利用されたい方は、「JO7NV2C6」をご利用ください。<br>＊年額プランを選択された方は、友達紹介やクーポンは利用できません。<br>画面下部の「カード情報を登録」をタップする。</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面9.webp" alt="chocozap入会画面9">
+    <div class="process-bun">カード情報を入力</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面11.webp" alt="chocozap入会画面10">
+    <div class="process-bun">登録内容を確認して、間違いがなければ、「この内容で登録する」をタップ</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面12.webp" alt="chocozap入会画面11">
     <div class="process-bun">これでweb会員登録は完了です。<br>店舗を実際に利用するまでに、アプリをダウンロードします。＊アプリに表示されるQRコードが店舗に入るために、必要です。</div>
   </div>
 </div>
 <div class="step">チョコザップアプリのインストールとログイン</div>
 <div class="stepwaku">
   <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面13.webp" alt="chocozap入会画面12">
-    <div class="process-bun">チョコザップアプリをダウンロードする</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面14.webp" alt="chocozap入会画面13">
-    <div class="process-bun">アプリを開いて、「ログイン」をタップ</div>
-  </div>
-  <div class="process"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面15.webp" alt="chocozap入会画面14">
-    <div class="process-bun">webで会員登録したメールアドレスとパスワードを入力＊ZAP IDと記載がありますが、チョコザップの運営会社はRIZAPですので、ZAPという名前がついています。</div>
-  </div>
-  <div class="process"> <img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap-app画面1.webp" alt="chocozap-app画面1">
+    <div class="process-bun">チョコザップアプリをダウンロードする</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面14.webp" alt="chocozap入会画面13">
+    <div class="process-bun">アプリを開いて、「ログイン」をタップ</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap入会画面15.webp" alt="chocozap入会画面14">
+    <div class="process-bun">webで会員登録したメールアドレスとパスワードを入力＊ZAP IDと記載がありますが、チョコザップの運営会社はRIZAPですので、ZAPという名前がついています。</div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap-app画面1.webp" alt="chocozap-app画面1">
     <div class="process-bun">スキップすることもできますがが、アプリや店舗の説明が数ページございます。アンケート・目標設定・歩数連携もスキップすることができます。<br>＊お時間がある方は、後ほどでも良いのでアンケートや目標設定をすることをおすすめします。</div>
   </div>
   <div class="accordion-item">
