@@ -1,12 +1,11 @@
-<?php /** * Template Name: RIZAPtpl *//** * Template Post Type: post,gym_info */  get_header(); ?>
+<?php /** * Template Name: ANYTIMEtpl *//** * Template Post Type: post,gym_info */  get_header(); ?>
 block pageContent
   article
     section
       .container 
         div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
         h1.gym <?php echo get_the_title(); ?>
-        //div.post-thumbnail
-          img(src!= "<?php if (!empty(get_field('gym_photo01'))):?><?php the_field('gym_photo01'); ?><?php endif; ?>")
+        div.gym-gaiyou 店舗数・会員数が日本トップクラスのANYTIME FITNESS。入会すると日本国内の店舗（1,000店舗以上）だけでなく、世界中の店舗も利用できます。<br>出張・旅行・引越や転職といった時だけでなく、気分を変えたい時や、使いたい設備によって好きな店舗をその都度選ぶことができます。
         div.gymkind 
           ul
             <?php foreach(get_field('gym_kind')as $data):?>
@@ -27,13 +26,16 @@ block pageContent
             td <?php the_field('parking'); ?>
           tr 
             th 営業時間
-            td <?php the_field('business_hours'); ?>
+            td 24時間 365日
+          tr 
+            th スタッフアワー
+            td <?php the_field('staffhour'); ?>
         h2.flex-center-center  
           p 設備・サービス情報
         div.slideshow
           div#slideshow-image
             img(src!= "<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt!="<?php the_field('gym_name'); ?>の外観")
-          ul#thumbnail.thumbnail 
+          ul#thumbnail.thumbnail
             li: img(src!= "<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt!="<?php the_field('gym_name'); ?>の外観")
             <?php if (!empty(get_field('gym_photo02'))) :?>
             li: img(src!= "<?php the_field('gym_photo02'); ?>")
@@ -69,26 +71,20 @@ block pageContent
         h2.flex-center-center  
           p おすすめポイント
         div.point
-          div 
-          ul.recpoint <?php if (!empty(get_field('point1_title'))) :?>
-            li <?php the_field('point1_title'); ?>
-              p <?php the_field('point1_naiyou'); ?><?php endif; ?>
-              <?php if (!empty(get_field('point2_title'))) :?>
-            li <?php the_field('point2_title'); ?>
-              p <?php the_field('point2_naiyou'); ?><?php endif; ?>
-              <?php if (!empty(get_field('point3_title'))) :?>
-            li <?php the_field('point3_title'); ?>
-              p <?php the_field('point3_naiyou'); ?><?php endif; ?>
+          div
+          ul.recpoint 
+            li 24時間 365日 全店舗利用可能
+              p 24時間365日利用できるので、あなたの生活スタイルに合わせていつでも、通えるのが大きなメリットです。<br>早朝・深夜でも時間関係なく利用できます。<br>365日利用可能なので、休館日が設定されているジムだとルーティンが崩れてしまったり、やる気がある日に休みということがありません。<br>
+            li 会費1万円以下
+              p 会費は店舗によって異なりますが、10,000円以下の会費で利用できます。<br>会費は安いですが、設備が充実しているのが、エニタイムフィットネスの特徴です。<br>格安のジムはダンベルやマシンが少なく、やりたいトレーニングができないことがありますが、エニタイムフィットネスは豊富に用意されているので、トレーニングのやる気が削がれることがありません。<br>
+            li 店舗数が多い 国内1,000店舗以上
+              p 自宅に近い店舗か、勤務先の近くで通うで選ぶ方が多いです。でも、引っ越しや転職や転勤で通えなくなるケースもあります。<br>エニタイムフィットネスは店舗数が多く、引越し先や転職・転勤先にも店舗あることが多く、何も手続きをせずに、そのまま利用できます。<br>
         div.margintop.flex-center-center
           button.btn1-orange
-            a(href= "/gym-brand/rizap/") ライザップを選ぶ理由・メリット/デメリットを解説
-        h2.flex-center-center 
-          p 初期費用・入会金
-        div.initialname <?php the_field('initial_costname'); ?>
-        div.initialwaku <?php the_field('initial_cost'); ?>
+            a(href= "/gym-brand/anytimefitness/") エニタイムフィットネスを選ぶ理由・メリット/デメリットを解説
         h2.flex-center-center 
           p 料金プラン
-        div.planname <?php the_field('planname1'); ?>
+        div.planname 料金プラン
         div.planwaku
           ul
             li
@@ -96,68 +92,25 @@ block pageContent
               div.gymplan-right.flex-none-center <?php the_field('price1'); ?>
             li 
               div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time1'); ?>
+              div.gymplan-right.flex-none-center 24時間 365日
             li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range1'); ?>
+              div.gymplan-left.flex-center-center  スタッフアワー
+              div.gymplan-right.flex-none-center <?php the_field('staffhour'); ?>
             li 
               div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices1'); ?>
-        div.planname <?php the_field('planname2'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price2'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range2'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices2'); ?>
-        div.planname <?php the_field('planname3'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price3'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time3'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range3'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices3'); ?>
+              div.gymplan-right.flex-none-center 未成年の方は入会できませんが、15歳以上18歳以下（高校在学期間）の方は、保護者がエニタイムメンバーであれば高校生無料利用（HIGH SCHOOL PASS）をご利用できます。
         h2.flex-center-center 
-          p 初期費用・入会金
-        div.initialname <?php the_field('initial_costname2'); ?>
-        div.initialwaku <?php the_field('initial_cost2'); ?>
-        div.planname <?php the_field('planname4'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price4'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time4'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range4'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices4'); ?>
-        h3.flex-center-center 
+          p 初期費用
+        div.initialname セキュリティキー発行手数料
+        div.initialwaku 通常5,500円（税込）*キャンペーンで無料の場合があります。
+        div.initialname 入会月の会費
+        div.initialwaku <?php the_field('price1'); ?>÷月の日数×利用日数
+        h2.flex-center-center 
           p 地図・アクセス
         div.access <?php the_field('access'); ?>
           div.googlemap
             <?php the_field('gym_googlemap'); ?>
-        h3.flex-center-center 
+        h2.flex-center-center 
           p 基本情報
         div.flex-center-center 
           table 
@@ -166,7 +119,7 @@ block pageContent
               td <?php the_field('gym_name'); ?>
             tr
               th 営業時間
-              td <?php the_field('business_hours'); ?>
+              td 24時間 365日
             tr 
               th アクセス
               td <?php the_field('access'); ?>
@@ -182,7 +135,7 @@ block pageContent
             button.btn1.btn1-orange
               a(href="<?php the_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
               <?php else:?>
-          div.officialhp
+          div.officialhp.none
             a(href!= "<?php the_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
               <?php endif; ?>
     section 

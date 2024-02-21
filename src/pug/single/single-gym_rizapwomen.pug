@@ -1,10 +1,11 @@
-<?php /** * Template Name: BEYONDtpl *//** * Template Post Type: post,gym_info */  get_header(); ?>
+<?php /** * Template Name: RIZAPWomentpl *//** * Template Post Type: post,gym_info */  get_header(); ?>
 block pageContent
   article
     section
       .container 
         div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
-        h2.gym <?php echo get_the_title(); ?>
+        h1.gym <?php echo get_the_title(); ?>
+        div.gymkind-woman 女性専用
         div.gymkind 
           ul
             <?php foreach(get_field('gym_kind')as $data):?>
@@ -58,17 +59,23 @@ block pageContent
             <?php foreach(get_field('payment')as $data):?>
             li <?php echo $data;?>
             <?php endforeach;?>
-        h3.h3_dotglay サービス情報
+        h3.h3_dotglay サービス
         div.setsubi
-          ul 
+          ul
             <?php foreach(get_field('service_info')as $data):?>
             li <?php echo $data;?>
             <?php endforeach;?>
         h2.flex-center-center  
           p おすすめポイント
         div.point
-          div
-          ul.recpoint <?php if (!empty(get_field('point1_title'))) :?>
+          div 
+          ul.recpoint-woman <?php if (!empty(get_field('point4_title'))) :?>
+            li <?php the_field('point4_title'); ?>
+              p <?php the_field('point4_naiyou'); ?><?php endif; ?>
+              <?php if (!empty(get_field('point5_title'))) :?>
+            li <?php the_field('point5_title'); ?>
+              p <?php the_field('point5_naiyou'); ?><?php endif; ?>
+              <?php if (!empty(get_field('point1_title'))) :?>
             li <?php the_field('point1_title'); ?>
               p <?php the_field('point1_naiyou'); ?><?php endif; ?>
               <?php if (!empty(get_field('point2_title'))) :?>
@@ -79,121 +86,75 @@ block pageContent
               p <?php the_field('point3_naiyou'); ?><?php endif; ?>
         div.margintop.flex-center-center
           button.btn1-orange
-            a(href= "/gym-brand/beyond/") ビヨンドを選ぶ理由・メリット/デメリットを解説
+            a(href= "/gym-brand/rizapwoman/") ライザップウーマンを選ぶ理由・メリット/デメリットを解説
         h2.flex-center-center 
           p 料金プラン
-        div.planname <?php the_field('planname1'); ?>
+        div.planname-woman <?php the_field('planname4'); ?>
         div.planwaku
           ul
             li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price1'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time1'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range1'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices1'); ?>
-        div.planname 回数券
-        div.plancontent
-          p 通常１回　11,000円（税込）のパーソナルトレーニングをお得に利用できる回数券です。
-          p １０枚、２０枚、３０枚のプランがあります。
-          ul 
-            li マンツーマンでトレーニング指導
-            li 継続できる無理のないプラン作成
-        div.plan2name <?php the_field('planname2'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price2'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range2'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices2'); ?>
-        div.plan2name <?php the_field('planname3'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price3'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range3'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices3'); ?>
-        div.plan2name <?php the_field('planname4'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
+              div.gymplan-left-woman.flex-center-center 料金
               div.gymplan-right.flex-none-center <?php the_field('price4'); ?>
             li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+              div.gymplan-left-woman.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time4'); ?>
             li
-              div.gymplan-left.flex-center-center  回数
+              div.gymplan-left-woman.flex-center-center  回数
               div.gymplan-right.flex-none-center <?php the_field('use_range4'); ?>
             li 
-              div.gymplan-left.flex-center-center  特記事項                 
+              div.gymplan-left-woman.flex-center-center  特記事項                 
               div.gymplan-right.flex-none-center <?php the_field('notices4'); ?>
-        div.planname ライフプランニングコース
-        div.plancontent
-          p パーソナルトレーニングに、プロテインと食事管理がセットされたコースです。
-          p 期間中毎食の食事管理をしてもらえ、指導を受けている間に知識もついてきます。
-          p 知識がつくことでダイエット期間が終了しても、一生使える食事のノウハウとして健康管理に役にたちます。
-          ul 
-            li 毎日の食事管理
-            li 毎日の生活習慣アドバイス
-            li マンツーマンでトレーニング指導
-            li 継続できる無理のないプラン作成
-            li リバウンドしづらい体質づくり
-        div.plan2name <?php the_field('planname5'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price5'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range5'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices5'); ?>
-        div.plan2name <?php the_field('planname6'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price6'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range6'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices6'); ?>
         h2.flex-center-center 
           p 初期費用・入会金
-        div.initialname <?php the_field('initial_costname'); ?>
+        div.initialname-woman <?php the_field('initial_cost_name'); ?>
         div.initialwaku <?php the_field('initial_cost'); ?>
+        h2.flex-center-center 
+          p 料金プラン
+        div.planname-woman <?php the_field('planname1'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left-woman.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price1'); ?>
+            li 
+              div.gymplan-left-woman.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time1'); ?>
+            li
+              div.gymplan-left-woman.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range1'); ?>
+            li 
+              div.gymplan-left-woman.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices1'); ?>
+        div.planname-woman <?php the_field('planname2'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left-woman.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price2'); ?>
+            li 
+              div.gymplan-left-woman.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time2'); ?>
+            li
+              div.gymplan-left-woman.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range2'); ?>
+            li 
+              div.gymplan-left-woman.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices2'); ?>
+        div.planname-woman <?php the_field('planname3'); ?>
+        div.planwaku
+          ul
+            li
+              div.gymplan-left-woman.flex-center-center 料金
+              div.gymplan-right.flex-none-center <?php the_field('price3'); ?>
+            li 
+              div.gymplan-left-woman.flex-center-center  利用可能時間
+              div.gymplan-right.flex-none-center <?php the_field('riyou_time3'); ?>
+            li
+              div.gymplan-left-woman.flex-center-center  回数
+              div.gymplan-right.flex-none-center <?php the_field('use_range3'); ?>
+            li 
+              div.gymplan-left-woman.flex-center-center  特記事項                 
+              div.gymplan-right.flex-none-center <?php the_field('notices3'); ?>
         h2.flex-center-center 
           p 地図・アクセス
         div.access <?php the_field('access'); ?>
@@ -218,10 +179,10 @@ block pageContent
         <?php if (!empty(get_field('aflink'))) :?>
         div.btn-basyo
           div.flex-center-center
-            button.btn1.btn1-blue
+            button.btn2.btn2-blue
               a(href!= "<?php the_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
           div.flex-center-center
-            button.btn1.btn1-orange
+            button.btn2.btn2-orange
               a(href="<?php the_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
               <?php else:?>
           div.officialhp

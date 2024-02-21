@@ -184,3 +184,23 @@ h4 {
 .mar_top20 {
   margin-top: 20px;
 }
+.example {
+  border: solid 3px gray;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 60%;
+  margin: 15px auto;
+  @media only screen and (max-width: 480px) {
+    max-width: 100%;
+  }
+  li {
+    line-height: 35px;
+    font-size: large;
+  }
+  li::before {
+    content: "\f04b";
+    font-family: FontAwesome;
+    font-weight: 900;
+    margin-right: 10px;
+  }
+}

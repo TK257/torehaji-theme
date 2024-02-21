@@ -133,8 +133,13 @@ h3 {
   list-style: none;
 }
 .thumbnail li {
-  width: calc(100% / 3);
+  width: calc(100% / 5);
   cursor: pointer;
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 }
 .setsubi {
   ul {
@@ -173,7 +178,6 @@ ul.recpoint {
       color: $black;
       font-size: 1.6rem;
       font-weight: 400;
-      padding-left: 35px;
     }
     &::before {
       font-family: "Font Awesome 5 Free";
@@ -260,6 +264,17 @@ ul.recpoint-woman {
   padding: 15px;
   background-color: $lightyellow;
   border-radius: 5px;
+}
+.stepshop {
+  img {
+    display: block;
+    margin: 5px auto;
+    max-width: 50%;
+    border-radius: 5px;
+    @media only screen and (max-width: 480px) {
+      max-width: 85%;
+    }
+  }
 }
 .process {
   display: flex;
@@ -548,4 +563,19 @@ ul.protein {
 .itemtitle {
   font-weight: 700;
   margin: 10px;
+}
+.mokuji-waku {
+  padding: 10px 20px;
+  border: solid 2px $glay;
+  border-radius: 5px;
+  max-width: 50%;
+  display: block;
+  margin: 20px auto;
+  @media only screen and (max-width: 480px) {
+    max-width: 85%;
+  }
+  p {
+    text-align: center;
+    font-size: large;
+  }
 }

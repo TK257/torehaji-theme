@@ -11,9 +11,25 @@ $(function() {
       .slideToggle(300);
     $(this).toggleClass("open", 300);
   });
-});
-$(document).ready(function() {
+  //ナビボタン
   $("#nav-button").on("click", function() {
     $(".sp-nav").slideToggle();
+  });
+  //トップ戻るボタン
+  $("#top-button").on("click", function() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+  //トップ戻るボタンを表示する
+  $(window).on("scroll", function() {
+    console.log(window.scrollY);
+    if (300 < window.scrollY) {
+      $("#top-button").fadeIn();
+    } else {
+      $("#top-button").fadeOut();
+    }
   });
 });

@@ -36,3 +36,6 @@ body {
   -moz-osx-font-smoothing: grayscale; //Firefoxなめらかにする
   -webkit-text-size-adjust: none; //縦横で自動調整をオフにする
 }
+.back-lightglay {
+  background-color: $lightglay;
+}
