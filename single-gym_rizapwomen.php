@@ -3,7 +3,7 @@
   <section>
     <div class="container"> 
       <div class="breadcrumb"><?php get_template_part('functions/breadcrumb'); ?></div>
-      <h2 class="gym"><?php echo get_the_title(); ?></h2>
+      <h1 class="gym"><?php echo get_the_title(); ?></h1>
       <div class="gymkind-woman">女性専用</div>
       <div class="gymkind"> 
         <ul><?php foreach(get_field('gym_kind')as $data):?>
@@ -32,9 +32,9 @@
           <td><?php the_field('business_hours'); ?></td>
         </tr>
       </table>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>設備・サービス情報</p>
-      </h3>
+      </h2>
       <div class="slideshow">
         <div id="slideshow-image"><img src="<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt="<?php the_field('gym_name'); ?>の外観"></div>
         <ul class="thumbnail" id="thumbnail">
@@ -49,27 +49,27 @@
         </ul>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-      <h4>設備</h4>
+      <h3 class="h3_dotglay">設備</h3>
       <div class="setsubi">
         <ul><?php foreach(get_field('facility')as $data):?>
           <li><?php echo $data;?></li><?php endforeach;?>
         </ul>
       </div>
-      <h4>支払い方法</h4>
+      <h3 class="h3_dotglay">支払い方法</h3>
       <div class="setsubi">
         <ul><?php foreach(get_field('payment')as $data):?>
           <li><?php echo $data;?></li><?php endforeach;?>
         </ul>
       </div>
-      <h4>サービス情報</h4>
+      <h3 class="h3_dotglay">サービス</h3>
       <div class="setsubi">
         <ul><?php foreach(get_field('service_info')as $data):?>
           <li><?php echo $data;?></li><?php endforeach;?>
         </ul>
       </div>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>おすすめポイント</p>
-      </h3>
+      </h2>
       <div class="point">
         <div> </div>
         <ul class="recpoint-woman"><?php if (!empty(get_field('point4_title'))) :?>
@@ -93,9 +93,9 @@
       <div class="margintop flex-center-center">
         <button class="btn1-orange"><a href="/gym-brand/rizapwoman/">ライザップウーマンを選ぶ理由・メリット/デメリットを解説</a></button>
       </div>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>料金プラン</p>
-      </h3>
+      </h2>
       <div class="planname-woman"><?php the_field('planname4'); ?></div>
       <div class="planwaku">
         <ul>
@@ -117,14 +117,14 @@
           </li>
         </ul>
       </div>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>初期費用・入会金</p>
-      </h3>
+      </h2>
       <div class="initialname-woman"><?php the_field('initial_cost_name'); ?></div>
       <div class="initialwaku"><?php the_field('initial_cost'); ?></div>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>料金プラン</p>
-      </h3>
+      </h2>
       <div class="planname-woman"><?php the_field('planname1'); ?></div>
       <div class="planwaku">
         <ul>
@@ -188,15 +188,15 @@
           </li>
         </ul>
       </div>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>地図・アクセス</p>
-      </h3>
+      </h2>
       <div class="access"><?php the_field('access'); ?>
         <div class="googlemap"><?php the_field('gym_googlemap'); ?></div>
       </div>
-      <h3 class="h3_dotglay flex-center-center"> 
+      <h2 class="flex-center-center"> 
         <p>基本情報</p>
-      </h3>
+      </h2>
       <div class="flex-center-center"> 
         <table> 
           <tr>
@@ -219,10 +219,10 @@
       </div><?php if (!empty(get_field('aflink'))) :?>
       <div class="btn-basyo">
         <div class="flex-center-center">
-          <button class="btn1 btn1-blue"><a href="<?php the_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
+          <button class="btn2 btn2-blue"><a href="<?php the_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
         </div>
         <div class="flex-center-center">
-          <button class="btn1 btn1-orange"><a href="&lt;?php the_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
+          <button class="btn2 btn2-orange"><a href="&lt;?php the_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
         </div>
         <div class="officialhp"><a href="<?php the_field('official_link'); ?>" rel="nofollow">
             公式サイトリンク<?php endif; ?></a></div>

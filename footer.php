@@ -106,6 +106,7 @@
       </ul>
       <div class="footer-mobile-copyright"><small class="footer-mobile-copyright">©︎ Simple is Best Corp. All Rights Reserved.</small></div>
     </div>
-  </section><?php wp_footer(); ?>            
+  </section>
 </footer>
+<button id="top-button" type="button"><i class="fa-solid fa-angle-up"></i><br>TOP</button><?php wp_footer(); ?>            
 <!-- footer end -->

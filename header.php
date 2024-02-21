@@ -22,7 +22,9 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/0c905e8733.js" crossorigin="anonymous"></script><!-- Google Search Console -->
 <meta name="google-site-verification" content="87raqkpqCLr31pI11qIsyqzzRvJxcYNA1oFH6xT1eCo">
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><?php wp_head();?>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="text/javascript" language="javascript">var vc_pid = "890189095";</script>
+<script type="text/javascript" src="//aml.valuecommerce.com/vcdal.js" async></script><?php wp_head();?>
   </head>
   <body>
     <header>
@@ -30,7 +32,7 @@
         <div class="nav-menu" id="nav-button">
           <i class="fa-solid fa-bars"></i><?php include("header-sp-menu.php"); ?></div><a class="logo-top" href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/BULKUPtopsp_min.png" alt="BULKUPのサイトロゴ"></a>
       </div>
-      <div class="header-afmongon">当サイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。</div>
+      <div class="none header-afmongon">当サイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。</div>
     </header>
   </body>
 </html>

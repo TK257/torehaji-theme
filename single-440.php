@@ -1,0 +1,44 @@
+<?php /** * Template Name: トレーニングジムの選び方 *//** * Template Post Type: magazine */  get_header(); ?>
+<article>
+  <section>
+    <div class="container"> 
+      <div class="breadcrumb"><?php get_template_part('functions/breadcrumb'); ?></div>
+      <h1 class="gym"><?php echo get_the_title(); ?></h1>
+      <div> 
+        <div>運動しようと思い立って、ジムを探し始めたあなたは、素晴らしい第一歩を踏み出そうとしているのかもしれません。<br>ダイエットやボディメイクで人生が変わったという方はたくさんいます！<br>その第一歩がジム選びです。<br>どんなジムがあり、どのようにジムを選んでいくのか考えていきましょう。<br>初めてジムを選ぶ方や以前、ジムに通っていたけど、長続きしなかった方に、最適なジムを選んで自分が思い描く身体を目指して頑張りましょう！</div>
+      </div>
+      <h2 class="kon">トレーニングジムで、何をすればいいの？</h2>
+      <div>ダイエットや運動不足の解消、ボディメイクなどあなたの目的があり、ジムを探し始めたと思います。<br>でも、そもそもジムに行って何をすればいいの？<br>何をするためにジムに行けばいいの？という方も多いのではないでしょうか？</div>
+      <div>おおまかにですが、目的別にジムで何をするか以下のようになります。</div>
+      <div class="example">
+        <ul>
+          <li>運動不足の解消<br>&emsp;&nbsp;有酸素運動 or 筋力トレーニング</li>
+          <li>ダイエット<br>&emsp;&nbsp;有酸素運動 and 筋力トレーニング</li>
+          <li>ボディメイク<br>&emsp;&nbsp;筋力トレーニング</li>
+        </ul>
+      </div>
+      <h2 class="kon">トレーニングジムで、できること</h2>
+      <div>トレーニングジムで、できることはたくさんあります。たとえば以下のようなことができます。</div>
+      <div class="search-list">
+        <ul class="protein">
+          <li>有酸素運動</li>
+          <li>筋力トレーニング</li>
+          <li>ストレッチ</li>
+          <li>ヨガ</li>
+          <li>グループプログラム</li>
+          <li>パーソナルトレーニング</li>
+          <li>加圧トレーニング</li>
+          <li>マッサージ</li>
+          <li>エステ</li>
+          <li>プール</li>
+          <li>サウナ</li>
+          <li>お風呂</li>
+          <li>シャワー</li>
+        </ul>
+      </div>
+      <div>グループプログラムとは、大きな個室で、インストラクターさんの動きをみんなで真似をします。<br>種類は豊富でヨガ・ダンス・空手・ボクシング・など様々なものが用意されています。<br>グループプログラムでジム仲間ができる方も多く、プログラムを目的に通っている方もいらっしゃいます。</div>
+      <h2 class="kon">やりたいことができるところを選ぶ</h2><?php the_content(); ?>
+    </div>
+  </section>
+  <section> </section>
+</article><?php get_footer(); ?>

@@ -3,7 +3,7 @@
   <section>
     <div class="container"> 
       <div class="breadcrumb"><?php get_template_part('functions/breadcrumb'); ?></div>
-      <h2 class="gym"><?php echo get_the_title(); ?></h2>
+      <h1 class="gym"><?php echo get_the_title(); ?></h1>
       <div class="gymkind"> 
         <ul><?php foreach(get_field('gym_kind')as $data):?>
           <li><?php echo $data;?></li><?php endforeach;?>

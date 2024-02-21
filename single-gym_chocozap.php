@@ -3,13 +3,13 @@
   <section>
     <div class="container"> 
       <div class="breadcrumb"><?php get_template_part('functions/breadcrumb'); ?></div>
-      <h2 class="gym"><?php echo get_the_title(); ?></h2>
-      <div class="gymkind"> 
+      <h1 class="gym"><?php echo get_the_title(); ?></h1>
+      <div class="gymkind">
         <ul><?php foreach(get_field('gym_kind')as $data):?>
           <li><?php echo $data;?></li><?php endforeach;?>
         </ul>
       </div>
-      <table>
+      <table class="imgcenter">
         <tr>
           <th>パーソナル対応</th>
           <td><?php the_field('parsonal'); ?></td>
@@ -31,8 +31,61 @@
           <td><?php the_field('business_hours'); ?></td>
         </tr>
       </table>
-      <h2 class="flex-center-center"> 
-        <p>設備・サービス情報</p>
+      <div class="mokuji-waku">
+        <p>目次</p>
+        <ul> 
+          <li> <a href="#ryoukin">料金プラン</a></li>
+          <li> <a href="#syokihiyou">初期費用・入会金</a></li>
+          <li> <a href="#setubi">設備・サービス</a></li>
+          <li> <a href="#osusume">おすすめポイント</a></li>
+          <li> <a href="#access">地図・アクセス</a></li>
+          <li> <a href="#wa">よくある質問</a></li>
+          <li> <a href="#nyuukai">入会方法</a></li>
+          <li> <a href="#tenpo">店舗の利用方法</a></li>
+          <li> <a href="#esute">エステ・脱毛・ネイルなどの利用方法</a></li>
+        </ul>
+      </div>
+      <h2 class="flex-center-center" id="ryoukin">
+        <p>料金プラン</p>
+      </h2>
+      <div class="planname">使い放題プラン</div>
+      <div class="planwaku">
+        <ul>
+          <li>
+            <div class="gymplan-left flex-center-center">料金</div>
+            <div class="gymplan-right flex-none-center">月額 2,980円（税込3,278円）<br>＊キャンペーン価格ではありません。通常の価格です。</div>
+          </li>
+          <li> 
+            <div class="gymplan-left flex-center-center"> 利用可能時間</div>
+            <div class="gymplan-right flex-none-center">24時間（一部店舗は建物の営業時間に準ずる）</div>
+          </li>
+          <li>
+            <div class="gymplan-left flex-center-center"> 利用範囲・回数</div>
+            <div class="gymplan-right flex-none-center">全国店店舗・利用回数は無制限</div>
+          </li>
+          <li> 
+            <div class="gymplan-left flex-center-center"> 特記事項                 </div>
+            <div class="gymplan-right flex-none-center">エステマシン・脱毛器も追加料金なしで利用可能</div>
+          </li>
+        </ul>
+      </div>
+      <div class="plancontent"> 
+        <p>入会・退会いつでもスマホで完結</p>
+        <p>最短翌月に解約することができます。入会2ヶ月目以降は、毎月10日までに解約手続きを完了すると当月中に解約、11日以降に手続きをすると翌月末に解約となります。</p>
+        <ul> 
+          <li>3/1 ~ 3/10 に解約手続きをした場合→ 3月末でプラン解約可能</li>
+          <li>3/11以降に解約手続きをした場合→ 4月末でプラン解約可能</li>
+        </ul>
+      </div>
+      <h2 class="flex-center-center" id="syokihiyou">
+        <p>初期費用・入会金</p>
+      </h2>
+      <div class="initialname">入会金</div>
+      <div class="initialwaku">3,000円（税込）<br>＊キャンペーンで、割引や無料になっていることがございます。</div>
+      <div class="initialname">事務手数料</div>
+      <div class="initialwaku">2,000円（税込）<br>＊キャンペーンで、割引や無料になっていることがございます。</div>
+      <h2 class="flex-center-center" id="setubi">
+        <p>設備・サービス</p>
       </h2>
       <div class="slideshow">
         <div id="slideshow-image"><img src="<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt="<?php the_field('gym_name'); ?>の外観"></div>
@@ -67,7 +120,7 @@
           <li><?php echo $data;?></li><?php endforeach;?>
         </ul>
       </div>
-      <h2 class="flex-center-center"> 
+      <h2 class="flex-center-center" id="osusume">
         <p>おすすめポイント</p>
       </h2>
       <div class="point">
@@ -93,81 +146,51 @@
       </div>
       <div class="margintop flex-center-center">
         <button class="btn1-orange"><a href="/gym-brand/chocoZAP/">chocoZAPを選ぶ理由・メリット/デメリットを解説</a></button>
-      </div><?php include("chocozap-join.php"); ?>
-      <h2 class="flex-center-center"> 
-        <p>料金プラン</p>
-      </h2>
-      <div class="planname">使い放題プラン</div>
-      <div class="planwaku">
-        <ul>
-          <li>
-            <div class="gymplan-left flex-center-center">料金</div>
-            <div class="gymplan-right flex-none-center">月額 2,980円（税込3,278円）<br>＊キャンペーン価格ではありません。通常の価格です。</div>
-          </li>
-          <li> 
-            <div class="gymplan-left flex-center-center"> 利用可能時間</div>
-            <div class="gymplan-right flex-none-center">24時間（一部店舗は建物の営業時間に準ずる）</div>
-          </li>
-          <li>
-            <div class="gymplan-left flex-center-center"> 利用範囲・回数</div>
-            <div class="gymplan-right flex-none-center">全国店店舗・利用回数は無制限</div>
-          </li>
-          <li> 
-            <div class="gymplan-left flex-center-center"> 特記事項                 </div>
-            <div class="gymplan-right flex-none-center">エステマシン・脱毛器も追加料金なしで利用可能</div>
-          </li>
-        </ul>
       </div>
-      <div class="plancontent"> 
-        <p>入会・退会いつでもスマホで完結</p>
-        <p>最短翌月に解約することができます。入会2ヶ月目以降は、毎月10日までに解約手続きを完了すると当月中に解約、11日以降に手続きをすると翌月末に解約となります。</p>
-        <ul> 
-          <li>3/1 ~ 3/10 に解約手続きをした場合→ 3月末でプラン解約可能</li>
-          <li>3/11以降に解約手続きをした場合→ 4月末でプラン解約可能</li>
-        </ul>
-      </div>
-      <h2 class="flex-center-center"> 
-        <p>初期費用・入会金</p>
-      </h2>
-      <div class="initialname">入会金</div>
-      <div class="initialwaku">3,000円（税込）</div>
-      <div class="initialname">事務手数料</div>
-      <div class="initialwaku">2,000円（税込）</div>
-      <h2 class="flex-center-center"> 
+      <h2 class="flex-center-center" id="access">
         <p>地図・アクセス</p>
       </h2>
       <div class="access"><?php the_field('access'); ?>
         <div class="googlemap"><?php the_field('gym_googlemap'); ?></div>
       </div>
-      <h2 class="flex-center-center"> 
-        <p>基本情報</p>
+      <h2 class="flex-center-center" id="qa">
+        <p>よくある質問</p>
       </h2>
-      <div class="flex-center-center"> 
-        <table> 
-          <tr>
-            <th>施設名</th>
-            <td><?php the_field('gym_name'); ?></td>
-          </tr>
-          <tr>
-            <th>営業時間</th>
-            <td><?php the_field('business_hours'); ?></td>
-          </tr>
-          <tr> 
-            <th>アクセス</th>
-            <td><?php the_field('access'); ?></td>
-          </tr>
-          <tr>
-            <th>駐車場</th>
-            <td><?php the_field('parking'); ?></td>
-          </tr>
-        </table>
-      </div><?php if (!empty(get_field('aflink'))) :?>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">入会前に店舗内を見学できますか？</div>
+        <div class="accordion-content back-lightglay">入会前の見学はできません。店舗にスタッフが不在な上に、ジムの鍵になるQRコードは入会しないと発行されないため、事前に見学はできません。店舗の詳細ページに設置されているマシンと台数が記載されています。</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">登録した日から利用できますか？</div>
+        <div class="accordion-content back-lightglay">すぐに利用可能です。会員登録をして、アプリにログインすれば、入館証のQRコードが発行されますので、すぐに利用可能です。</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">支払い方法はなにが利用できますか？</div>
+        <div class="accordion-content back-lightglay">クレジットカードのみです。口座振替は対応しておりません。</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">支払日はいつになりますか？</div>
+        <div class="accordion-content back-lightglay">初回費用の支払い日は、入会手続きを完了した日となります。3ヶ月目以降の会費の支払いは、毎月11日〜20日までの間に行われます。</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">解約後に再入会はできますか？</div>
+        <div class="accordion-content back-lightglay">再入会する場合は、再入会金3,000円がかかります。入会金キャンペーンなどは適用されないです。</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">事前予約が必要な設備はなんですか？</div>
+        <div class="accordion-content back-lightglay">エステ・脱毛器・ホワイトニング・デスクバイク・ワークスペース・ゴルフ（他にも設備が追加される場合がございます）</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-title accordion-title-left js-accordion-title">休会と解約方法は？</div>
+        <div class="accordion-content back-lightglay">休会は、アプリのメニューにある「退会/プラン確認」→「休会申請」から手続きができます。費用はかからず、最長3ヶ月ジムを休会することができます。<br>「退会/プラン確認」から手続きが可能です。毎月10日までのが申請で当月末解約。11日以降の申請は翌月末解約となります。<br>解約月の月末までジムは利用可能です。</div>
+      </div><?php include("chocozap-join.php"); ?>
+<?php if (!empty(get_field('aflink'))) :?>
       <div class="btn-basyo">
         <div class="flex-center-center">
-          <button class="btn1 btn1-blue"><a href="<?php the_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
+          <button class="btn2 btn2-blue"><a href="<?php the_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
         </div>
         <div class="flex-center-center">
-          <button class="btn1 btn1-orange"><a href="&lt;?php the_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
+          <button class="btn2 btn2-orange"><a href="&lt;?php the_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
         </div>
         <div class="officialhp"><a href="<?php the_field('official_link'); ?>" rel="nofollow">
             公式サイトリンク<?php endif; ?></a></div>

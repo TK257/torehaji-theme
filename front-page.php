@@ -2,7 +2,7 @@
 <main class="l-main p-page p-front-page">
   <article>
     <section>
-      <div class="container"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/13.png">
+      <div class="container"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/top-cover-img1.webp">
         <h2 class="kon" id="prteinsearch">プロテイン検索</h2>
         <div class="search">
           <div class="searchta"><?php include("searchform.php"); ?></div>
