@@ -1,7 +1,8 @@
 
 <footer class="l-footer">
   <section class="l-wrapper">
-    <div class="footer-mobile">
+    <div class="footer-mobile"><a id="footerbtn" href="/contact">
+        <button class="btn3 btn3-darkpink">掲載をご検討の方へ</button></a>
       <div class="footer-title">掲載プロテインブランド</div>
       <div class="footer-list">
         <ul><?php  $terms = get_terms('protein_brand'); foreach ( $terms as $term ) {  echo '<li>'; echo  '<a href="'.home_url().'/protein-brand/'.$term->slug.'">'.$term->name.'</a></li>';}?></ul>

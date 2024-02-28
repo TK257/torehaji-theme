@@ -30,7 +30,8 @@
     <header>
       <div class="header-waku">
         <div class="nav-menu" id="nav-button">
-          <i class="fa-solid fa-bars"></i><?php include("header-sp-menu.php"); ?></div><a class="logo-top" href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/BULKUPtopsp_min.png" alt="BULKUPのサイトロゴ"></a>
+          <i class="fa-solid fa-bars"></i><?php include("header-sp-menu.php"); ?></div><a class="logo-top" href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/BULKUPtopsp_min.png" alt="BULKUPのサイトロゴ"></a><a id="headerbtn" href="/contact">
+          <button class="btn3 btn3-darkpink">掲載をご検討の方へ</button></a>
       </div>
       <div class="none header-afmongon">当サイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。</div>
     </header>

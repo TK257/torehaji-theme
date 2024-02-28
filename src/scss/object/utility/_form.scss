@@ -47,7 +47,7 @@ input[type="checkbox"]:checked + .checkbox01::after {
 }
 /* ラジオボックス01 */
 input[type="radio"] {
-  display: none;
+  -webkit-appearance: auto;
 }
 .radio01 {
   box-sizing: border-box;
@@ -86,4 +86,89 @@ input[type="radio"] {
 }
 input[type="radio"]:checked + .radio01::after {
   opacity: 1;
+}
+.request {
+  font-size: 1.5em;
+}
+.must {
+  font-size: 0.7em;
+  padding: 2px 6px;
+  background: $darkpink;
+  color: #ffffff;
+  border-radius: 5px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+#cf7-area {
+  input[type="text"] {
+    background: $lightblue;
+    width: 500px;
+    margin-left: 10px;
+    -webkit-appearance: auto;
+    border-color: #191970;
+  }
+}
+
+#cf7-area input[type="text"],
+#cf7-area input[type="email"],
+#cf7-area input[type="tel"],
+#cf7-area textarea:focus {
+  background: #ffe4e1;
+  border: 2px solid #ff1493;
+  outline: 0;
+}
+#cf7-area input[type="text"]:focus,
+#cf7-area input[type="email"]:focus,
+#cf7-area input[type="tel"]:focus,
+#cf7-area textarea:focus {
+  background: #ffe4e1;
+  border: 2px solid #ff1493;
+  outline: 0;
+}
+
+#cf7-area input[type="checkbox"],
+#cf7-area input[type="radio"] {
+  appearance: auto;
+}
+
+#cf7-area .wpcf7-list-item {
+  display: block;
+}
+
+#cf7-area textarea {
+  height: 200px;
+  padding: 0.625em 0.4375em;
+}
+
+.cf7-accept-check {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.cf7-submit {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#cf7-area input[type="submit"] {
+  width: 100%;
+  background-color: #191970;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 1.2em;
+  padding: 1em 10px;
+}
+
+#cf7-area input[type="submit"]:hover {
+  background-color: #ffffff;
+  border: 2px solid #191970;
+  color: #191970;
+}
+
+.cf7-btn {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
 }
