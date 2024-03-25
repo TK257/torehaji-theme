@@ -100,3 +100,11 @@ td.searchtd {
   font-size: 1.5rem;
   font-weight: 700;
 }
+.point-waku {
+  background-color: $lightyellow;
+  margin: 15px;
+  padding: 10px;
+  @media only screen and (max-width: 480px) {
+    margin: 10px 0;
+  }
+}

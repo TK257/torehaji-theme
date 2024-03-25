@@ -25,9 +25,14 @@
               <div>住所：<?php the_field('address'); ?></div>
               <div>アクセス:<?php the_field('access'); ?></div>
             </div>
+            <div class="setsubi">
+              <ul><?php foreach(get_field('facility')as $data):?>
+                <li><?php echo $data;?></li><?php endforeach;?>
+              </ul>
+            </div>
             <div class="gymlist-detail">
               <div class="detailthum"><?php the_post_thumbnail(); ?></div>
-              <div>
+              <div class="detailpoint-waku">
                 <table class="table-pc">
                   <tr> 
                     <th>営業時間</th>
@@ -60,12 +65,16 @@
                     <td><?php the_field('price1'); ?></td>
                   </tr>
                 </table>
-              </div>
-            </div>
-            <div class="setsubi">設備
-              <ul><?php foreach(get_field('facility')as $data):?>
-                <li><?php echo $data;?></li><?php endforeach;?>
-              </ul><?php if (!empty(get_field('aflink'))) :?>
+                <div class="point-waku">
+                  <ul><?php if (!empty(get_field('point1_title'))) :?>
+                    <li>
+                      <?php the_field('point1_title'); ?><?php endif; ?><?php if (!empty(get_field('point2_title'))) :?></li>
+                    <li>
+                      <?php the_field('point2_title'); ?><?php endif; ?><?php if (!empty(get_field('point3_title'))) :?></li>
+                    <li><?php the_field('point3_title'); ?><?php endif; ?> </li>
+                  </ul>
+                </div>
+              </div><?php if (!empty(get_field('aflink'))) :?>
             </div>
             <div class="gymlist-bottum">
               <button class="btn2-blue"><a href="<?php the_field('aflink'); ?>">見学やお申込みはこちらから</a></button>
@@ -102,7 +111,7 @@
             <div class="gymlist-name"><a href="<?php the_permalink(); ?>"><?php the_field('name'); ?></a></div>
             <div class="gymlist-detail">
               <div class="detailthum"> <img src="<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt="<?php the_field('altphoto01'); ?>"></div>
-              <div> 
+              <div>
                 <table class="table-pc">
                   <tr> 
                     <th>1食分の量</th>

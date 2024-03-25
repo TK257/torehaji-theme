@@ -27,13 +27,15 @@ ul.page-privacy {
 }
 .page_base {
   margin: 30px auto;
-  padding: 36px 42px;
+  padding: 16px 42px 36px;
   border-radius: 10px;
   box-shadow: 0 0 8px gray;
+  margin: 10px 30px;
   //background-color: #fffbfa;
   //border: solid 1px #fffbfa;
   @media only screen and (max-width: 767px) {
     padding: 24px 0;
+    margin: 0;
   }
 }
 .page_inner {

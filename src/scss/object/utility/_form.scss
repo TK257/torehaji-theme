@@ -47,7 +47,6 @@ input[type="checkbox"]:checked + .checkbox01::after {
 }
 /* ラジオボックス01 */
 input[type="radio"] {
-  -webkit-appearance: auto;
 }
 .radio01 {
   box-sizing: border-box;
@@ -87,43 +86,33 @@ input[type="radio"] {
 input[type="radio"]:checked + .radio01::after {
   opacity: 1;
 }
-.request {
-  font-size: 1.5em;
-}
 .must {
+  line-height: 1;
   font-size: 0.7em;
-  padding: 2px 6px;
+  padding: 4px 6px;
   background: $darkpink;
-  color: #ffffff;
+  color: $white;
   border-radius: 5px;
   margin-left: 10px;
   display: inline-block;
 }
-
-#cf7-area {
-  input[type="text"] {
-    background: $lightblue;
-    width: 500px;
-    margin-left: 10px;
-    -webkit-appearance: auto;
-    border-color: #191970;
-  }
-}
-
 #cf7-area input[type="text"],
 #cf7-area input[type="email"],
 #cf7-area input[type="tel"],
 #cf7-area textarea:focus {
-  background: #ffe4e1;
-  border: 2px solid #ff1493;
+  -webkit-appearance: auto;
+  background: $white;
+  border: 1px solid $glay;
+  border-radius: 5px;
   outline: 0;
+  width: 100%;
+  max-width: 100%;
 }
 #cf7-area input[type="text"]:focus,
 #cf7-area input[type="email"]:focus,
 #cf7-area input[type="tel"]:focus,
 #cf7-area textarea:focus {
-  background: #ffe4e1;
-  border: 2px solid #ff1493;
+  border: 2px solid $lightpink;
   outline: 0;
 }
 
@@ -134,11 +123,6 @@ input[type="radio"]:checked + .radio01::after {
 
 #cf7-area .wpcf7-list-item {
   display: block;
-}
-
-#cf7-area textarea {
-  height: 200px;
-  padding: 0.625em 0.4375em;
 }
 
 .cf7-accept-check {
@@ -154,21 +138,31 @@ input[type="radio"]:checked + .radio01::after {
 
 #cf7-area input[type="submit"] {
   width: 100%;
-  background-color: #191970;
-  color: #ffffff;
+  background-color: $darkblue;
+  color: $white;
   border-radius: 5px;
   font-size: 1.2em;
-  padding: 1em 10px;
+  padding: 10px 0;
 }
 
 #cf7-area input[type="submit"]:hover {
-  background-color: #ffffff;
-  border: 2px solid #191970;
-  color: #191970;
+  background-color: $white;
+  border: 2px solid $darkblue;
+  color: $darkblue;
+  cursor: pointer;
 }
 
 .cf7-btn {
   width: 40%;
-  margin: 0 auto;
+  margin: 10px auto;
+  max-height: 15px;
   text-align: center;
+}
+.request {
+  line-height: 1;
+}
+.cf7-title {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
 }

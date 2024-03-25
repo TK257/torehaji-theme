@@ -10,7 +10,7 @@
           <div class="page_inner"><?php echo do_shortcode('[contact-form-7 id="63c45cd" title="publish-request"]'); ?></div>
           <script>
             document.addEventListener('wpcf7mailsent', function(event) {
-              location = 'http://bulkup.local/';
+              location = '<?php echo home_url(); ?>/thanks';
             }, false);
           </script>
         </div>

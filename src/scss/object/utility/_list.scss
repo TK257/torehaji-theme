@@ -27,3 +27,17 @@
     }
   }
 }
+.point-waku {
+  li {
+    padding: 0 10px;
+    @media only screen and (max-width: 480px) {
+      margin-top: 10px;
+    }
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f04b";
+      font-weight: 900;
+      margin-right: 10px;
+    }
+  }
+}
