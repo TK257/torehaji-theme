@@ -102,7 +102,7 @@ block pageContent
           p 地図・アクセス
         div.access <?php the_field('access'); ?>
           div.googlemap
-            <?php the_field('gym_googlemap'); ?>
+            <?php echo get_field('gym_googlemap'); ?>
         h3.h3_dotglay.flex-center-center 
           p 基本情報
         div.flex-center-center 
@@ -123,13 +123,13 @@ block pageContent
         div.btn-basyo
           div.flex-center-center
             button.btn1.btn1-blue
-              a(href!= "<?php the_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
+              a(href!= "<?php echo get_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
           div.flex-center-center
             button.btn1.btn1-orange
-              a(href="<?php the_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
+              a(href="<?php echo get_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
               <?php else:?>
           div.officialhp
-            a(href!= "<?php the_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
+            a(href!= "<?php echo get_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
               <?php endif; ?>
     section 
 block append bodyScript

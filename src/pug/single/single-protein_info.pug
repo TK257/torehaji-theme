@@ -67,33 +67,59 @@ block pageContent
             li: img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo15'); ?>.webp" alt!="<?php the_field('altphoto15'); ?>")
             <?php endif; ?>
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js")
+        div.btn-basyo
+          <?php if (!empty(get_field('amazonlink'))) :?>
+          div.flex-center-center
+            button.btn3.btn3-amazon
+              a(href!= "<?php echo get_field('amazonlink'); ?>" rel="nofollow") アマゾンで購入
+          <?php endif; ?>
+          <?php if (!empty(get_field('iherblink'))) :?>
+          div.flex-center-center
+            button.btn3.btn3-iherb
+              a(href!= "<?php echo get_field('iherblink'); ?>" rel="nofollow") iHerbで購入
+          <?php endif; ?>
+          <?php if (!empty(get_field('aflink'))) :?>
+          div.flex-center-center
+            button.btn3.btn3-official
+              <?php echo get_field('aflink'); ?>
+          <?php endif; ?>
+          <?php if (!empty(get_field('rakutenlink'))) :?>
+          div.flex-center-center
+            button.btn3.btn3-rakuten
+              <?php echo get_field('rakutenlink'); ?>
+          <?php endif; ?>
+          <?php if (!empty(get_field('yahoolink'))) :?>
+          div.flex-center-center
+            button.btn3.btn3-yahoo
+              a(href!= "<?php echo get_field('yahoolink'); ?>" rel="nofollow") ヤフーショッピングで購入
+          <?php endif; ?>
         h2.h2_dotglay <?php the_field('name'); ?>の商品説明
         <?php the_content(); ?>
         div.btn-basyo
           <?php if (!empty(get_field('amazonlink'))) :?>
           div.flex-center-center
-            button.btn2.btn2-amazon
-              a(href!= "<?php the_field('amazonlink'); ?>" rel="nofollow") アマゾンでの購入はこちらから
+            button.btn3.btn3-amazon
+              a(href!= "<?php echo get_field('amazonlink'); ?>" rel="nofollow") アマゾンで購入
           <?php endif; ?>
           <?php if (!empty(get_field('iherblink'))) :?>
           div.flex-center-center
-            button.btn2.btn2-iherb
-              a(href="<?php the_field('iherblink'); ?>" rel="nofollow") iHerb（アイハーブ/サプリメント総合サイト）での購入はこちら
+            button.btn3.btn3-iherb
+              a(href!= "<?php echo get_field('iherblink'); ?>" rel="nofollow") iHerbで購入
           <?php endif; ?>
           <?php if (!empty(get_field('aflink'))) :?>
           div.flex-center-center
-            button.btn2.btn2-official
-              <?php the_field('aflink'); ?>
+            button.btn3.btn3-official
+              <?php echo get_field('aflink'); ?>
           <?php endif; ?>
           <?php if (!empty(get_field('rakutenlink'))) :?>
           div.flex-center-center
-            button.btn2.btn2-rakuten
-              a(href="<?php the_field('rakutenlink'); ?>" rel="nofollow") 楽天での購入はこちら
+            button.btn3.btn3-rakuten
+              <?php echo get_field('rakutenlink'); ?>
           <?php endif; ?>
           <?php if (!empty(get_field('yahoolink'))) :?>
           div.flex-center-center
-            button.btn2.btn2-yahoo
-              a(href="<?php the_field('yahoolink'); ?>" rel="nofollow") ヤフーショッピングでの購入はこちら
+            button.btn3.btn3-yahoo
+              a(href!= "<?php echo get_field('yahoolink'); ?>" rel="nofollow") ヤフーショッピングで購入
           <?php endif; ?>
     section 
 block append bodyScript

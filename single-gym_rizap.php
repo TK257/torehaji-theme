@@ -302,8 +302,8 @@
       <h3 class="flex-center-center" id="access"> 
         <p>地図・アクセス</p>
       </h3>
-      <div class="access"><?php the_field('access'); ?>
-        <div class="googlemap"><?php the_field('gym_googlemap'); ?></div>
+      <div class="access"><?php echo get_field('access'); ?>
+        <div class="googlemap"><?php echo get_field('gym_googlemap'); ?></div>
       </div>
       <h2 class="flex-center-center"> 
         <p>よくある質問</p>
@@ -338,12 +338,12 @@
       </div><?php if (!empty(get_field('aflink'))) :?>
       <div class="btn-basyo">
         <div class="flex-center-center">
-          <button class="btn2 btn2-blue"><a href="<?php the_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
+          <button class="btn2 btn2-blue"><a href="<?php echo get_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
         </div>
         <div class="flex-center-center">
-          <button class="btn2 btn2-orange"><a href="&lt;?php the_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
+          <button class="btn2 btn2-orange"><a href="&lt;?php echo get_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
         </div>
-        <div class="officialhp"><a href="<?php the_field('official_link'); ?>" rel="nofollow">
+        <div class="officialhp"><a href="<?php echo get_field('official_link'); ?>" rel="nofollow">
             公式サイトリンク<?php endif; ?></a></div>
       </div>
     </div>

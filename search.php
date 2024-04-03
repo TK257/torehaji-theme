@@ -14,6 +14,9 @@
             </div>
             <div class="gymlist-caset">
               <div class="gymlist-name"><a href="<?php the_permalink(); ?>"><?php the_field('name'); ?></a></div>
+            </div>
+            <div class="flavor-list">
+              <ul><?php $terms = get_the_terms($post->ID, 'protein_flavor'); foreach($terms as $term): { echo '<li>'; echo $term->name; echo '</li>'; }?> <?php endforeach;?></ul>
               <div class="gymlist-detail">
                 <div class="detailthum"> <img src="<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt="<?php the_field('altphoto01'); ?>"></div>
                 <div> 

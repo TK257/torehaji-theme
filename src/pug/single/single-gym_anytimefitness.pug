@@ -5,7 +5,7 @@ block pageContent
       .container 
         div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
         h1.gym <?php echo get_the_title(); ?>
-        div.gym-gaiyou 店舗数・会員数が日本トップクラスのANYTIME FITNESS。入会すると日本国内の店舗（1,000店舗以上）だけでなく、世界中の店舗も利用できます。<br>出張・旅行・引越や転職といった時だけでなく、気分を変えたい時や、使いたい設備によって好きな店舗をその都度選ぶことができます。
+        div.gym-gaiyou 店舗数・会員数が日本トップクラスのANYTIME FITNESS。入会すると日本国内の店舗（1,000店舗以上）だけでなく、世界中の店舗も利用できます。出張・旅行・引越や転職といった時だけでなく、気分を変えたい時や、使いたい設備によって好きな店舗をその都度選ぶことができます。
         div.gymkind 
           ul
             <?php foreach(get_field('gym_kind')as $data):?>
@@ -76,9 +76,11 @@ block pageContent
             li 24時間 365日 全店舗利用可能
               p 24時間365日利用できるので、あなたの生活スタイルに合わせていつでも、通えるのが大きなメリットです。<br>早朝・深夜でも時間関係なく利用できます。<br>365日利用可能なので、休館日が設定されているジムだとルーティンが崩れてしまったり、やる気がある日に休みということがありません。<br>
             li 会費1万円以下
-              p 会費は店舗によって異なりますが、10,000円以下の会費で利用できます。<br>会費は安いですが、設備が充実しているのが、エニタイムフィットネスの特徴です。<br>格安のジムはダンベルやマシンが少なく、やりたいトレーニングができないことがありますが、エニタイムフィットネスは豊富に用意されているので、トレーニングのやる気が削がれることがありません。<br>
-            li 店舗数が多い 国内1,000店舗以上
-              p 自宅に近い店舗か、勤務先の近くで通うで選ぶ方が多いです。でも、引っ越しや転職や転勤で通えなくなるケースもあります。<br>エニタイムフィットネスは店舗数が多く、引越し先や転職・転勤先にも店舗あることが多く、何も手続きをせずに、そのまま利用できます。<br>
+              p 会費は店舗によって異なりますが、目安として税抜6,500円〜8,000円程度となります。<br>都心部の店舗で税抜き10,000円程度の会費の店舗はあります。<br>大手のフィットネスジムで全店舗利用できるプランは15,000円程度の価格帯が一般的です。
+            li 設備が充実している
+              p エニタイムフィットネスはマシンの種類も台数も豊富です。<br>格安のジムはマシンの数がが少なく、やりたいトレーニングができないことがあります。<br>もし混雑していても待っている間に違うトレーニングをして待つことができるます。<br>トレーニングのやる気が削がれることがありません。<br>
+            li 店舗数が多い 国内1,000店舗以上・海外の店舗も利用可能
+              p エニタイムフィットネスは店舗数が多く、自宅や勤務先・学校など自分のライフスタイルに合わせた店舗を選ぶことができます。<br>引越し先や転職・転勤先にも店舗あることが多く、何も手続きをせずに、そのまま利用できます。<br>
         div.margintop.flex-center-center
           button.btn1-orange
             a(href= "/gym-brand/anytimefitness/") エニタイムフィットネスを選ぶ理由・メリット/デメリットを解説
@@ -109,7 +111,7 @@ block pageContent
           p 地図・アクセス
         div.access <?php the_field('access'); ?>
           div.googlemap
-            <?php the_field('gym_googlemap'); ?>
+            <?php echo get_field('gym_googlemap'); ?>
         h2.flex-center-center 
           p 基本情報
         div.flex-center-center 
@@ -130,13 +132,13 @@ block pageContent
         div.btn-basyo
           div.flex-center-center
             button.btn1.btn1-blue
-              a(href!= "<?php the_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
+              a(href!= "<?php echo get_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
           div.flex-center-center
             button.btn1.btn1-orange
-              a(href="<?php the_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
+              a(href="<?php echo get_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
               <?php else:?>
           div.officialhp.none
-            a(href!= "<?php the_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
+            a(href!= "<?php echo get_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
               <?php endif; ?>
     section 
 block append bodyScript

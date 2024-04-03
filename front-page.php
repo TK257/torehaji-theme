@@ -7,6 +7,67 @@
         <div class="search">
           <div class="searchta"><?php include("searchform.php"); ?></div>
         </div>
+        <h2 class="kon">新規掲載プロテイン情報</h2>
+        <div><?php $args = array('post_type' => 'protein_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
+<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+        </div>
+        <div class="gymlist-waku">
+          <div class="none gymlist-gymkind">
+            <ul>
+              <li><?php $terms = get_the_terms($post->ID, 'protein_type'); foreach($terms as $term): echo $term->name; ?> <?php endforeach;?></li>
+            </ul>
+          </div>
+          <div class="gymlist-caset">
+            <div class="gymlist-name"><a href="<?php the_permalink(); ?>"><?php the_field('name'); ?></a></div>
+            <div class="flavor-list">
+              <ul><?php $terms = get_the_terms($post->ID, 'protein_flavor'); foreach($terms as $term): { echo '<li>'; echo $term->name; echo '</li>'; }?> <?php endforeach;?></ul>
+            </div>
+            <div class="gymlist-detail">
+              <div class="detailthum"> <img src="<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt="<?php the_field('altphoto01'); ?>"></div>
+              <div class="detailpoint-waku">
+                <table class="table-pc">
+                  <tr> 
+                    <th>1食分の量</th>
+                    <td><?php the_field('gpermeel'); ?>g</td>
+                    <th>１食あたりのタンパク質量</th>
+                    <td><?php the_field('maxprotein'); ?>g </td>
+                  </tr>
+                  <tr>
+                    <th>１食あたりの価格（税込み）</th>
+                    <td>¥<?php the_field('pricepermeel'); ?></td>
+                    <th>1gあたりの価格（税込み）</th>
+                    <td>¥<?php the_field('priceperg'); ?></td>
+                  </tr>
+                </table>
+                <table class="table-smp">
+                  <tr> 
+                    <th>1食分の量</th>
+                    <td><?php the_field('gpermeel'); ?>g</td>
+                  </tr>
+                  <tr>
+                    <th>１食あたりのタンパク質量</th>
+                    <td><?php the_field('maxprotein'); ?>g </td>
+                  </tr>
+                  <tr>
+                    <th>１食あたりの価格（税込み）</th>
+                    <td>¥<?php the_field('pricepermeel'); ?></td>
+                  </tr>
+                  <tr>
+                    <th>1gあたりの価格（税込み）</th>
+                    <td>¥<?php the_field('priceperg'); ?></td>
+                  </tr>
+                  <div class="textsmall">＊フレーパーにより異なる場合があります。</div>
+                </table>
+                <div class="point-waku"><?php the_excerpt(); ?></div>
+              </div>
+            </div>
+          </div>
+          <div class="gymlist-bottum">
+            <button class="btn2 btn2-blue"><?php echo get_field('aflink'); ?></button>
+            <button class="btn2 btn2-orange"><a href="<?php the_permalink(); ?>">詳細ページはこちら</a></button>
+          </div><?php endwhile;?>
+<?php endif;?>  
+        </div>
         <h2 class="kon" id="gymsearch">フィットネスジム・トレーニングジム検索</h2>
         <div class="search">
           <div class="searchta"><?php include("gym-searchform.php"); ?></div>
@@ -96,65 +157,6 @@
             <div class="oote"> <a href="<?php echo esc_url('/gym-brand/chocozap'); ?>">
                 <div></div><img src="<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap1.webp" alt="chocoZAPを選ぶ理由"></a></div>
           </div>
-        </div>
-        <h2 class="kon">新規掲載プロテイン情報</h2>
-        <div><?php $args = array('post_type' => 'protein_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
-<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-        </div>
-        <div class="gymlist-waku">
-          <div class="none gymlist-gymkind">
-            <ul>
-              <li><?php $terms = get_the_terms($post->ID, 'protein_type'); foreach($terms as $term): echo $term->name; ?> <?php endforeach;?></li>
-            </ul>
-          </div>
-          <div class="gymlist-caset">
-            <div class="gymlist-name"><a href="<?php the_permalink(); ?>"><?php the_field('name'); ?></a></div>
-            <div class="gymlist-detail">
-              <div class="detailthum"> <img src="<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt="<?php the_field('altphoto01'); ?>"></div>
-              <div>
-                <table class="table-pc">
-                  <tr> 
-                    <th>1食分の量</th>
-                    <td><?php the_field('gpermeel'); ?>g</td>
-                    <th>１食あたりのタンパク質量</th>
-                    <td><?php the_field('maxprotein'); ?>g </td>
-                  </tr>
-                  <tr>
-                    <th>１食あたりの価格（税込み）</th>
-                    <td>¥<?php the_field('pricepermeel'); ?></td>
-                    <th>1gあたりの価格（税込み）</th>
-                    <td>¥<?php the_field('priceperg'); ?></td>
-                  </tr>
-                </table>
-                <table class="table-smp">
-                  <tr> 
-                    <th>1食分の量</th>
-                    <td><?php the_field('gpermeel'); ?>g</td>
-                  </tr>
-                  <tr>
-                    <th>１食あたりのタンパク質量</th>
-                    <td><?php the_field('maxprotein'); ?>g </td>
-                  </tr>
-                  <tr>
-                    <th>１食あたりの価格（税込み）</th>
-                    <td>¥<?php the_field('pricepermeel'); ?></td>
-                  </tr>
-                  <tr>
-                    <th>1gあたりの価格（税込み）</th>
-                    <td>¥<?php the_field('priceperg'); ?></td>
-                  </tr>
-                  <div class="textsmall">＊フレーパーにより異なる場合があります。</div>
-                </table>
-                <div class="none">フレーバーの種類：これもリストで出したい</div>
-                <div><?php the_excerpt(); ?></div>
-              </div>
-            </div>
-          </div>
-          <div class="gymlist-bottum">
-            <button class="btn2 btn2-blue"><?php the_field('aflink'); ?> 【PR】</button>
-            <button class="btn2 btn2-orange"><a href="<?php the_permalink(); ?>">詳細ページはこちら</a></button>
-          </div><?php endwhile;?>
-<?php endif;?>  
         </div>
       </div>
     </section>

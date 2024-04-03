@@ -92,6 +92,8 @@ require_once(dirname(__FILE__) . '/functions/query_vars.php');
 // WP管理画面にブランドと味を表示
 require_once(dirname(__FILE__) . '/functions/wp_custom_column.php');
 
+// 計算用ショートカット読み込む
+require_once(dirname(__FILE__) . '/functions/keisan.php');
 //アイキャッチ画像の機能を有効化
 add_theme_support('post-thumbnails');
 

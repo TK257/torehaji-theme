@@ -243,9 +243,9 @@ block pageContent
               div.gymplan-right.flex-none-center <?php the_field('notices4'); ?>
         h3.flex-center-center#access 
           p 地図・アクセス
-        div.access <?php the_field('access'); ?>
+        div.access <?php echo get_field('access'); ?>
           div.googlemap
-            <?php the_field('gym_googlemap'); ?>
+            <?php echo get_field('gym_googlemap'); ?>
         h2.flex-center-center 
           p よくある質問
         .accordion-item
@@ -273,13 +273,13 @@ block pageContent
         div.btn-basyo
           div.flex-center-center
             button.btn2.btn2-blue
-              a(href!= "<?php the_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
+              a(href!= "<?php echo get_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
           div.flex-center-center
             button.btn2.btn2-orange
-              a(href="<?php the_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
+              a(href="<?php echo get_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
               <?php else:?>
           div.officialhp
-            a(href!= "<?php the_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
+            a(href!= "<?php echo get_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
               <?php endif; ?>
     section 
 block append bodyScript

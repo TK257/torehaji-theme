@@ -4,7 +4,7 @@
     <div class="container"> 
       <div class="breadcrumb"><?php get_template_part('functions/breadcrumb'); ?></div>
       <h1 class="gym"><?php echo get_the_title(); ?></h1>
-      <div class="gym-gaiyou">店舗数・会員数が日本トップクラスのANYTIME FITNESS。入会すると日本国内の店舗（1,000店舗以上）だけでなく、世界中の店舗も利用できます。<br>出張・旅行・引越や転職といった時だけでなく、気分を変えたい時や、使いたい設備によって好きな店舗をその都度選ぶことができます。</div>
+      <div class="gym-gaiyou">店舗数・会員数が日本トップクラスのANYTIME FITNESS。入会すると日本国内の店舗（1,000店舗以上）だけでなく、世界中の店舗も利用できます。出張・旅行・引越や転職といった時だけでなく、気分を変えたい時や、使いたい設備によって好きな店舗をその都度選ぶことができます。</div>
       <div class="gymkind"> 
         <ul><?php foreach(get_field('gym_kind')as $data):?>
           <li><?php echo $data;?></li><?php endforeach;?>
@@ -82,10 +82,13 @@
             <p>24時間365日利用できるので、あなたの生活スタイルに合わせていつでも、通えるのが大きなメリットです。<br>早朝・深夜でも時間関係なく利用できます。<br>365日利用可能なので、休館日が設定されているジムだとルーティンが崩れてしまったり、やる気がある日に休みということがありません。<br></p>
           </li>
           <li>会費1万円以下
-            <p>会費は店舗によって異なりますが、10,000円以下の会費で利用できます。<br>会費は安いですが、設備が充実しているのが、エニタイムフィットネスの特徴です。<br>格安のジムはダンベルやマシンが少なく、やりたいトレーニングができないことがありますが、エニタイムフィットネスは豊富に用意されているので、トレーニングのやる気が削がれることがありません。<br></p>
+            <p>会費は店舗によって異なりますが、目安として税抜6,500円〜8,000円程度となります。<br>都心部の店舗で税抜き10,000円程度の会費の店舗はあります。<br>大手のフィットネスジムで全店舗利用できるプランは15,000円程度の価格帯が一般的です。</p>
           </li>
-          <li>店舗数が多い 国内1,000店舗以上
-            <p>自宅に近い店舗か、勤務先の近くで通うで選ぶ方が多いです。でも、引っ越しや転職や転勤で通えなくなるケースもあります。<br>エニタイムフィットネスは店舗数が多く、引越し先や転職・転勤先にも店舗あることが多く、何も手続きをせずに、そのまま利用できます。<br></p>
+          <li>設備が充実している
+            <p>エニタイムフィットネスはマシンの種類も台数も豊富です。<br>格安のジムはマシンの数がが少なく、やりたいトレーニングができないことがあります。<br>もし混雑していても待っている間に違うトレーニングをして待つことができるます。<br>トレーニングのやる気が削がれることがありません。<br></p>
+          </li>
+          <li>店舗数が多い 国内1,000店舗以上・海外の店舗も利用可能
+            <p>エニタイムフィットネスは店舗数が多く、自宅や勤務先・学校など自分のライフスタイルに合わせた店舗を選ぶことができます。<br>引越し先や転職・転勤先にも店舗あることが多く、何も手続きをせずに、そのまま利用できます。<br></p>
           </li>
         </ul>
       </div>
@@ -127,7 +130,7 @@
         <p>地図・アクセス</p>
       </h2>
       <div class="access"><?php the_field('access'); ?>
-        <div class="googlemap"><?php the_field('gym_googlemap'); ?></div>
+        <div class="googlemap"><?php echo get_field('gym_googlemap'); ?></div>
       </div>
       <h2 class="flex-center-center"> 
         <p>基本情報</p>
@@ -154,12 +157,12 @@
       </div><?php if (!empty(get_field('aflink'))) :?>
       <div class="btn-basyo">
         <div class="flex-center-center">
-          <button class="btn1 btn1-blue"><a href="<?php the_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
+          <button class="btn1 btn1-blue"><a href="<?php echo get_field('aflink'); ?>" rel="nofollow">見学やお申込みはこちらから</a></button>
         </div>
         <div class="flex-center-center">
-          <button class="btn1 btn1-orange"><a href="&lt;?php the_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
+          <button class="btn1 btn1-orange"><a href="&lt;?php echo get_field('aflink'); ?&gt;" rel="nofollow">公式サイトでもっと詳しく</a><?php else:?></button>
         </div>
-        <div class="officialhp none"><a href="<?php the_field('official_link'); ?>" rel="nofollow">
+        <div class="officialhp none"><a href="<?php echo get_field('official_link'); ?>" rel="nofollow">
             公式サイトリンク<?php endif; ?></a></div>
       </div>
     </div>

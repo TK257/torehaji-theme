@@ -58,26 +58,47 @@
         </ul>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-      <h2 class="h2_dotglay"><?php the_field('name'); ?>の商品説明</h2><?php the_content(); ?>
       <div class="btn-basyo"><?php if (!empty(get_field('amazonlink'))) :?>
         <div class="flex-center-center">
-          <button class="btn2 btn2-amazon"><a href="<?php the_field('amazonlink'); ?>" rel="nofollow">アマゾンでの購入はこちらから</a></button>
+          <button class="btn3 btn3-amazon"><a href="<?php echo get_field('amazonlink'); ?>" rel="nofollow">アマゾンで購入</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('iherblink'))) :?>
         <div class="flex-center-center">
-          <button class="btn2 btn2-iherb"><a href="&lt;?php the_field('iherblink'); ?&gt;" rel="nofollow">iHerb（アイハーブ/サプリメント総合サイト）での購入はこちら</a></button>
+          <button class="btn3 btn3-iherb"><a href="<?php echo get_field('iherblink'); ?>" rel="nofollow">iHerbで購入</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('aflink'))) :?>
         <div class="flex-center-center">
-          <button class="btn2 btn2-official"><?php the_field('aflink'); ?></button>
+          <button class="btn3 btn3-official"><?php echo get_field('aflink'); ?></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('rakutenlink'))) :?>
         <div class="flex-center-center">
-          <button class="btn2 btn2-rakuten"><a href="&lt;?php the_field('rakutenlink'); ?&gt;" rel="nofollow">楽天での購入はこちら</a></button>
+          <button class="btn3 btn3-rakuten"><?php echo get_field('rakutenlink'); ?></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('yahoolink'))) :?>
         <div class="flex-center-center">
-          <button class="btn2 btn2-yahoo"><a href="&lt;?php the_field('yahoolink'); ?&gt;" rel="nofollow">ヤフーショッピングでの購入はこちら</a></button>
+          <button class="btn3 btn3-yahoo"><a href="<?php echo get_field('yahoolink'); ?>" rel="nofollow">ヤフーショッピングで購入</a></button>
+        </div><?php endif; ?>
+      </div>
+      <h2 class="h2_dotglay"><?php the_field('name'); ?>の商品説明</h2><?php the_content(); ?>
+      <div class="btn-basyo"><?php if (!empty(get_field('amazonlink'))) :?>
+        <div class="flex-center-center">
+          <button class="btn3 btn3-amazon"><a href="<?php echo get_field('amazonlink'); ?>" rel="nofollow">アマゾンで購入</a></button>
+        </div><?php endif; ?>
+<?php if (!empty(get_field('iherblink'))) :?>
+        <div class="flex-center-center">
+          <button class="btn3 btn3-iherb"><a href="<?php echo get_field('iherblink'); ?>" rel="nofollow">iHerbで購入</a></button>
+        </div><?php endif; ?>
+<?php if (!empty(get_field('aflink'))) :?>
+        <div class="flex-center-center">
+          <button class="btn3 btn3-official"><?php echo get_field('aflink'); ?></button>
+        </div><?php endif; ?>
+<?php if (!empty(get_field('rakutenlink'))) :?>
+        <div class="flex-center-center">
+          <button class="btn3 btn3-rakuten"><?php echo get_field('rakutenlink'); ?></button>
+        </div><?php endif; ?>
+<?php if (!empty(get_field('yahoolink'))) :?>
+        <div class="flex-center-center">
+          <button class="btn3 btn3-yahoo"><a href="<?php echo get_field('yahoolink'); ?>" rel="nofollow">ヤフーショッピングで購入</a></button>
         </div><?php endif; ?>
       </div>
     </div>

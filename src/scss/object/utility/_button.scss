@@ -135,11 +135,41 @@ button {
   &.btn3-darkpink {
     background-color: $darkpink;
   }
+  &.btn3-iherb {
+    border: solid 3px $iherb;
+    color: $iherb;
+    min-width: 300px;
+    margin: 5px 0;
+  }
+  &.btn3-amazon {
+    border: solid 3px $amazon;
+    color: $amazon;
+    min-width: 300px;
+    margin: 5px 0;
+  }
+  &.btn3-rakuten {
+    border: solid 3px $rakuten;
+    color: $rakuten;
+    min-width: 300px;
+    margin: 5px 0;
+  }
+  &.btn3-yahoo {
+    border: solid 3px $yahoo;
+    color: $yahoo;
+    min-width: 300px;
+    margin: 5px 0;
+  }
+  &.btn3-official {
+    border: solid 3px $official;
+    color: $official;
+    min-width: 300px;
+    margin: 5px 0;
+  }
 }
 #headerbtn {
   position: absolute;
   right: 20px;
-  top: 77px;
+  //top: 77px;
   @media only screen and (max-width: 480px) {
     display: none;
   }

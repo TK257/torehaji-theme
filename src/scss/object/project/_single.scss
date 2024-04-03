@@ -579,3 +579,11 @@ ul.protein {
     font-size: large;
   }
 }
+.yahooshop {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  @media only screen and (max-width: 480px) {
+    width: 350px;
+  }
+}
