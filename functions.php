@@ -86,14 +86,15 @@ require_once(dirname(__FILE__) . '/functions/magazine.php');
 require_once(dirname(__FILE__) . '/functions/magazine_cat.php');
 // マガジン用のタグ読み込む
 require_once(dirname(__FILE__) . '/functions/magazine_tag.php');
-
 // カスタムクエリパラメータの追加
 require_once(dirname(__FILE__) . '/functions/query_vars.php');
 // WP管理画面にブランドと味を表示
 require_once(dirname(__FILE__) . '/functions/wp_custom_column.php');
-
 // 計算用ショートカット読み込む
 require_once(dirname(__FILE__) . '/functions/keisan.php');
+// 商品リンクのショートカット読み込む
+require_once(dirname(__FILE__) . '/functions/items.php');
+
 //アイキャッチ画像の機能を有効化
 add_theme_support('post-thumbnails');
 
@@ -268,7 +269,7 @@ function is_date_archive()
     return true;
   }
 }
-//ショートコードを使ったphpファイルの呼び出し方法　使い方は[tpphp file='test']
+//ショートコードを使ったプロテインテーブルphpファイルの呼び出し方法　使い方は[tpphp file='test']
 function my_php_Include($params = array())
 {
   extract(shortcode_atts(array('file' => 'default'), $params));

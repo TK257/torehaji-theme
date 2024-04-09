@@ -35,7 +35,21 @@
         </ul>
       </div>
       <div>グループプログラムとは、大きな個室で、インストラクターさんの動きをみんなで真似をします。<br>種類は豊富でヨガ・ダンス・空手・ボクシング・など様々なものが用意されています。<br>グループプログラムでジム仲間ができる方も多く、プログラムを目的に通っている方もいらっしゃいます。</div>
-      <h2 class="kon">やりたいことができるところを選ぶ</h2><?php the_content(); ?>
+      <h2 class="kon">やりたいことができるところを選ぶ</h2>
+      <div class="item_box">
+        <div class="item_img"><img src="$img"></div>
+        <div>
+          <div class="item_name">商品名だよ</div>
+          <div class="item_btn"> 
+            <ul>
+              <li class="item_amazon"><a href="/">amazonで見る</a></li>
+              <li class="item_rakuten"><a href="/">楽天市場で見る</a></li>
+              <li class="item_yahoo"> <a href="/">Yahoo!ショッピングで見る</a></li>
+              <li class="item_official"> <a href="/">公式サイトで見る</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><?php the_content(); ?>
     </div>
   </section>
   <section> </section>

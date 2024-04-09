@@ -33,6 +33,21 @@ block pageContent
             li シャワー
         div グループプログラムとは、大きな個室で、インストラクターさんの動きをみんなで真似をします。<br>種類は豊富でヨガ・ダンス・空手・ボクシング・など様々なものが用意されています。<br>グループプログラムでジム仲間ができる方も多く、プログラムを目的に通っている方もいらっしゃいます。
         h2.kon やりたいことができるところを選ぶ
+        div.item_box
+          div.item_img
+            img(src= "$img")
+          div
+            div.item_name 商品名だよ
+            div.item_btn 
+              ul
+                li.item_amazon
+                  a(href="/") amazonで見る
+                li.item_rakuten
+                  a(href="/") 楽天市場で見る
+                li.item_yahoo 
+                  a(href="/") Yahoo!ショッピングで見る
+                li.item_official 
+                  a(href="/") 公式サイトで見る
         <?php the_content(); ?>
     section 
 block append bodyScript
