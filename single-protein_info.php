@@ -60,11 +60,11 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
       <div class="btn-basyo"><?php if (!empty(get_field('amazonlink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-amazon"><a href="<?php echo get_field('amazonlink'); ?>" rel="nofollow">アマゾンで購入</a></button>
+          <button class="btn3 btn3-amazon"><a href="<?php echo get_field('amazonlink'); ?>" rel="nofollow">アマゾンで見る</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('iherblink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-iherb"><a href="<?php echo get_field('iherblink'); ?>" rel="nofollow">iHerbで購入</a></button>
+          <button class="btn3 btn3-iherb"><a href="<?php echo get_field('iherblink'); ?>" rel="nofollow">iHerbで見る</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('aflink'))) :?>
         <div class="flex-center-center">
@@ -72,21 +72,21 @@
         </div><?php endif; ?>
 <?php if (!empty(get_field('rakutenlink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-rakuten"><?php echo get_field('rakutenlink'); ?></button>
+          <button class="btn3 btn3-rakuten"><a href="<?php echo get_field('rakutenlink'); ?>" rel="nofollow">楽天市場で見る</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('yahoolink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-yahoo"><a href="<?php echo get_field('yahoolink'); ?>" rel="nofollow">ヤフーショッピングで購入</a></button>
+          <button class="btn3 btn3-yahoo"><a href="<?php echo get_field('yahoolink'); ?>" rel="nofollow">ヤフーショッピングで見る</a></button>
         </div><?php endif; ?>
       </div>
       <h2 class="h2_dotglay"><?php the_field('name'); ?>の商品説明</h2><?php the_content(); ?>
       <div class="btn-basyo"><?php if (!empty(get_field('amazonlink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-amazon"><a href="<?php echo get_field('amazonlink'); ?>" rel="nofollow">アマゾンで購入</a></button>
+          <button class="btn3 btn3-amazon"><a href="<?php echo get_field('amazonlink'); ?>" rel="nofollow">アマゾンで見る</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('iherblink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-iherb"><a href="<?php echo get_field('iherblink'); ?>" rel="nofollow">iHerbで購入</a></button>
+          <button class="btn3 btn3-iherb"><a href="<?php echo get_field('iherblink'); ?>" rel="nofollow">iHerbで見る</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('aflink'))) :?>
         <div class="flex-center-center">
@@ -94,11 +94,11 @@
         </div><?php endif; ?>
 <?php if (!empty(get_field('rakutenlink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-rakuten"><?php echo get_field('rakutenlink'); ?></button>
+          <button class="btn3 btn3-rakuten"><a href="<?php echo get_field('rakutenlink'); ?>" rel="nofollow">楽天市場で見る</a></button>
         </div><?php endif; ?>
 <?php if (!empty(get_field('yahoolink'))) :?>
         <div class="flex-center-center">
-          <button class="btn3 btn3-yahoo"><a href="<?php echo get_field('yahoolink'); ?>" rel="nofollow">ヤフーショッピングで購入</a></button>
+          <button class="btn3 btn3-yahoo"><a href="<?php echo get_field('yahoolink'); ?>" rel="nofollow">ヤフーショッピングで見る</a></button>
         </div><?php endif; ?>
       </div>
     </div>
