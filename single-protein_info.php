@@ -1,4 +1,4 @@
-<?php /** * Template Name: protein *//** * Template Post Type: post,protein_info */  get_header(); ?>
+<?php /** * Template Name: Protein *//** * Template Post Type: post,protein_info */  get_header(); ?>
 <article>
   <section>
     <div class="container"> 

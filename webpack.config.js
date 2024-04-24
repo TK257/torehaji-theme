@@ -176,7 +176,7 @@ pugFiles.forEach((pug) => {
   buildDefault.plugins.push(
     new HtmlWebpackPlugin({
       inject: false,
-      filename: `${directoryPath.root}/${php}`,
+      filename: `${directoryPath.root}/php/${php}`,
       template: pug,
       data: require(`${directoryPath.src}/pug/data/global.js`),
     })
