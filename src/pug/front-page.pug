@@ -53,8 +53,10 @@ main.l-main.p-page.p-front-page
                   div.textsmall ＊フレーパーにより異なる場合があります。
                 div.point-waku <?php the_excerpt(); ?>
           div.gymlist-bottum
+          <?php if (!empty(get_field('aflink'))) :?>
             button.btn2.btn2-blue
               <?php echo get_field('aflink'); ?>
+          <?php endif; ?>
             button.btn2.btn2-orange
               a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
           <?php endwhile;?>

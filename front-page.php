@@ -62,10 +62,9 @@
               </div>
             </div>
           </div>
-          <div class="gymlist-bottum">
-            <button class="btn2 btn2-blue"><?php echo get_field('aflink'); ?></button>
-            <button class="btn2 btn2-orange"><a href="<?php the_permalink(); ?>">詳細ページはこちら</a></button>
-          </div><?php endwhile;?>
+          <div class="gymlist-bottum"></div><?php if (!empty(get_field('aflink'))) :?>
+          <button class="btn2 btn2-blue"><?php echo get_field('aflink'); ?></button><?php endif; ?>
+          <button class="btn2 btn2-orange"><a href="<?php the_permalink(); ?>">詳細ページはこちら</a></button><?php endwhile;?>
 <?php endif;?>  
         </div>
         <h2 class="kon" id="gymsearch">フィットネスジム・トレーニングジム検索</h2>
