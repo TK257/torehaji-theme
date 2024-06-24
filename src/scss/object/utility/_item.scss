@@ -1,0 +1,91 @@
+@use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+
+/* -------------------------------
+ *  heading components
+ * ---------------------------- */
+.item_box {
+  //border: 1px solid #ccc;
+  box-shadow: 0 0 8px gray;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  @media only screen and (max-width: 480px) {
+    display: block;
+  }
+}
+.item_img {
+  margin-right: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 480px) {
+    text-align: center;
+    margin-right: 0;
+  }
+  img {
+    width: 160px;
+    max-width: 100%;
+    @media only screen and (max-width: 480px) {
+      margin: 0 auto;
+    }
+  }
+}
+.item_waku {
+  margin: 0 auto;
+}
+.item_name {
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+.item_btn {
+  ul {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    @media only screen and (max-width: 480px) {
+      display: block;
+    }
+  }
+  li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px gray;
+    a {
+      width: 180px;
+      height: 40px;
+      max-height: 40px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: grab;
+      @media only screen and (max-width: 480px) {
+        width: auto;
+      }
+    }
+    &.item_amazon {
+      background-color: $amazon;
+    }
+    &.item_rakuten {
+      background-color: $rakuten;
+    }
+    &.item_yahoo {
+      background-color: $yahoo;
+    }
+    &.item_official {
+      background-color: $official;
+    }
+  }
+}
