@@ -91,13 +91,23 @@
         <div id="slideshow-image"><img src="<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt="<?php the_field('gym_name'); ?>の外観"></div>
         <ul class="thumbnail" id="thumbnail">
           <li><img src="<?php echo !empty(get_field('gym_photo01')) ? get_field('gym_photo01') : get_template_directory_uri() . '/assets/img/imgpre.webp'; ?>" alt="<?php the_field('gym_name'); ?>の外観"></li><?php if (!empty(get_field('gym_photo02'))) :?>
-          <li><img src="<?php the_field('gym_photo02'); ?>"></li><?php endif; ?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo02') . '.webp'; ?>"></li><?php endif; ?>
 <?php if (!empty(get_field('gym_photo03'))) :?>
-          <li><img src="<?php the_field('gym_photo03'); ?>"></li><?php endif; ?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo03') . '.webp'; ?>"></li><?php endif; ?>
 <?php if (!empty(get_field('gym_photo04'))) :?>
-          <li><img src="<?php the_field('gym_photo04'); ?>"></li><?php endif; ?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo04') . '.webp'; ?>"></li><?php endif; ?>
 <?php if (!empty(get_field('gym_photo05'))) :?>
-          <li><img src="<?php the_field('gym_photo05'); ?>"></li><?php endif; ?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo05') . '.webp'; ?>"></li><?php endif; ?>
+<?php if (!empty(get_field('gym_photo06'))) :?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo06') . '.webp'; ?>"></li><?php endif; ?>
+<?php if (!empty(get_field('gym_photo07'))) :?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo07') . '.webp'; ?>"></li><?php endif; ?>
+<?php if (!empty(get_field('gym_photo08'))) :?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo08') . '.webp'; ?>"></li><?php endif; ?>
+<?php if (!empty(get_field('gym_photo09'))) :?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo09') . '.webp'; ?>"></li><?php endif; ?>
+<?php if (!empty(get_field('gym_photo10'))) :?>
+          <li><img src="<?php echo get_template_directory_uri() . '/assets/img/gym/chocozap/shop/' . get_field('gym_photo10') . '.webp'; ?>"></li><?php endif; ?>
         </ul>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
