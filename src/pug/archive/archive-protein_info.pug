@@ -51,7 +51,7 @@ block pageContent
             div.gymlist-bottum
               <?php if (!empty(get_field('aflink'))) :?>
               button.btn2.btn2-blue
-                <?php the_field('aflink'); ?> 
+                <?php get_field('aflink'); ?> 
               button.btn2.btn2-orange
                 a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
               <?php else:?>
