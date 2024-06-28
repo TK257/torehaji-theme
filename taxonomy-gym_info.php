@@ -39,8 +39,8 @@
             </div><?php if (!empty(get_field('aflink'))) :?>
           </div>
           <div class="gymlist-bottum">
-            <button class="btn2 btn2-blue"><a href="<?php the_field('aflink'); ?>">見学やお申込みはこちらから</a></button>
-            <button class="btn2 btn2-orange"><a href="<?php the_field('aflink'); ?>">公式サイトでもっと詳しく</a></button><?php endif; ?>
+            <button class="btn2 btn2-blue"><a href="<?php get_field('aflink'); ?>">見学やお申込みはこちらから</a></button>
+            <button class="btn2 btn2-orange"><a href="<?php get_field('aflink'); ?>">公式サイトでもっと詳しく</a></button><?php endif; ?>
           </div><?php endwhile;?>
 <?php endif;?>  
         </div>

@@ -122,9 +122,9 @@ main.l-main.p-page.p-front-page
               <?php if (!empty(get_field('aflink'))) :?>
             div.gymlist-bottum
               button.btn2-blue
-                a(href!= "<?php the_field('aflink'); ?>") 見学やお申込みはこちらから
+                a(href!= "<?php get_field('aflink'); ?>") 見学やお申込みはこちらから
               button.btn2-orange
-                a(href!= "<?php the_field('aflink'); ?>") 公式サイトでもっと詳しく
+                a(href!= "<?php get_field('aflink'); ?>") 公式サイトでもっと詳しく
               <?php endif;?>
           <?php endwhile;?>
           <?php wp_reset_query(); ?>
