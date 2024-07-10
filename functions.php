@@ -278,3 +278,14 @@ function my_php_Include($params = array())
   return ob_get_clean();
 }
 add_shortcode('tpphp', 'my_php_Include');
+// 寄稿者に画像アップロード権限を付与
+if (current_user_can('contributor') && !current_user_can('upload_files')) {
+  add_action('admin_init', 'allow_contributor_uploads');
+}
+
+function allow_contributor_uploads()
+{
+  $contributor = get_role('contributor');
+  $contributor->add_cap('upload_files');
+}
+//END
