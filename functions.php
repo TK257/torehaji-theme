@@ -289,11 +289,17 @@ function allow_contributor_uploads()
   $contributor->add_cap('upload_files');
 }
 // 寄稿者にiframe権限を付与
-add_filter('user_has_cap', 'allow_unfiltered_html', 10, 3);
-
-function allow_unfiltered_html($allcaps, $cap, $args)
-{
-  $allcaps['unfiltered_html'] = $allcaps['edit_posts'];
-  return ($allcaps);
-}
+//add_filter('user_has_cap', 'allow_unfiltered_html', 10, 3);
+//function allow_unfiltered_html($allcaps, $cap, $args)
+//{
+//  $allcaps['unfiltered_html'] = $allcaps['edit_posts'];
+//  return ($allcaps);
+//}
+// feedページを作らない
+remove_action('do_feed_rdf', 'do_feed_rdf');
+remove_action('do_feed_rss', 'do_feed_rss');
+remove_action('do_feed_rss2', 'do_feed_rss2');
+remove_action('do_feed_atom', 'do_feed_atom');
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'feed_links_extra', 3);
 //END

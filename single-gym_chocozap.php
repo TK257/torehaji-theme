@@ -117,6 +117,12 @@
           <li><?php echo $data;?></li><?php endforeach;?>
         </ul>
       </div>
+      <h3 class="h3_dotglay">マシンラインナップ</h3>
+      <div>
+        <ul><?php foreach(get_field('machine_lineup')as $data):?>
+          <li><?php if($data['value']=== '1'){echo get_template_part('tp-lyft');} else if($data['value']=== '2'){echo '2ですよ';}?></li><?php endforeach;?>
+        </ul>
+      </div>
       <h3 class="h3_dotglay">支払い方法</h3>
       <div class="setsubi">
         <ul><?php foreach(get_field('payment')as $data):?>
