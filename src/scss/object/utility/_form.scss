@@ -97,7 +97,7 @@ input[type="radio"]:checked + .radio01::after {
 #cf7-area input[type="text"],
 #cf7-area input[type="email"],
 #cf7-area input[type="tel"],
-#cf7-area textarea {
+#cf7-area .wpcf7-textarea {
   -webkit-appearance: auto;
   background: $white;
   border: 1px solid $glay;
