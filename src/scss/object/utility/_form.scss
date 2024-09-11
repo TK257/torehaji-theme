@@ -46,8 +46,6 @@ input[type="checkbox"]:checked + .checkbox01::after {
   opacity: 1;
 }
 /* ラジオボックス01 */
-input[type="radio"] {
-}
 .radio01 {
   box-sizing: border-box;
   cursor: pointer;
