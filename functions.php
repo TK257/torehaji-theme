@@ -94,6 +94,8 @@ require_once(dirname(__FILE__) . '/functions/wp_custom_column.php');
 require_once(dirname(__FILE__) . '/functions/keisan.php');
 // 商品リンクのショートカット読み込む
 require_once(dirname(__FILE__) . '/functions/items.php');
+// h2画像差し込みのショートカット読み込む
+require_once(dirname(__FILE__) . '/functions/h2img.php');
 
 //アイキャッチ画像の機能を有効化
 add_theme_support('post-thumbnails');
