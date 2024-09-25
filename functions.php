@@ -96,6 +96,8 @@ require_once(dirname(__FILE__) . '/functions/keisan.php');
 require_once(dirname(__FILE__) . '/functions/items.php');
 // h2画像差し込みのショートカット読み込む
 require_once(dirname(__FILE__) . '/functions/h2img.php');
+// h2画像差し込みのショートカット読み込む
+require_once(dirname(__FILE__) . '/functions/contributor_iframe.php');
 
 //アイキャッチ画像の機能を有効化
 add_theme_support('post-thumbnails');
@@ -290,13 +292,6 @@ function allow_contributor_uploads()
   $contributor = get_role('contributor');
   $contributor->add_cap('upload_files');
 }
-// 寄稿者にiframe権限を付与
-//add_filter('user_has_cap', 'allow_unfiltered_html', 10, 3);
-//function allow_unfiltered_html($allcaps, $cap, $args)
-//{
-//  $allcaps['unfiltered_html'] = $allcaps['edit_posts'];
-//  return ($allcaps);
-//}
 // feedページを作らない
 remove_action('do_feed_rdf', 'do_feed_rdf');
 remove_action('do_feed_rss', 'do_feed_rss');
