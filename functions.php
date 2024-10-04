@@ -86,6 +86,12 @@ require_once(dirname(__FILE__) . '/functions/magazine.php');
 require_once(dirname(__FILE__) . '/functions/magazine_cat.php');
 // マガジン用のタグ読み込む
 require_once(dirname(__FILE__) . '/functions/magazine_tag.php');
+// 筋トレメニューのカスタム投稿を読み込む
+require_once(dirname(__FILE__) . '/functions/kin_training.php');
+// 筋トレメニューのカテゴリ読み込む
+require_once(dirname(__FILE__) . '/functions/kin_training_cat.php');
+// 筋トレメニューのタグ読み込む
+require_once(dirname(__FILE__) . '/functions/kin_training_tag.php');
 // カスタムクエリパラメータの追加
 require_once(dirname(__FILE__) . '/functions/query_vars.php');
 // WP管理画面にブランドと味を表示

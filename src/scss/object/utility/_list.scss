@@ -54,3 +54,26 @@
     }
   }
 }
+.kin-tre-ol {
+  margin-left: 30px;
+  margin-bottom: 2em;
+  ol {
+    li {
+      list-style-type: decimal;
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+  }
+}
+.kin-tre-ul {
+  margin-left: 30px;
+  margin-bottom: 2em;
+  ul {
+    li {
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+  }
+}

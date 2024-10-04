@@ -25,11 +25,27 @@ function get_imginsert($attr)
     'filename' => "",
     'alt' => "",
   ), $attr));
-  return '<img src="' . get_template_directory_uri() . '/assets/img/common/' . $filename . '" alt=" ' . $alt . ' ">';
+  return '<img src="' . get_template_directory_uri() . '/assets/img/' . $filename . '" alt=" ' . $alt . ' ">';
 }
 add_shortcode('imginsert', 'get_imginsert');
 //入力*使い方はこれ
 //[imginsert filename=magazine/記事ID/photo_01.jpg alt=alt]
 //出力
 //'<img src="'.get_template_directory_uri().'/assets/img/common/' .magazine/1111/filename.jpg . '" alt=" $alt ">';
+/*END 画像を挿入できるショートコード
+//gifを挿入できるショートコード
+----------------------------------- */
+function get_gifinsert($attr)
+{
+  extract(shortcode_atts(array(
+    'filename' => "",
+    'alt' => "",
+  ), $attr));
+  return '<img class="kin_tre" src="' . get_template_directory_uri() . '/assets/img/' . $filename . '" alt=" ' . $alt . ' ">';
+}
+add_shortcode('gifinsert', 'get_gifinsert');
+//入力*使い方はこれ
+//[gifinsert filename=magazine/記事ID/photo_01.jpg alt=alt]
+//出力
+//'<img src="'.get_template_directory_uri().'/assets/img/' .magazine/1111/filename.jpg . '" alt=" $alt ">';
 /*END 画像を挿入できるショートコード

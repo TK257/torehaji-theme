@@ -10,8 +10,7 @@ function get_zeikomi($attr)
   return number_format(floor($k * $zeiritsu));
 }
 add_shortcode('price', 'get_zeikomi');
-/*END ■ 税込価格を返すショートコード
-*使い方はこれ [price k=税抜き価格]
+/*END ■ 税込価格を返すショートコード*使い方はこれ [price k=税抜き価格]
 ----------------------------------- */
 /* ■ 税込み価格を割った数字を返すショートコード
 ----------------------------------- */

@@ -7,7 +7,7 @@ block pageContent
           div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
           h1 <?php echo get_the_title(); ?>
           div 
-            div.post-thumail <?php the_post_thumbnail(); ?>
+            div.post-thumbnail <?php the_post_thumbnail(); ?>
           .content 
             div <?php while ( have_posts() ) : the_post(); ?>
               <?php the_content(); ?>
