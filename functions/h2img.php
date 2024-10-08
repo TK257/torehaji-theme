@@ -29,9 +29,9 @@ function get_imginsert($attr)
 }
 add_shortcode('imginsert', 'get_imginsert');
 //入力*使い方はこれ
-//[imginsert filename=magazine/記事ID/photo_01.jpg alt=alt]
+//[imginsert filename=magazine/記事ID/photo_01.webp alt=alt]
 //出力
-//'<img src="'.get_template_directory_uri().'/assets/img/common/' .magazine/1111/filename.jpg . '" alt=" $alt ">';
+//'<img src="'.get_template_directory_uri().'/assets/img/common/' .magazine/1111/filename.webp . '" alt=" $alt ">';
 /*END 画像を挿入できるショートコード
 //gifを挿入できるショートコード
 ----------------------------------- */
@@ -45,7 +45,7 @@ function get_gifinsert($attr)
 }
 add_shortcode('gifinsert', 'get_gifinsert');
 //入力*使い方はこれ
-//[gifinsert filename=magazine/記事ID/photo_01.jpg alt=alt]
+//[gifinsert filename=magazine/記事ID/photo_01.gif alt=alt]
 //出力
-//'<img src="'.get_template_directory_uri().'/assets/img/' .magazine/1111/filename.jpg . '" alt=" $alt ">';
+//'<img src="'.get_template_directory_uri().'/assets/img/' .magazine/1111/filename.gif . '" alt=" $alt ">';
 /*END 画像を挿入できるショートコード
