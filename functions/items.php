@@ -41,7 +41,7 @@ function get_items_link_three($attr)
     'amazon' => "",
     'name' => "",
   ), $attr));
-  $img_url = get_template_directory_uri() . '/assets/img/' . $img;
+  $img_url = get_template_directory_uri() . '/assets/img/items/' . $img;
   return <<<EOM
 <div class="item_box">
   <div class="item_img"><img src= "$img_url"></div>

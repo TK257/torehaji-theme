@@ -25,7 +25,7 @@ function get_imginsert($attr)
     'filename' => "",
     'alt' => "",
   ), $attr));
-  return '<img src="' . get_template_directory_uri() . '/assets/img/' . $filename . '" alt=" ' . $alt . ' ">';
+  return '<img class="kin_tre" src="' . get_template_directory_uri() . '/assets/img/' . $filename . '" alt=" ' . $alt . ' ">';
 }
 add_shortcode('imginsert', 'get_imginsert');
 //入力*使い方はこれ

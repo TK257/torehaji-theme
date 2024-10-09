@@ -24,7 +24,10 @@
 <meta name="google-site-verification" content="87raqkpqCLr31pI11qIsyqzzRvJxcYNA1oFH6xT1eCo">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript" language="javascript">var vc_pid = "890189095";</script>
-<script type="text/javascript" src="//aml.valuecommerce.com/vcdal.js" async></script><?php wp_head();?>
+<script type="text/javascript" src="//aml.valuecommerce.com/vcdal.js" async></script><!-- moshimo かんたんリンク用 -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- END moshimo かんたんリンク用 -->
+<?php wp_head();?>
   </head>
   <body>
     <header>
