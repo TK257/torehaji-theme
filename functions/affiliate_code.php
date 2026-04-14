@@ -398,16 +398,16 @@ function torehaji_get_protein_products(): array
       'name'     => 'be LEGEND ホエイプロテイン',
 
       // アフィリエイトB（公式直販）
-      //'official' => [
-      //  'href'       => 'https://store.belegend.jp/category/1608/',
-      //  'impression' => '',
-      //],
+      'official' => [
+        'href'       => 'https://t.afi-b.com/visit.php?a=y14244i-i468023g&p=g957083b',
+        'impression' => 'https://t.afi-b.com/lead/y14244i/g957083b/i468023g',
+      ],
 
       // 公式直リンク（アフィリエイトなし）の場合は以下に差し替え
-      'official' => [
-        'type' => 'direct',
-        'href' => 'https://store.belegend.jp/category/1608/',
-      ],
+      //'official' => [
+      //  'type' => 'direct',
+      //  'href' => 'https://store.belegend.jp/category/1608/',
+      //],
       // もしもアフィリエイト（Amazon）
       'amazon' => [
         'href'       => '//af.moshimo.com/af/c/click?a_id=5084093&amp;p_id=170&amp;pc_id=185&amp;pl_id=4062&amp;url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB09YTSJQLL',
