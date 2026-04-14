@@ -761,6 +761,13 @@ function shortcode_img_nutrimuscle_egg()
   return $html;
 }
 add_shortcode('img_nutrimuscle_egg', 'shortcode_img_nutrimuscle_egg');
+function shortcode_img_ogarmade()
+{
+  $html = '<div class="text-c"><a href="//af.moshimo.com/af/c/click?a_id=5084093&amp;p_id=170&amp;pc_id=185&amp;pl_id=4062&amp;url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0C586C2Y7" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img src="https://images-fe.ssl-images-amazon.com/images/I/41vaN0jewdL._SL160_.jpg" alt="" style="border: none;"></a><img src="//i.moshimo.com/af/i/impression?a_id=5084093&amp;p_id=170&amp;pc_id=185&amp;pl_id=4062" alt="" loading="lazy" width="1" height="1" style="border: none;"></div>';
+  return $html;
+}
+add_shortcode('img_ogarmade', 'shortcode_img_ogarmade');
+
 //もしもそのまま差し込み
 function shortcode_ogarmade_set()
 {
