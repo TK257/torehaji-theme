@@ -1,0 +1,71 @@
+<?php /** * Template Name: ブランド別テンプレ *//** * Template Post Type: personal_gym */  get_header(); ?>
+block pageContent
+  article
+    section
+      .container 
+        div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
+        div <?php while ( have_posts() ) : the_post(); ?>
+        div.thum <?php the_post_thumbnail(); ?>
+        h1 <?php echo get_the_title(); ?>
+        div.text-r
+          span 最終更新日:<time datetime="<?php echo get_the_modified_time('c'); ?>"><?php the_modified_date('Y年m月d日'); ?></time>
+        h2 <?php echo get_field('gymname'); ?>の特徴
+        div <?php echo get_field('tokucho'); ?>
+        h3.gym 利用者に嬉しい設備・サービス一覧
+        div 入会前に気になるポイントに絞って紹介しています。ココに記載がないサービスも多いので、詳細は公式サイトでご確認ください。
+        div.kadomaru-li.white.bgc-clearblue-li.font-12.margin-b5
+          ul
+            <?php foreach(get_field('service')as $data):?>
+            li
+              <?php echo $data;?>
+            <?php endforeach;?>
+        <?php if (!empty(get_field('af-official'))) :?>
+        div.margin-tb40 <?php echo get_field('af-official'); ?>
+        <?php endif; ?>
+        h3.margin-t5b3
+          img(src!= "<?php echo get_template_directory_uri() . '/assets/img/common/osusume.webp'; ?>" alt="編集部おすすめポイント")
+        div <?php echo get_field('osusume'); ?>
+        <?php if (!empty(get_field('af-official'))) :?>
+        div.margin-tb40 <?php echo get_field('af-official'); ?>
+        <?php endif; ?>
+        h2 人気の料金プラン
+        <?php echo get_field('popular-plan'); ?>
+        <?php if (!empty(get_field('af-plan'))) :?>
+        div.margin-tb40 <?php echo get_field('af-plan'); ?>
+        <?php endif; ?>
+        //h2 PHOTO
+        //div.slideshow
+          div#slideshow-image
+            img(src!= "<?php echo get_template_directory_uri() . '/assets/img/personal/' . get_field('gym_photo01') . '.webp'; ?>")
+          ul#thumbnail.thumbnail
+            li: img(src!= "<?php echo get_template_directory_uri() . '/assets/img/personal/' . get_field('gym_photo01') . '.webp'; ?>")
+        h2 実際の口コミ
+        <?php remove_filter('the_content', 'wpautop'); the_content(); add_filter('the_content', 'wpautop'); endwhile; ?>
+        <?php if (!empty(get_field('af-trial'))) :?>
+        div.margin-tb40 <?php echo get_field('af-trial'); ?>
+        <?php endif; ?>
+        h2 強み・他社との違い
+        div <?php echo get_field('strength'); ?>
+        h2 よくある質問
+        div
+          <?php echo get_field('faq_html'); ?>
+        <?php if (!empty(get_field('af-official'))) :?>
+        div.margin-tb40 <?php echo get_field('af-official'); ?>
+        <?php endif; ?>
+        <?php if (!empty(get_field('af-plan'))) :?>
+        div.margin-tb40 <?php echo get_field('af-plan'); ?>
+        <?php endif; ?>
+        <?php if (!empty(get_field('af-trial'))) :?>
+        div.margin-tb40 <?php echo get_field('af-trial'); ?>
+        <?php endif; ?>  
+        section
+          div.gym-tag-title
+            div.gym-tag.gym-tag_border
+              ul
+                <?php $terms = get_the_terms($post->ID, 'gym_tag'); if ($terms && !is_wp_error($terms)) { foreach ($terms as $term) { $term_link = get_term_link($term); if (!is_wp_error($term_link)) { echo '<a href="' . esc_url($term_link) . '"><li>' . esc_html($term->name) . '</li></a>'; } } } ?>
+        section
+          <?php get_template_part('functions/author-box'); ?>
+          <?php get_template_part('functions/inside_link'); ?>
+    section 
+block append bodyScript
+<?php get_footer(); ?>

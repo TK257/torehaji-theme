@@ -1,0 +1,17 @@
+<!-- モーダル表示のトリガー要素 -->
+<button type="button" data-su-js="su-modal-open" aria-controls="modal" aria-expanded="false">
+  クリックもしくはタップでモーダルダイアログを表示
+</button>
+
+<!-- モーダル要素 -->
+<dialog class="su-modal" data-su-js="su-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div class="su-modal-header" id="modal-title">
+    モーダルタイトル
+  </div>
+  <div class="su-modal-content">モーダルコンテンツ</div>
+  <div class="su-modal-footer">
+    <button type="button" data-su-js="su-modal-close" aria-label="モーダルを閉じる">
+      閉じる
+    </button>
+  </div>
+</dialog>

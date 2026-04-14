@@ -1,10 +1,16 @@
-<?php /** Template Name:publish-request */ get_header(); ?>
+<?php /** Template Name:フォーマル */ get_header(); ?>
 main
   article
     section
       .container
+        div.page_formal
+          <?php if ( have_posts() ) : ?>
+          <?php while ( have_posts() ) : the_post(); ?>
+          h1.text-c <?php the_title(); ?>
+          div.page_inner <?php the_content();?>
+          <?php endwhile; //繰り返し処理終了 ?>
+          <?php else : //投稿がない場合 ?> 記事が見つかりません。
+          <?php endif; //条件分岐終了 ?>
+          <?php get_template_part('return-top'); ?>
         div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
-        div.page_base
-          h1.center 掲載のお申し込み完了
-          div.div-nomal 掲載をご希望いただきありがとうございます。順次対応いたしますので、お待ち下さい。よろしくお願いいたします。
 <?php get_footer(); ?>

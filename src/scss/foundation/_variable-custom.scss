@@ -10,6 +10,7 @@
   --default-color: #{$default-color};
   --default-font-size: #{$default-font-size};
   --default-font-family: #{$default-font-family};
+  --default-font-weight: #{$default-font-weight};
   --default-line-height: #{$default-line-height};
   --default-letter-spacing: #{$default-letter-spacing};
   --default-border-radius: #{$default-border-radius};
@@ -156,9 +157,9 @@
   --easing-function__ease-in-back: #{map-get($easing-function-list, ease-in-back)};
   --easing-function__ease-out-back: #{map-get($easing-function-list, ease-out-back)};
   --easing-function__ease-inout-back: #{map-get($easing-function-list, ease-inout-back)};
-  // dark theme mode 
+  // dark theme mode
   &[data-theme="dark"] {
-    --default-color: #{$color-white}; 
+    --default-color: #{$color-white};
     --base-color__1: #{base-color(6)};
     --base-color__2: #{base-color(5)};
     --base-color__3: #{base-color(4)};

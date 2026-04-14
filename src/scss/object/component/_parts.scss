@@ -1,5 +1,4 @@
 @use "../../foundation/import" as *;
-@use "../../colorlayout" as *;
 
 /* -------------------------------
  *  parts styles
@@ -13,13 +12,21 @@
   width: 100%;
 }
 .accordion-title {
-  background-color: $white;
-  border: solid 1px $glay;
-  color: $black;
   cursor: pointer;
-  text-align: center;
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 50px;
+  position: relative;
+}
+.accordion-title::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\51';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $clearblue;
+  font-size: 18px;
 }
 .accordion-title-left {
   text-align: left;
@@ -28,10 +35,20 @@
   display: none;
   padding: 10px 20px;
 }
+.accordion-content::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\41';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $clearblue;
+  font-size: 16px;
+}
 .accordion-content table {
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 50%;
+  line-height: 1;
+  max-width: 100%;
   margin: 0 auto;
   @media only screen and (max-width: 480px) {
     max-width: 100%;
@@ -55,24 +72,1259 @@
   border-right: 2px solid #ff7f7f;
 }
 /* 矢印 */
-.accordion-title {
-  position: relative;
-}
 .accordion-title::after {
-  border-right: solid 2px $black;
-  border-top: solid 2px $black;
-  content: "";
+  border-right: solid 2px $clearblue;
+  border-top: solid 2px $clearblue;
+  content: '';
   display: block;
-  height: 8px;
+  height: 13px;
   position: absolute;
   right: 25px;
   top: 38%;
   transform: rotate(135deg);
   transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-  width: 8px;
+  width: 13px;
 }
 .accordion-title.open::after {
   top: 45%;
   transform: rotate(-45deg);
 }
+.accordion-simple-title::after {
+  border-right: solid 2px $clearblue;
+  border-top: solid 2px $clearblue;
+  content: '';
+  display: block;
+  height: 13px;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  transform: rotate(135deg);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+  width: 13px;
+}
+.accordion-simple-title.open::after {
+  transform: rotate(-45deg);
+}
+.accordion-simple-content {
+  display: none;
+}
+.accordion-simple-content.is-open {
+  display: block;
+}
 /*アコーディオンの終わり*/
+/*レビュー星表示*/
+.star5_rating {
+  position: relative;
+  display: inline-block;
+  width: 150px; /* 星5つの幅 */
+  height: 30px;
+  font-size: 16px; /* 星のサイズ */
+  line-height: 30px;
+  color: #ccc; /* 空の星の色（グレー） */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 空の星（背景） */
+.star5_rating {
+  position: relative;
+  display: inline-block;
+  width: 150px; /* 星の幅 */
+  height: 30px;
+  background: url('../img/logo/Star-empty.png') repeat-x; /* 空の星の背景 */
+  background-size: 30px 30px;
+}
+
+.star5_rating:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(30px * var(--rate)); /* 星の数に応じて幅を計算 */
+  background: url('../img/logo/Star-full.png') repeat-x; /* 塗りつぶされた星 */
+  background-size: 30px 30px;
+}
+.gymlist-box {
+  .star5_rating {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* 星5つの幅 */
+    height: 20px;
+    font-size: 12px; /* 星のサイズ */
+    line-height: 20px;
+    color: #ccc; /* 空の星の色（グレー） */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* 空の星（背景） */
+  .star5_rating {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* 星の幅 */
+    height: 20px;
+    background: url('../img/logo/Star-empty.png') repeat-x; /* 空の星の背景 */
+    background-size: 20px 20px;
+  }
+
+  .star5_rating:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(20px * var(--rate)); /* 星の数に応じて幅を計算 */
+    background: url('../img/logo/Star-full.png') repeat-x; /* 塗りつぶされた星 */
+    background-size: 20px 20px;
+  }
+}
+.compa-table {
+  .star5_rating {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* 星5つの幅 */
+    height: 20px;
+    font-size: 12px; /* 星のサイズ */
+    line-height: 20px;
+    color: #ccc; /* 空の星の色（グレー） */
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* 空の星（背景） */
+  .star5_rating {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* 星の幅 */
+    height: 20px;
+    background: url('../img/logo/Star-empty.png') repeat-x; /* 空の星の背景 */
+    background-size: 20px 20px;
+  }
+
+  .star5_rating:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(20px * var(--rate)); /* 星の数に応じて幅を計算 */
+    background: url('../img/logo/Star-full.png') repeat-x; /* 塗りつぶされた星 */
+    background-size: 20px 20px;
+  }
+}
+
+/*レビュー星表示終わり*/
+// Instagram埋め込みの全体コンテナ
+.instagram-media-container {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+//内部リンク
+.inside-link-box {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  transition: background 0.2s ease;
+  img {
+    margin: 0 16px 0 0;
+  }
+}
+
+.inside-link-box:hover {
+  background: #f9f9f9;
+}
+
+.inside-link-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+.inside-link-thumbnail.placeholder {
+  background: #ccc;
+  display: inline-block;
+}
+
+.inside-link-title {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+.ko-midashi {
+  font-size: 1.5em;
+  margin: 40px 0 20px 0;
+  border-bottom: 5px solid $main;
+}
+//内部リンクディスクリプション付き
+.inside-dlink-box {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  padding: 12px;
+  transition: background 0.2s ease;
+  img {
+    margin: 0 16px 0 0;
+  }
+}
+
+.inside-dlink-box:hover {
+  background: #f9f9f9;
+}
+
+.inside-dlink-thumbnail {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.inside-dlink-thumbnail.placeholder {
+  background: #ccc;
+  display: inline-block;
+}
+
+.inside-dlink-title {
+  font-size: 1.2em;
+  color: $clearblue !important;
+  font-weight: 700;
+}
+.inside-dlink-excerpt {
+  margin: 1em 0 0 0;
+}
+
+//目次　プラグインTable of Contents Plus　TOC+の装飾
+#toc_container {
+  background: #fff; /* 背景色 */
+  border: 1px solid #ccc; /* 枠線 */
+  box-sizing: border-box; /* スマホの横揺れ防止 */
+  display: block !important;
+  font-size: 95%; /* フォントサイズ */
+  line-height: 1.4; /* 行間 */
+  margin: 2em auto; /* 外側の余白 */
+  padding: 2em; /* 内側の余白 */
+  width: 80% !important; /* 幅 */
+}
+
+.toc_title {
+  background: #eee; /* 背景色 */
+  font-weight: bold; /* 太字 */
+  padding: 0.4em 0; /* 内側の余白 */
+  text-align: center; /* 中央寄せ */
+}
+
+.toc_toggle {
+  font-size: 0.9em;
+  font-weight: normal;
+}
+
+.toc_brackets {
+  display: none;
+}
+
+.toc_list,
+.toc_list * {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc_list {
+  margin-top: 1em;
+}
+
+.toc_list a {
+  display: block;
+  text-decoration: none;
+  color: #444; /* リンク色 */
+  border-bottom: 1px dotted #ccc; /* リンク下線 */
+}
+
+.toc_list > li > a {
+  border-bottom: 2px solid #ccc; /* 大見出しの下線 */
+  font-size: 110%; /* 大見出しのフォントサイズ */
+}
+
+.toc_list ul {
+  padding: 1em 0 0 1em;
+}
+
+.toc_list li {
+  margin-bottom: 0.4em;
+  padding-bottom: 0.4em;
+}
+/* サイドバーの折りたたみボタンを消す */
+.ez-toc-toggle {
+  display: none;
+}
+/* 人気フラグを立てる（料金プランなど） */
+.popular {
+  top: -5px;
+  display: inline-block;
+  position: absolute;
+  padding: 2px 10px;
+  font-size: 0.8em;
+  color: #fff;
+  background: $pink;
+  border-radius: 15px 15px 0px 15px;
+  left: -12px;
+}
+.popular::before {
+  content: '人気';
+}
+/*.popular ::before {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 12px #959e9b;
+}*/
+.relative {
+  position: relative;
+}
+.woman {
+  top: -5px;
+  display: inline-block;
+  position: absolute;
+  padding: 0px 5px;
+  font-size: 0.8em;
+  color: #fff;
+  background: $pink;
+  border-radius: 20px 20px 0px 20px;
+  left: 0;
+}
+.woman::before {
+  content: '女性専用';
+}
+//アコーディオン用のボーダー
+.border-acc {
+  border: 1px solid;
+}
+//アコーディオン用のボーダー
+.border-bottom-blue {
+  border-bottom: 1px solid $clearblue;
+}
+/* -------------------------------
+//FAQ
+.faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-left: 50px;
+  position: relative;
+}
+.faq-q::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\51';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $bblue;
+  font-size: 18px;
+}
+.faq-a {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding-left: 50px;
+  position: relative;
+}
+.faq-a::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\41';
+  position: absolute;
+  left: 20px;
+  top: 10%;
+  transform: translateY(-100%);
+  color: $ppink;
+  font-size: 18px;
+  margin: 2em 0 0 0;
+}
+.faq-title {
+  font-size: 1.4em !important;
+  border-left: none !important;
+}
+
+
+ * ---------------------------- */
+/* FAQ全体のまとめブロック（余白調整用） */
+.faq-item {
+  margin: 2em 0;
+  padding: 1.2em 1.2em;
+  border-radius: 12px;
+  background: #fffafc; /* ごく淡いピンク。背景が白なら #ffffff に変更可 */
+}
+
+/* 質問見出し（h2/h3/h4） */
+.faq-title {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #03466e;
+  margin: 0 0 0.5em;
+  padding-left: 2.6em; /* Qマークとの距離 */
+  position: relative;
+
+  &::after {
+    /* h2/h3のような下線は消す */
+    display: none !important;
+  }
+}
+
+/* Qマーク（faq-q の丸アイコン） */
+.faq-q {
+  position: relative;
+  margin: 0 0 1em;
+  padding-left: 2.6em;
+}
+
+.faq-q::before {
+  content: 'Q';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 2em;
+  height: 2em;
+  background: $main; /* 水色 */
+  color: $white;
+  font-weight: 700;
+  font-size: 0.9em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 回答本文 */
+.faq-a {
+  position: relative;
+  padding-left: 2.6em;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1em;
+}
+
+/* Aマーク（faq-a の丸アイコン） */
+.faq-a::before {
+  content: 'A';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 2em;
+  height: 2em;
+  background: $sub; /* ピンク */
+  color: $white;
+  font-weight: 700;
+  font-size: 0.9em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0;
+}
+.author-profile {
+  border-radius: 16px;
+  padding: 2rem;
+  gap: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.author-text {
+  flex: 1;
+  line-height: 1.7;
+  color: #333;
+}
+/* プロテインコスパ計算 */
+.protein-calc {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  h2 {
+    margin-bottom: 1.2em;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    label {
+      font-weight: 600;
+      display: block;
+    }
+
+    input[type='number'] {
+      width: 90%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: border-color 0.2s;
+      text-align: right;
+      margin-bottom: 15px;
+      margin-right: 5px;
+
+      &:focus {
+        border-color: $bblue; // トレハジカラー
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(164, 224, 245, 0.3);
+      }
+    }
+
+    button {
+      margin-top: 8px;
+      padding: 12px 0;
+      background: $bblue; // トレハジの水色
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 10px 50px;
+      transition: background 0.2s;
+
+      &:hover {
+        background: darken($bblue, 5%);
+      }
+
+      &:active {
+        background: darken($bblue, 10%);
+      }
+    }
+  }
+
+  #proteinCalcError {
+    margin-top: 8px;
+    color: $red; // エラーレッド
+    font-weight: 600;
+    text-align: center;
+  }
+
+  #proteinCalcResult {
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 5px solid $sub;
+
+    h3 {
+      margin-bottom: 16px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    p {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+.protein-calc {
+  #proteinCalcResult {
+    .result-main {
+      margin-bottom: 20px;
+
+      .result-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        font-size: 1.2em;
+        font-weight: 700;
+      }
+    }
+
+    .result-divider {
+      margin: 16px 0;
+      border: none;
+      border-top: 1px solid #e0eef3;
+    }
+
+    .result-sub {
+      p {
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 0;
+
+        span:last-child {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+/* ボックス全体 */
+.torehaji-inside-box {
+  position: relative;
+  background: #fff9f0; /* 薄ベージュ */
+  border-left: 4px solid #fab876; /* 控えめオレンジ */
+  padding: 18px 20px 16px;
+  margin: 32px 0;
+  border-radius: 6px;
+}
+
+/* はみ出しラベル */
+.torehaji-inside-label {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: #fab876;
+  padding: 4px 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #fff;
+
+  border: 1px solid #fab876;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+/* ボックス内の本文 */
+.torehaji-inside-box p {
+  font-size: 0.95em;
+  line-height: 1.7;
+  color: #333;
+}
+/* タイマーモーダル */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 300px;
+  @media only screen and (max-width: 480px) {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+#timerDisplay {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.timer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+.outer-timer-buttons {
+  max-width: 330px;
+  margin: 0 auto;
+}
+.inner-timer-buttons {
+  margin: 0 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 99px;
+  background: $white;
+  color: $black;
+  border: 5px solid $main;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.timer-buttons button {
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: none;
+  background: $white;
+  color: $black;
+  border: 5px solid $main;
+  font-weight: 700;
+  font-size: 1.2em;
+  width: 300px;
+  cursor: pointer;
+}
+
+.timer-buttons button:hover {
+  opacity: 0.8;
+}
+.modal-time-buttons {
+  display: grid;
+  /*grid-template-columns: repeat(2, 1fr);  2列固定 */
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: 1px solid $black;
+  border-radius: 10px;
+  background: $white;
+  color: $black;
+  font-size: 16px;
+  font-weight: 700;
+}
+// ============================================================
+// コスパ最強プロテインランキングセクション
+// 既存 main.min.css のデザインシステムに準拠
+// ============================================================
+
+// --- 既存サイトの変数参照 ---
+// --primary-color__3: #00ffff（シアン系メイン）
+// --primary-color__4: #00d2d2
+// --primary-color__5: #008d8d
+// サイトカラー（CSSで使われている実値）:
+//   メイン水色:  #7bd4f4
+//   サブピンク:  #f4a5ae
+//   ネイビー:    #03466e / #001e6c
+//   オレンジ:    #ff5f00
+//   ブルー:      #4b8bbe
+//   ライトブルー: #6da8d9
+
+// --- ランキング固有の変数 ---
+$rank-gold: #c8960c;
+$rank-silver: #7b7b7b;
+$rank-bronze: #9e6b3a;
+$rank-4th: #4b8bbe; // 既存 --bgc-blue
+$rank-5th: #4b8bbe;
+
+$site-main: #7bd4f4;
+$site-pink: #f4a5ae;
+$site-navy: #03466e;
+$site-dark-navy: #001e6c;
+$site-orange: #ff5f00;
+$site-blue: #4b8bbe;
+$site-lblue: #6da8d9;
+$border-color: #dee0e2; // 既存テーブルボーダーと統一
+$bg-light: #f7f9fa; // 既存 footer背景と統一
+
+$border-radius-default: 8px; // --default-border-radius
+$border-radius-card: 16px; // archive-card と統一
+$transition-default: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s; // --default-transition
+
+// ============================================================
+// コスパ比較テーブル
+// 既存 .compa-table / .basic-table のパターンを踏襲
+// ============================================================
+
+.protein-cospa-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 var(--space-M, 32px);
+
+  @media only screen and (max-width: 480px) {
+    margin: 0 -15px var(--space-M, 32px);
+  }
+}
+
+.protein-cospa-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  margin: 0; // 既存 table margin-left:15px をリセット
+
+  // ヘッダー：既存 .compa-table thead th と揃える
+  thead th {
+    background-color: $site-dark-navy;
+    color: #fff;
+    padding: 12px;
+    font-weight: 700;
+    text-align: center;
+
+    &:nth-child(even) {
+      background-color: lighten($site-dark-navy, 10%);
+    }
+  }
+
+  // ボディ：既存 .compa-table tbody パターン
+  tbody {
+    td {
+      padding: 10px 12px;
+      text-align: center;
+      border: 1px solid $border-color;
+      font-size: var(--font-S, 1.4rem);
+    }
+
+    tr:nth-child(odd) td {
+      background-color: #f7f7f8;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fff;
+    }
+  }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: var(--font-XS, 1.2rem);
+    color: #fff;
+
+    &.--r1 {
+      background-color: $rank-gold;
+    }
+    &.--r2 {
+      background-color: $rank-silver;
+    }
+    &.--r3 {
+      background-color: $rank-bronze;
+    }
+    &.--r4 {
+      background-color: $rank-4th;
+    }
+    &.--r5 {
+      background-color: $rank-5th;
+    }
+  }
+
+  .cospa-highlight {
+    color: $site-navy;
+    font-weight: 700;
+  }
+
+  .cospa-name {
+    text-align: left;
+    font-weight: 600;
+  }
+}
+
+.protein-cospa-table-note {
+  font-size: var(--font-XS, 1.2rem);
+  color: var(--base-color__4, #7b7b7b);
+  margin-top: var(--space-XXS, 8px);
+  padding-left: 4px;
+  line-height: var(--line-height-caption, 1.75);
+}
+
+// ============================================================
+// ランキングカード
+// 既存 .gym-box / .archive-card / .step-card を参考に設計
+// ============================================================
+
+.protein-rank-card {
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-card;
+  box-shadow: var(--default-box-shadow, 0 2px 4px rgba(0, 0, 0, 0.25));
+  margin-bottom: var(--space-L, 48px);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    box-shadow: var(--hover-box-shadow, 0 0 16px rgba(0, 0, 0, 0.15));
+    transform: translateY(-2px);
+  }
+}
+
+// --- カードヘッダー ---
+.protein-rank-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-S, 16px);
+  padding: var(--space-R, 24px);
+  border-bottom: 1px solid $border-color;
+
+  // 既存グラデーション（global-nav-wrapperと同系統）をアクセントに使用
+  background: linear-gradient(135deg, #fff 70%, rgba($site-main, 0.08) 100%);
+
+  @media only screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-XXS, 8px);
+    padding: var(--space-XS, 12px);
+  }
+}
+
+.protein-rank-card__num {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  min-width: 5.6rem;
+  text-align: center;
+  letter-spacing: var(--letter-spacing-title, 0.2rem);
+
+  &.--r1 {
+    color: $rank-gold;
+  }
+  &.--r2 {
+    color: $rank-silver;
+  }
+  &.--r3 {
+    color: $rank-bronze;
+  }
+  &.--r4 {
+    color: $rank-4th;
+  }
+  &.--r5 {
+    color: $rank-5th;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 2.8rem;
+    min-width: auto;
+  }
+}
+
+.protein-rank-card__title-block {
+  flex: 1;
+}
+
+// ラベル：既存 .popular / .woman バッジと同系統
+.protein-rank-card__label {
+  display: inline-block;
+  font-size: var(--font-XS, 1.2rem);
+  font-weight: 700;
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 12px;
+  margin-bottom: var(--space-XXXS, 4px);
+
+  &.--r1 {
+    background-color: $rank-gold;
+  }
+  &.--r2 {
+    background-color: $rank-silver;
+  }
+  &.--r3 {
+    background-color: $rank-bronze;
+  }
+  &.--r4 {
+    background-color: $rank-4th;
+  }
+  &.--r5 {
+    background-color: $rank-5th;
+  }
+}
+
+.protein-rank-card__name {
+  font-size: var(--font-M, 1.8rem);
+  font-weight: 700;
+  color: var(--default-color, #333);
+  line-height: var(--line-height-headline, 1.6);
+}
+
+.protein-rank-card__price {
+  font-size: var(--font-S, 1.4rem);
+  color: var(--base-color__4, #7b7b7b);
+  margin-top: 2px;
+}
+
+// --- カードボディ ---
+.protein-rank-card__body {
+  padding: var(--space-R, 24px);
+
+  @media only screen and (max-width: 480px) {
+    padding: var(--space-XS, 12px);
+  }
+}
+
+// --- コスパバッジ群 ---
+// 既存 .gym-tag ul li / .setsubi ul li のインラインタグを参考に
+.protein-cospa-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-XXS, 8px);
+  margin-bottom: var(--space-S, 16px);
+}
+
+.protein-cospa-badge {
+  background-color: rgba($site-main, 0.15);
+  border: 1px solid rgba($site-main, 0.4);
+  border-radius: $border-radius-default;
+  padding: 6px 14px;
+  font-size: var(--font-S, 1.4rem);
+  color: $site-navy;
+  font-weight: 600;
+  line-height: 1.4;
+
+  strong {
+    font-size: var(--font-M, 1.8rem);
+    font-weight: 700;
+  }
+}
+
+// --- ターゲット行 ---
+// 既存 .torehaji-inside-box を参考に
+.protein-rank-card__target {
+  background-color: #fffbf0;
+  border-left: 4px solid $site-orange;
+  border-radius: 0 $border-radius-default $border-radius-default 0;
+  padding: var(--space-XXS, 8px) var(--space-S, 16px);
+  font-size: var(--font-S, 1.4rem);
+  color: #7a5c00;
+  margin-bottom: var(--space-S, 16px);
+  line-height: var(--line-height-caption, 1.75);
+
+  strong {
+    font-weight: 700;
+    margin-right: 6px;
+  }
+}
+
+// --- 編集長コメント枠 ---
+// 既存 .faq-item / .author-profile のパターンを踏襲
+.protein-editor-comment {
+  display: flex;
+  gap: var(--space-S, 16px);
+  align-items: flex-start;
+  background-color: rgba($site-main, 0.1);
+  border: 1px solid rgba($site-main, 0.35);
+  border-radius: $border-radius-card;
+  padding: var(--space-S, 16px);
+  margin-bottom: var(--space-S, 16px);
+}
+
+.protein-editor-comment__icon {
+  width: 44px;
+  height: 44px;
+  background-color: $site-navy;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.protein-editor-comment__text {
+  flex: 1;
+}
+
+.protein-editor-comment__label {
+  font-size: var(--font-XS, 1.2rem);
+  font-weight: 700;
+  color: $site-navy;
+  margin-bottom: 4px;
+}
+
+.protein-editor-comment__body {
+  font-size: var(--font-S, 1.4rem);
+  color: var(--default-color, #333);
+  line-height: var(--line-height-bodycopy, 1.75);
+  font-style: italic;
+}
+
+.protein-editor-comment__php-note {
+  font-size: var(--font-XXS, 1rem);
+  color: var(--base-color__3, #acacac);
+  margin-top: 4px;
+}
+
+// --- ポイントリスト ---
+// 既存 .check-list-blue / .point-list-blue を参考に
+.protein-rank-card__point-list {
+  list-style: none;
+  margin: 0 0 var(--space-S, 16px);
+  padding: 0;
+  border: 2px solid rgba($site-lblue, 0.5);
+  border-radius: $border-radius-default;
+  padding: var(--space-XXS, 8px) var(--space-XS, 12px);
+
+  li {
+    font-size: var(--font-S, 1.4rem);
+    padding: 6px 0 6px 2.4rem;
+    position: relative;
+    border-bottom: 1px solid $border-color;
+    line-height: var(--line-height-bodycopy, 1.75);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Font Awesomeチェックアイコン（既存 .check-list-blue li:before と同系統）
+    &::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: $site-lblue;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+}
+
+// --- 注意書き ---
+// 既存 h2.kon / border-bottom-blue のパターン
+.protein-rank-card__note {
+  background-color: #fff8e8;
+  border-left: 4px solid $site-orange;
+  border-radius: 0 $border-radius-default $border-radius-default 0;
+  padding: var(--space-XXS, 8px) var(--space-S, 16px);
+  font-size: var(--font-XS, 1.2rem);
+  color: #7a5c00;
+  margin-bottom: var(--space-S, 16px);
+  line-height: var(--line-height-caption, 1.75);
+}
+
+// --- ASPリンクプレースホルダー ---
+// 既存 .officialhp / .btn1 のパターン準拠（実装時は .btn2 等に差し替え）
+.protein-rank-card__asp-area {
+  text-align: center;
+  margin-top: var(--space-XS, 12px);
+
+  // 実装前のプレースホルダースタイル
+  &.--placeholder {
+    background-color: $bg-light;
+    border: 2px dashed $site-lblue;
+    border-radius: $border-radius-default;
+    padding: var(--space-S, 16px) var(--space-R, 24px);
+    font-size: var(--font-S, 1.4rem);
+    color: $site-lblue;
+    font-weight: 600;
+  }
+}
+
+// ============================================================
+// 内部リンクブロック
+// 既存 .inside-link-box / .inside-dlink-box と統一
+// ============================================================
+
+.protein-internal-links {
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-card;
+  padding: var(--space-R, 24px);
+  margin-top: var(--space-XL, 64px);
+
+  &__title {
+    // 既存 .ko-midashi と同系統
+    font-size: var(--font-M, 1.8rem);
+    font-weight: 700;
+    color: $site-navy;
+    border-bottom: 5px solid $site-main;
+    padding-bottom: var(--space-XXS, 8px);
+    margin-bottom: var(--space-S, 16px);
+  }
+}
+
+.protein-internal-link-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-XS, 12px);
+  padding: var(--space-XXS, 8px) 0;
+  border-bottom: 1px solid $border-color;
+  text-decoration: none;
+  transition: $transition-default;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+
+  &__arrow {
+    color: $site-main;
+    font-weight: 700;
+    font-size: var(--font-M, 1.8rem);
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-size: var(--font-S, 1.4rem);
+    color: #0095f6; // 既存 .inside-dlink-title のリンク色
+    font-weight: 600;
+    line-height: var(--line-height-caption, 1.75);
+  }
+
+  &__url {
+    font-size: var(--font-XXS, 1rem);
+    color: var(--base-color__4, #7b7b7b);
+    display: block;
+    margin-top: 2px;
+  }
+}
+
+// ============================================================
+// セクション見出し
+// 既存 body.single-protein h2 / h3 のスタイルに合わせる
+// ============================================================
+
+.protein-section-title {
+  color: $site-navy;
+  font-size: var(--font-L, 2rem);
+  font-weight: 600;
+  line-height: var(--line-height-headline, 1.6);
+  margin: var(--space-L, 48px) 0 var(--space-XS, 12px);
+  padding-bottom: 0.3em;
+  position: relative;
+
+  // 既存 body.single-protein h2:after グラデーションと統一
+  &::after {
+    background: linear-gradient(90deg, $site-main, $site-pink);
+    border-radius: 6px;
+    bottom: 0;
+    content: '';
+    height: 6px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: var(--font-M, 1.8rem);
+  }
+}
+
+.protein-section-lead {
+  color: var(--base-color__4, #7b7b7b);
+  font-size: var(--font-S, 1.4rem);
+  margin-bottom: var(--space-M, 32px);
+  line-height: var(--line-height-leadcopy, 1.84);
+}
+.protein-rank-card__asp-area img {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}

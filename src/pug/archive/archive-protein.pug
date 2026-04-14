@@ -1,0 +1,49 @@
+<?php get_header(); ?>
+
+main#main.l-main.mw800.margin-t20a
+
+  section.archive-hero.archive-hero--protein
+    .archive-hero__inner
+      h1.archive-title プロテインで整える
+      p.archive-lead
+        | 食生活をやさしく整える、トレハジのSTEP1です。<br>
+        | プロテインの選び方・飲み方・タイミングなど、初心者でも迷わず始められる情報をまとめました。
+    .archive-hero__image
+      img(
+        src!= "<?php echo get_template_directory_uri(); ?>/assets/img/common/protein-top.webp"
+        alt="プロテインのイメージ"
+      )
+
+  section.archive-list
+    .archive-list__inner
+      | <?php if ( have_posts() ) : ?>
+      .archive-cards
+        | <?php while ( have_posts() ) : the_post(); ?>
+        article.archive-card
+          a.archive-card__link(href!= "<?php the_permalink(); ?>")
+            .archive-card__thumb
+              | <?php if ( has_post_thumbnail() ) : ?>
+              | <?php the_post_thumbnail('medium_large'); ?>
+              | <?php else : ?>
+              img(
+                src!= "<?php echo get_template_directory_uri(); ?>/assets/img/noimg.png"
+                alt=""
+              )
+              | <?php endif; ?>
+            .archive-card__body
+              h2.archive-card__title
+                | <?php the_title(); ?>
+              p.archive-card__meta
+                | <?php echo get_the_date('Y.m.d'); ?>
+        | <?php endwhile; ?>
+
+      .margin-t20
+        | <?php get_template_part('functions/pagination'); ?>
+
+      | <?php else : ?>
+      p.archive-empty
+        | まだこの記事カテゴリにはコンテンツがありません。<br>
+        | 順次、プロテインの基礎から応用まで追加していきます。
+      | <?php endif; ?>
+
+| <?php get_footer(); ?>

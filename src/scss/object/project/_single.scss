@@ -1,5 +1,6 @@
 @use "../../foundation/import" as *;
 @use "../../colorlayout" as *;
+@use "../../layout/base" as *;
 
 /* -------------------------------
  *  common
@@ -8,14 +9,119 @@
 /* -------------------------------
  *  single pages
  * ---------------------------- */
-h1.gym {
-  border-left: solid 10px $darkblue;
-  border-bottom: 10px solid $darkblue;
-  padding-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 2em;
+body.single-personal_gym h1,
+body.single-protein h1 {
+  font-size: 3.2em;
+  margin: 0.67em 0;
+  color: #333;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 2.4em;
+  }
 }
+/* -------------------------------
+body.single-personal_gym h2,
+body.single-protein h2,
+body.single-home_training h2 {
+  font-size: 2em;
+  color: #03466e; // テキストカラーは維持
+  margin: 2em 0 1em;
+  position: relative;
+  padding-bottom: 0.2em;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    border-radius: 4px;
+    background: linear-gradient(to right, $sub, $main);
+  }
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 2em;
+    margin: 1.5em 0 0.75em;
+  }
+}
+  * ---------------------------- */
+
+body.single-personal_gym h2,
+body.single-protein h2,
+body.single-home_training h2 {
+  font-size: 2em;
+  font-weight: 600;
+  color: #03466e;
+  margin: 3rem 0 1.2rem;
+  position: relative;
+  padding-bottom: 0.3em;
+  line-height: 1.4;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    border-radius: 6px;
+    background: linear-gradient(to right, $main, $sub);
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1.6em;
+  }
+}
+
+/* -------------------------------
+body.single-personal_gym,
+body.single-protein {
+  h3 {
+    font-size: 1.8em;
+    color: $text-color-secondary;
+    border-left: solid 12px $accent-color;
+    padding-left: 12px;
+    margin: 1.5em 0 0.75em;
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+      font-size: 1.6em;
+      margin: 1.2em 0 0.6em;
+    }
+  }
+}
+* ---------------------------- */
+body.single-personal_gym h3,
+body.single-protein h3,
+body.single-home_training h3 {
+  font-size: 1.8em;
+  color: #03466e; // h2 と同じフォントカラーで統一
+  margin: 1.5em 0 0.75em;
+  padding-left: 10px;
+  border-left: 6px solid $main; // 新メインカラー（水色）
+  position: relative;
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 1.6em;
+    margin: 1.2em 0 0.6em;
+  }
+}
+body.single-personal_gym h3,
+body.single-protein h3,
+body.single-home_training h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #03466e;
+  margin: 1.6em 0 0.8em;
+  padding-left: 8px;
+  border-left: 4px solid $main;
+  line-height: 1.5;
+
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1.15em;
+    margin: 1.4em 0 0.7em;
+  }
+}
+
 .gymkind-woman {
   text-align: center;
   margin-left: 15px;
@@ -39,7 +145,7 @@ h1.gym {
       background-color: $orange;
       border-radius: 5px;
       padding: 4px 6px;
-      @media only screen and (max-width: 480px) {
+      @media only screen and (max-width: $mobile-breakpoint) {
         display: inline-block;
         margin-bottom: 5px;
       }
@@ -55,7 +161,7 @@ table {
     }
   }
   th {
-    background-color: $lightglay;
+    //background-color: $lightglay;
     padding: 5px 10px;
     &.th_color_none {
       background-color: $white;
@@ -131,6 +237,7 @@ h3 {
   display: flex;
   padding: 0;
   list-style: none;
+  justify-content: space-evenly;
 }
 .thumbnail li {
   width: calc(100% / 5);
@@ -159,7 +266,7 @@ h3 {
   border: solid 2px $glay;
   border-radius: 15px;
   padding: 20px;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     margin: 0 10px;
     padding: 10px 5px;
   }
@@ -171,7 +278,7 @@ ul.recpoint {
     padding: 0 10px;
     color: $orange;
     font-size: 20px;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       margin-top: 15px;
     }
     p {
@@ -180,8 +287,8 @@ ul.recpoint {
       font-weight: 400;
     }
     &::before {
-      font-family: "Font Awesome 5 Free";
-      content: "\f04b";
+      font-family: 'Font Awesome 5 Free';
+      content: '\f04b';
       font-weight: 900;
       font-size: 25px;
       margin-right: 10px;
@@ -195,7 +302,7 @@ ul.recpoint-woman {
     padding: 0 10px;
     color: $pink;
     font-size: 20px;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       margin-top: 15px;
     }
     p {
@@ -205,8 +312,8 @@ ul.recpoint-woman {
       padding-left: 35px;
     }
     &::before {
-      font-family: "Font Awesome 5 Free";
-      content: "\f04b";
+      font-family: 'Font Awesome 5 Free';
+      content: '\f04b';
       font-weight: 900;
       font-size: 25px;
       margin-right: 10px;
@@ -218,7 +325,7 @@ ul.recpoint-woman {
   width: 30%;
   background-color: $lightblue;
   margin-right: 40px;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     margin-right: 20px;
   }
 }
@@ -227,7 +334,7 @@ ul.recpoint-woman {
   width: 30%;
   background-color: $lightpink;
   margin-right: 40px;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     margin-right: 20px;
   }
 }
@@ -271,7 +378,7 @@ ul.recpoint-woman {
     margin: 5px auto;
     max-width: 50%;
     border-radius: 5px;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       max-width: 85%;
     }
   }
@@ -280,7 +387,7 @@ ul.recpoint-woman {
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     display: block;
   }
   img {
@@ -289,7 +396,7 @@ ul.recpoint-woman {
     border-radius: 20px;
     margin: 10px 5px;
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     img {
       display: block;
       margin: 10px auto;
@@ -352,7 +459,7 @@ ul.recpoint-woman {
   border-radius: 5px;
   ul {
     column-count: 2;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       column-count: auto;
     }
     li {
@@ -418,11 +525,11 @@ iframe {
   text-align: center;
   ::before {
     margin-right: 1rem;
-    content: "＼";
+    content: '＼';
   }
   ::after {
     margin-left: 1rem;
-    content: "／";
+    content: '／';
   }
 }
 .affibtn {
@@ -443,27 +550,27 @@ iframe {
 .margintop {
   margin-top: 20px;
 }
-.itembox {
+.gym-tag {
   font-weight: 400;
-  &.itembox_blue li {
+  &.gym-tag_blue li {
     background-color: $blue;
     color: $white;
   }
-  &.itembox_darkblue li {
+  &.gym-tag_darkblue li {
     background-color: $darkblue;
     color: $white;
   }
-  &.itembox_orange li {
+  &.gym-tag_orange li {
     background-color: $orange;
     color: $white;
   }
-  &.itembox_border li {
+  &.gym-tag_border li {
     border: 1px solid $black;
   }
   ul {
-    font-size: 1.2em;
+    font-size: 1em;
     li {
-      &.itembox_blue {
+      &.gym-tag_blue {
         background-color: $blue;
         color: $white;
       }
@@ -471,7 +578,7 @@ iframe {
       margin: 3px 4px auto 5px;
       border-radius: 9999px;
       padding: 8px 16px;
-      @media only screen and (max-width: 480px) {
+      @media only screen and (max-width: $mobile-breakpoint) {
         display: inline-block;
         margin-bottom: 5px;
         font-size: 1.4rem;
@@ -514,30 +621,30 @@ table.table_yoko {
   margin-left: 0;
   table-layout: fixed;
   width: 100%;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     font-size: 1.2rem;
   }
   th.flavor {
     width: 55%;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       padding: 0;
     }
   }
   td.flavor {
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       padding: 0;
       text-align: center;
     }
   }
   th.kpfc {
     width: 15%;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       padding: 0;
     }
   }
   td.kpfc {
     text-align: right;
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: $mobile-breakpoint) {
       padding: 0;
     }
   }
@@ -560,7 +667,7 @@ ul.protein {
     list-style: square;
   }
 }
-.itemtitle {
+.gym-tag-title {
   font-weight: 700;
   margin: 10px;
 }
@@ -571,7 +678,7 @@ ul.protein {
   max-width: 50%;
   display: block;
   margin: 20px auto;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     max-width: 85%;
   }
   p {
@@ -583,7 +690,158 @@ ul.protein {
   width: 500px;
   max-width: 100%;
   height: auto;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     width: 350px;
+  }
+}
+/* ページ内にタブを作成するータブを横並びに */
+.tab-label {
+  display: block;
+  float: left;
+}
+
+.tab-label-heading {
+  &:not(:last-of-type) {
+    .tab-label {
+      margin-right: 2px !important;
+    }
+  }
+}
+
+/* ラジオボタンを全て非表示に */
+input[name='tab-radio'] {
+  display: none;
+}
+
+.tab-label {
+  background-color: #b4bdbf !important;
+  color: #525252 !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  padding: 10px 20px !important;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.7 !important;
+  }
+}
+
+/* 選択されたタブの見た目 */
+input:checked + h3 {
+  > .tab-label {
+    color: #000 !important;
+    background-color: #e2e8eb !important;
+    transition: 0.3s;
+    border: solid 2px #000;
+    border-bottom: 0;
+  }
+}
+
+.tab-panel {
+  background-color: #e2e8eb;
+  height: 170px;
+  clear: both;
+  display: none; /* パネルを非表示 */
+
+  > div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 選択されているチェックボックスに応じてパネルを表示 */
+#tab-a:checked ~ .panel-a,
+#tab-b:checked ~ .panel-b,
+#tab-c:checked ~ .panel-c,
+#tab-d:checked ~ .panel-d,
+#tab-e:checked ~ .panel-e,
+#tab-f:checked ~ .panel-f,
+#tab-g:checked ~ .panel-g,
+#tab-h:checked ~ .panel-h {
+  display: block;
+}
+/*オガワさん方式のタブ*/
+.js-tabbox {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.column {
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* 記事一覧のh2とh3はsingle-proteinのスタイルを適用しない */
+.article-list-title {
+  font-size: 2.4em !important;
+  color: inherit !important;
+  background-image: none !important;
+  background-repeat: none !important;
+  background-size: none !important;
+  background-position: unset !important;
+  margin: 1em 0 !important;
+  position: static !important;
+
+  &::after {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 2em !important;
+    margin: 0.8em 0 !important;
+  }
+}
+
+.article-list .article-title {
+  font-size: 1.2em !important;
+  color: inherit !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin: 10px 0 !important;
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    font-size: 1.1em !important;
+    margin: 8px 0 !important;
+  }
+}
+//ここより上に書く
+// 記事一覧のh2はsingle-proteinのスタイルを適用しない
+.article-list-title {
+  font-size: 2.4em !important; // デフォルトサイズに戻す
+  color: inherit !important; // デフォルトカラーに戻す
+  background-image: none !important; // グラデーションを削除
+  background-repeat: none !important;
+  background-size: none !important;
+  background-position: unset !important;
+  margin: 1em 0 !important; // マージンを調整
+}
+
+// 記事一覧のh3はsingle-proteinのスタイルを適用しない
+.article-list .article-title {
+  font-size: 1.2em !important; // デフォルトサイズに戻す
+  color: inherit !important; // デフォルトカラーに戻す
+  border-left: none !important; // ボーダーを削除
+  padding-left: 0 !important; // パディングを削除
+  margin: 10px 0 !important; // マージンを調整
+}
+.single img {
+  border-radius: 20px;
+  @media only screen and (max-width: 480px) {
+    border-radius: 10px;
   }
 }

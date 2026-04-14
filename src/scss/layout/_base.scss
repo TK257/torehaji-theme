@@ -4,21 +4,22 @@
  *  html body
  * ---------------------------- */
 /*基本的な設定*/
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 html {
   width: 100%;
   height: 100%;
   font-size: 62.5%;
-  font-family: "Noto Sans JP", "游ゴシック", YuGothic, "メイリオ", Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: 'Noto Sans JP';
   body {
     width: inherit;
     height: inherit;
     min-height: 100vh;
     font-family: var(--default-font-family);
+    font-weight: var(--default-font-weight);
     font-size: var(--default-font-size);
     line-height: var(--default-line-height);
     color: var(--default-color);
-    font-feature-settings: "palt";
+    font-feature-settings: 'palt';
   }
   @include media-query(sm) {
     body {
@@ -27,27 +28,15 @@ html {
   }
   @include media-query(xs) {
     body {
-      font-size: var(--font-S);
+      font-size: var(--font-M);
     }
   }
 }
-/*カラーの設定*/
-$black: #222222;
-$white: #ffffff;
-$blue: #0062ff;
-$red: #c11b21;
-$yellow: #fff000;
-$glay: #dee0e2;
-$logokon: #001e6c;
-$logoore: #ff5f00;
-$pink: #e972b5;
-/*基本的な設定*/
-* {
-  box-sizing: border-box;
-}
 body {
   margin: 0;
-  font-family: "Noto Sans JP";
+  background-color: $white;
+  color: $black;
+  font-family: 'Noto Sans JP';
   line-height: 1;
   word-break: normal;
   overflow-wrap: break-word;
@@ -55,6 +44,11 @@ body {
   -moz-osx-font-smoothing: grayscale; //Firefoxなめらかにする
   -webkit-text-size-adjust: none; //縦横で自動調整をオフにする
 }
+/*基本的な設定*/
+* {
+  box-sizing: border-box;
+}
+
 /* -------------------------------
  *  base layout
  * ---------------------------- */
@@ -74,8 +68,20 @@ $footer-max-height: auto;
   overflow: hidden;
   display: grid;
   grid-template:
-    "header" minmax($header-min-height, $header-max-height)
-    "main" 1fr
-    "footer" minmax($footer-min-height, $footer-max-height)
+    'header' minmax($header-min-height, $header-max-height)
+    'main' 1fr
+    'footer' minmax($footer-min-height, $footer-max-height)
     / 100%;
 }
+.pcnone {
+  display: none !important;
+}
+@media only screen and (max-width: 480px) {
+  .spnone {
+    display: none !important;
+  }
+  .pcnone {
+    display: block !important;
+  }
+}
+$mobile-breakpoint: 480px;

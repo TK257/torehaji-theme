@@ -1,0 +1,151 @@
+<div class="protein-calc">
+  <!-- ▼ リード文（新規追加） -->
+  <p class="calc-lead">
+    プロテインを選ぶとき、「内容量が違うから単純比較できない」「クーポンを使うと実際いくらになるの？」と迷った経験はありませんか。このツールは、価格・内容量・1食あたりの量を入力するだけで、<strong>1食あたりのコスト・タンパク質100gあたりの金額</strong>をすぐに計算できます。割引やポイント利用にも対応しているので、購入前の比較検討にそのままお使いください。
+  </p>
+
+  <!-- ▼ 計算フォーム（構造はそのまま・labelとplaceholderを微調整） -->
+  <form id="proteinCalcForm">
+    <div>
+      <label for="price">商品価格（円・税込）</label>
+      <input type="number" id="price" placeholder="例：3980" required />円
+    </div>
+    <div>
+      <label for="contentWeight">内容量（g）</label>
+      <input type="number" id="contentWeight" placeholder="例：1000" required />g
+    </div>
+    <div>
+      <label for="servingSize">1食あたりの量（g）</label>
+      <input type="number" id="servingSize" placeholder="例：30（パッケージ記載の1食分）" required />g
+    </div>
+    <div>
+      <label for="deductionYen">値引き・ポイント利用額（円・任意）</label>
+      <input type="number" id="deductionYen" placeholder="例：500" />円
+    </div>
+    <div>
+      <label for="deductionPercent">割引率（％・任意）</label>
+      <input type="number" id="deductionPercent" placeholder="例：10（10%OFF）" min="0" max="100" step="0.1" />%
+    </div>
+    <div class="accordion">
+      <div class="accordion-simple-title js-accordion-title">タンパク質単位も計算したい場合はこちら</div>
+      <div class="accordion-simple-content">
+        <label for="proteinPerServing">タンパク質含有量（1食あたり・任意）</label>
+        <input type="number" id="proteinPerServing" placeholder="パッケージの栄養成分表示を確認（不明なら空欄でOK）" />g
+      </div>
+    </div>
+    <div class="margin-0a"><button type="submit">計算する</button></div>
+  </form>
+
+  <div id="proteinCalcError" style="color:red; margin-top:8px;"></div>
+
+  <div id="proteinCalcResult" style="margin-top:16px; display:none;">
+    <h3>計算結果</h3>
+    <div class="result-main">
+      <p class="result-item">
+        <span class="label">1食あたりの金額</span>
+        <span><span class="value" id="resCostPerServing"></span>円/食</span>
+      </p>
+      <p class="result-item">
+        <span class="label">製品100gあたりの金額</span>
+        <span><span class="value" id="resCostPerProduct100g"></span>円</span>
+      </p>
+    </div>
+    <hr class="result-divider" />
+    <div class="result-sub accordion">
+      <div class="accordion-simple-title js-accordion-title">詳細な計算結果はこちら</div>
+      <div class="accordion-simple-content">
+        <p>
+          <span>タンパク質100gあたりの金額</span
+          ><span><span class="value" id="resCostPerProtein100g"></span>円/100g</span>
+        </p>
+        <p>
+          <span>実質支払額：</span><span><span id="resEffectivePrice"></span>円</span>
+        </p>
+        <p>
+          <span>1袋で飲める食数：</span><span><span id="resServings"></span>食</span>
+        </p>
+        <p>
+          <span>1袋あたりの総タンパク質量：</span><span><span id="resTotalProtein"></span>g</span>
+        </p>
+        <p>
+          <span>値引き・ポイント利用額：</span><span><span id="resDiscountYen"></span>円</span>
+        </p>
+        <p>
+          <span>割引額（％）：</span><span><span id="resDiscountPercentAmount"></span>円</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ▼ セクション1：なぜ作ったか（h2キーワード強化・文章リライト） -->
+  <section>
+    <h2>プロテインのコスパ比較が難しい理由</h2>
+    <p>
+      プロテインは商品ごとに内容量がバラバラなうえ、1食あたりのスクープ量も異なります。そのため「500gで2,000円」と「1kgで3,500円」を直感的に比べるのは意外と難しいものです。
+    </p>
+    <p>
+      さらに、公式サイト・ECモール・セール・クーポン・ポイント還元によって実際の支払額は人によって変わります。定価ベースの比較では、自分にとって本当にお得かどうかが見えにくいのです。
+    </p>
+    <p>
+      このツールは、そうした「プロテイン選びのわかりにくさ」を解消するために作りました。<strong>自分が実際に買う値段で、1食いくらになるか</strong>を数字で確認できます。
+    </p>
+  </section>
+
+  <!-- ▼ セクション2：わかること（h2キーワード強化・箇条書きはそのまま） -->
+  <section>
+    <h2>計算ツールで確認できる6つの数値</h2>
+    <p>入力した条件をもとに、以下の数値を算出します。</p>
+    <div class="point-list-blue margin-t10">
+      <div>まずはここをチェック</div>
+      <ul>
+        <li><strong>1食あたりの金額</strong>：毎日飲むなら月コストに直結する最重要指標</li>
+        <li><strong>製品100gあたりの金額</strong>：内容量が違う商品同士を比べるときの基準</li>
+      </ul>
+      <div>こだわりたい人向け</div>
+      <ul>
+        <li><strong>タンパク質100gあたりの金額</strong>：粉の安さではなく「タンパク質1gの真のコスパ」</li>
+        <li>実質支払額（割引・ポイント反映後）</li>
+        <li>1袋で飲める食数</li>
+        <li>1袋あたりの総タンパク質量</li>
+      </ul>
+    </div>
+    <p>割引率（％）や円引きクーポンにも対応しているので、セール時・定期購入時の比較にも使えます。</p>
+  </section>
+
+  <!-- ▼ セクション3：使い方（h2キーワード強化・ステップをより具体的に） -->
+  <section>
+    <h2>計算ツールの使い方（3ステップ）</h2>
+    <ol class="ol-list-blue margin-t10">
+      <li>
+        <strong>「商品価格」と「内容量」を入力</strong>（必須）<br /><small
+          >※Amazonや公式サイトの販売ページで確認できます</small
+        >
+      </li>
+      <li>
+        <strong>「1食あたりの量」を入力</strong><br /><small
+          >※パッケージ裏の栄養成分表示に記載されています。わからなければ30gのままでOK</small
+        >
+      </li>
+      <li><strong>クーポン・ポイントがあれば割引欄に入力</strong>して「計算する」を押す</li>
+    </ol>
+    <p>
+      タンパク質含有量がわかれば「タンパク質100gあたりの金額」まで計算できます。栄養成分表示の「たんぱく質」の数値を入力してください。
+    </p>
+    <p>
+      まずは<strong>「1食あたりいくらで飲めるか」</strong>から確認してみてください。毎日飲むなら、1食10円の差が1年で3,650円の差になります。
+    </p>
+  </section>
+
+  <!-- ▼ セクション4：新規追加・内部リンク誘導 -->
+  <section>
+    <h2>コスパで選ぶおすすめプロテイン</h2>
+    <p>
+      計算結果をもとに商品を選びたい方は、以下の記事も参考にしてください。初心者向けに価格・タンパク質量・飲みやすさを比較しています。
+    </p>
+    <ul>
+      <li><a href="/protein/protein-guide/">【初心者向け】プロテインの選び方ガイド</a></li>
+      <li><a href="/protein/whey-soy-difference/">ホエイとソイの違いを徹底比較</a></li>
+      <li><a href="/protein/protein-before-after-meal/">プロテインは食前・食後どちらに飲むべきか</a></li>
+    </ul>
+  </section>
+</div>

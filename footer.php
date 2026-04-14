@@ -1,113 +1,37 @@
 
-<footer class="l-footer">
-  <section class="l-wrapper">
-    <div class="footer-mobile"><a id="footerbtn" href="/contact">
-        <button class="btn3 btn3-darkpink">掲載をご検討の方へ</button></a>
-      <div class="footer-title">掲載プロテインブランド</div>
-      <div class="footer-list">
-        <ul><?php  $terms = get_terms('protein_brand'); foreach ( $terms as $term ) {  echo '<li>'; echo  '<a href="'.home_url().'/protein-brand/'.$term->slug.'">'.$term->name.'</a></li>';}?></ul>
-      </div>
-      <div class="footer-title">トレーニングジム検索</div>
-      <div class="footer-search-list">
-        <table class="footer-table">
-          <th>関東</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/tokyo'); ?>">東京都</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/kanagawa'); ?>">神奈川県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/chiba'); ?>"> 千葉県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/ibaraki'); ?>">  茨城県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/gunma'); ?>">  群馬県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/tochigi'); ?>">  栃木県</a></li>
-            </ul>
-          </td>
-          <tr></tr>
-          <th>東海</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/aichi'); ?>">  愛知県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/gifu'); ?>">  岐阜県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/mie'); ?>">  三重県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/shizuoka'); ?>">  静岡県 </a></li>
-            </ul>
-          </td>
-          <tr></tr>
-          <th>関西</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/osaka'); ?>">  大阪府</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/hyogo'); ?>">  兵庫県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/kyoto'); ?>">  京都府</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/shiga'); ?>">  滋賀県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/nara'); ?>">  奈良県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/wakayama'); ?>">  和歌山県</a></li>
-            </ul>
-          </td>
-          <tr></tr>
-          <th>北海道・東北</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/hokkaido'); ?>">  北海道</a></li>
-              <li> <a href="<?php echo esc_url('/gym-area/aomori'); ?>">  青森県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/akita'); ?>">  秋田県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/iwate'); ?>">  岩手県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/miyagi'); ?>">  宮城県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/yamagata'); ?>">  山形県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/fukushima'); ?>">  福島県 </a></li>
-            </ul>
-          </td>
-          <tr></tr>
-          <th>甲信越・北陸</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/yamanashi'); ?>">  山梨県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/nagano'); ?>">  長野県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/niigata'); ?>">  新潟県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/toyama'); ?>">  富山県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/ishikawa'); ?>">  石川県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/fukui'); ?>">  福井県</a></li>
-            </ul>
-          </td>
-          <tr></tr>
-          <th>中国・四国</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/hiroshima'); ?>">  広島県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/okayama'); ?>">  岡山県</a></li>
-              <li class="junbityu"> 鳥取県<br></li>
-              <li><a href="<?php echo esc_url('/gym-area/yamaguchi'); ?>">  山口県</a></li>
-              <li class="junbityu"> 島根県<br></li>
-              <li><a href="<?php echo esc_url('/gym-area/kagawa'); ?>">  香川県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/ehime'); ?>">  愛媛県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/tokushima'); ?>">  徳島県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/kochi'); ?>">  高知県 </a></li>
-            </ul>
-          </td>
-          <tr></tr>
-          <th>九州・沖縄</th>
-          <td>
-            <ul>
-              <li><a href="<?php echo esc_url('/gym-area/fukuoka'); ?>">  福岡県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/saga'); ?>">  佐賀県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/nagasaki'); ?>"> 長崎県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/kumamoto'); ?>"> 熊本県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/oita'); ?>"> 大分県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/miyazaki'); ?>"> 宮崎県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/kagoshima'); ?>"> 鹿児島県</a></li>
-              <li><a href="<?php echo esc_url('/gym-area/okinawa'); ?>"> 沖縄県</a></li>
-            </ul>
-          </td>
-        </table>
-      </div>
-      <div id="logo-footer"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/backkonlogo.png"></a></div>
+<footer class="margin-t20" id="footer" itemscope itemtype="https://schema.org/Organization">
+  <!-- 組織名（Schema）-->
+  <meta itemprop="name" content="株式会社 Simple is Best">
+  <div class="footer-inner padding-t10">
+    <!-- ロゴ-->
+    <div class="footer-logo text-c"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/torehaji_site_logo.png" alt="トレハジ" width="150"></a></div>
+    <!-- サイトマップ-->
+    <nav class="footer-nav">
       <ul>
-        <li class="footerli"> <a href="/company/">運営会社</a></li>
-        <li class="footerli"><a href="//privacy-policy/">プライバシーポリシー</a></li>
-        <li class="footerli"> <a href="/">お問合せ</a></li>
+        <li><a href="/protein/">プロテイン</a></li>
+        <li><a href="/home-training/">自宅トレーニング</a></li>
+        <li><a href="/personal-gym/">パーソナルジム</a></li>
+        <li><a href="/about/">トレハジについて</a></li>
+        <li><a href="/privacy-policy/">プライバシーポリシー</a></li>
+        <li><a href="/terms/">利用規約</a></li>
+        <li><a href="https://forms.gle/NTru2goriF6p6NXo6">お問合せ</a></li>
       </ul>
-      <div class="footer-mobile-copyright"><small class="footer-mobile-copyright">©︎ Simple is Best Corp. All Rights Reserved.</small></div>
+    </nav>
+    <!-- 運営情報（E-E-A-T強化）-->
+    <div class="footer-company">
+      <p class="text-c">
+        運動や生活習慣に関する情報を、わかりやすくまとめています。<br />運営会社：<span itemprop="name">株式会社 Simple is Best</span><br />運営責任者：<span itemscope itemtype="https://schema.org/Person"><span itemprop="name">Takeo</span>
+          <meta itemprop="jobTitle" content="運営責任者・監修">
+          <meta itemprop="worksFor" content="株式会社 Simple is Best"></span></p>
     </div>
-  </section>
+    <!-- アフィリエイト表記（やさしく整える）-->
+    <p class="affiliate-note text-c">当サイトにはアフィリエイト広告が含まれています。<br>Amazonアソシエイトを含む複数のプログラムに参加しています。</p>
+    <!-- コピーライト-->
+    <div class="text-c"><small>© 2025 Simple is Best / トレハジ All Rights Reserved.</small></div>
+    <!-- reCAPTCHA-->
+    <div class="text-c recaptcha-note padding-b20">This site is protected by reCAPTCHA and the Google<a href="https://policies.google.com/privacy" target="_blank"> Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank"> Terms of Service</a> apply.</div>
+  </div>
 </footer>
-<button id="top-button" type="button"><i class="fa-solid fa-angle-up"></i><br>TOP</button><?php wp_footer(); ?>            
-<!-- footer end -->
+<button id="top-button" type="button"><i class="fa-solid fa-angle-up"></i><br>TOP</button><?php wp_footer(); ?>
+</body>
+</html>

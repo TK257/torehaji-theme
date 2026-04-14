@@ -1,0 +1,149 @@
+<div class="protein-calc">
+  <form id="proteinCalcForm">
+    <div>
+      <label for="price">商品価格（円・税込）</label>
+      <input type="number" id="price" required />円
+    </div>
+    <div>
+      <label for="contentWeight">内容量（g）</label>
+      <input type="number" id="contentWeight" required />g
+    </div>
+    <div>
+      <label for="servingSize">1回あたりの量（g）</label>
+      <input type="number" id="servingSize" placeholder="30（30g）" required />g
+    </div>
+
+    <div>
+      <label for="deductionYen">値引き・ポイント利用額（円・任意）</label>
+      <input type="number" id="deductionYen" placeholder="例：500" />円
+    </div>
+    <div>
+      <label for="deductionPercent">割引率（％・任意）</label>
+      <input type="number" id="deductionPercent" placeholder="例：10（10%OFF）" min="0" max="100" step="0.1" />%
+    </div>
+    <div class="accordion">
+      <div class="accordion-simple-title js-accordion-title">タンパク質単位も計算したい場合はこちら</div>
+      <div class="accordion-simple-content">
+        <label for="proteinPerServing">タンパク質含有量（1回あたり・任意）</label>
+        <input type="number" id="proteinPerServing" placeholder="わかれば（不明なら空欄でOK）" />g
+      </div>
+    </div>
+    <div class="margin-0a"><button type="submit">計算する</button></div>
+  </form>
+
+  <div id="proteinCalcError" style="color:red; margin-top:8px;"></div>
+
+  <div id="proteinCalcResult" style="margin-top:16px; display:none;">
+    <h3>計算結果</h3>
+
+    <!-- 最重要項目 -->
+    <div class="result-main">
+      <p class="result-item">
+        <span class="label">1回あたりの金額</span>
+        <span><span class="value" id="resCostPerServing"></span>円/回</span>
+      </p>
+
+      <p class="result-item">
+        <span class="label">製品100gあたりの金額</span>
+        <span><span class="value" id="resCostPerProduct100g"></span>円</span>
+      </p>
+    </div>
+
+    <hr class="result-divider" />
+
+    <!-- 計算根拠エリア -->
+    <div class="result-sub accordion">
+      <div class="accordion-simple-title js-accordion-title">詳細な計算結果はこちら</div>
+      <div class="accordion-simple-content">
+        <p>
+          <span>タンパク質100gあたりの金額</span>
+          <span><span class="value" id="resCostPerProtein100g"></span>円/100g</span>
+        </p>
+        <p>
+          <span>実質支払額：</span><span><span id="resEffectivePrice"></span>円</span>
+        </p>
+        <p>
+          <span>1袋で飲める回数：</span><span><span id="resServings"></span>回</span>
+        </p>
+        <p>
+          <span>1袋あたりの総タンパク質量：</span><span><span id="resTotalProtein"></span>g</span>
+        </p>
+        <p>
+          <span>値引き・ポイント利用額：</span>
+          <span><span id="resDiscountYen"></span>円</span>
+        </p>
+        <p>
+          <span>割引額（％）：</span>
+          <span><span id="resDiscountPercentAmount"></span>円</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <section>
+    <h2>このコスパ計算ツールを作った理由</h2>
+    <p>プロテインを選ぶとき、「結局どれが一番コスパがいいの？」と迷ったことはありませんか。</p>
+
+    <p>
+      お肉や魚なら「100gあたりいくら」という表記が当たり前ですが、プロテインはそうではありません。<br />
+      内容量も商品ごとにバラバラなうえ、1g単位の価格で比較されることも多いため、直感的に分かりにくいのが実情です。
+    </p>
+
+    <p>
+      さらにややこしいのが購入価格。<br />
+      同じ商品でも、公式サイト・ECモール・セール時期によって価格が変わり、
+      クーポンやキャンペーンコード、ポイント利用で実際に支払う金額は人それぞれ違ってきます。
+    </p>
+
+    <p>
+      「定価ベースの比較」では、自分にとって本当にお得かどうかが分かりにくい。<br />
+      そんな不便さを解消するために、このプロテインのコスパ計算ツールを作りました。
+    </p>
+  </section>
+  <section>
+    <h2>このツールで分かること</h2>
+    <p>入力した条件に合わせて、以下のポイントを計算します。</p>
+    <div>まずはココをチェック！</div>
+    <div class="point-list-blue margin-t10">
+      <div>まずはココをチェック！</div>
+      <ul>
+        <li>1食あたりにかかる金額</li>
+        <li>製品100gあたりの金額</li>
+      </ul>
+      <div>もっとこだわりたい人向けのポイント</div>
+      <ul>
+        <li>タンパク質100gあたりの金額 <small>（粉の安さではなく、タンパク質1gあたりの「真のコスパ」です）</small></li>
+        <li>実質支払額</li>
+        <li>1袋で飲める回数</li>
+        <li>1袋あたりの総タンパク質量</li>
+        <li>値引き・ポイント利用額</li>
+        <li>割引額（％）</li>
+      </ul>
+    </div>
+    <p>を計算します。</p>
+    <p>
+      割引率（％）や円引きクーポンにも対応しているので、<br />
+      「この価格で買えた場合、コスパはどうなのか？」を正確に把握できます。
+    </p>
+  </section>
+  <section>
+    <h2>使い方はとても簡単です</h2>
+    <ol class="ol-list-blue margin-t10">
+      <li><strong>「商品価格」と「内容量」を入力</strong>（必須）</li>
+      <li><strong>「1食あたりの量」を入力</strong>（不明なら30gのままでOK）</li>
+      <li>クーポンやポイント利用があれば、割引欄に入力</li>
+      <li>
+        <strong>タンパク質量が分かれば入力</strong>（分からなければ空欄でOK）<br />
+        <small>※見つけにくい項目なので、分からなければ空欄でOKです！</small>
+      </li>
+    </ol>
+    <p>
+      あとは「計算する」を押すだけ。<br />
+      比較の“結論”となる数値が、すぐに表示されます。
+    </p>
+    <p>
+      まずは「1回いくらで飲めるか」をチェックしてみてください。<br />
+      もっと詳しく知りたいときは、計算結果の「詳細」を覗いてみてくださいね。
+    </p>
+    <p>プロテイン選びで迷ったときの、判断材料のひとつとして、気軽に使ってみてください。</p>
+  </section>
+</div>

@@ -4,6 +4,15 @@
 /* -------------------------------
  *  list components
  * ---------------------------- */
+
+// 汎用的なli要素内のbrタグ後のインデント
+li {
+  br + * {
+    display: inline-block;
+    margin-left: 1.5em; // before要素の分だけ左側に空白を作る
+    font-weight: 400;
+  }
+}
 .search-list {
   @media only screen and (max-width: 480px) {
     p {
@@ -27,19 +36,42 @@
     }
   }
 }
-.point-waku {
+@mixin point-list($color) {
+  border: 5px solid $color;
+  border-radius: 10px;
+  padding: 10px;
+
   li {
     padding: 0 10px;
+    font-size: 1.2em;
+
     @media only screen and (max-width: 480px) {
       margin-top: 10px;
     }
+
     &::before {
-      font-family: "Font Awesome 5 Free";
-      content: "\f04b";
+      font-family: 'Font Awesome 5 Free';
+      content: '\f04b';
       font-weight: 900;
       margin-right: 10px;
+      color: $color;
+    }
+
+    // brタグの後のテキストにインデントを追加
+    br + * {
+      display: inline-block;
+      margin-left: 1.5em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
     }
   }
+}
+
+.point-list-pink {
+  @include point-list($lightpink);
+}
+
+.point-list-blue {
+  @include point-list($lightblue);
 }
 .flavor-list {
   ul {
@@ -74,6 +106,254 @@
       font-size: 1em;
       font-weight: 700;
       margin-top: 2px;
+    }
+  }
+}
+.page-privacy {
+  list-style-type: disc;
+  margin: 10px 10px 0 40px;
+}
+.gym-box {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    padding: 0px 10px;
+    line-height: 2em;
+    font-weight: 700;
+    border-radius: 99px;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+}
+.simple-list {
+  ul {
+    margin-left: 20px;
+  }
+  li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+}
+@mixin check-list($color) {
+  border: 5px solid $color;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px 0 10px 0;
+  li {
+    padding: 0 10px;
+    font-size: 1.2em;
+    padding-left: 1.6em; // インデント
+    position: relative;
+    @media only screen and (max-width: 480px) {
+      margin-top: 10px;
+    }
+    &::before {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f00c';
+      font-weight: 900;
+      margin-right: 10px;
+      color: $color;
+      position: absolute;
+      left: 0; // 左端に固定
+    }
+
+    // brタグの後のテキストにインデントを追加
+    br + * {
+      display: inline-block;
+      margin-left: 1.6em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
+    }
+  }
+}
+.check-list-pink {
+  @include check-list($lightpink);
+}
+.check-list-blue {
+  @include check-list($lightblue);
+}
+
+.ol-list-pink {
+  border: 5px solid $lightpink;
+  border-radius: 10px;
+  padding: 10px;
+  counter-reset: li_count;
+  margin: 20px 0 10px 0;
+  li {
+    padding: 0 10px;
+    font-size: 1.2em;
+    @media only screen and (max-width: 480px) {
+      margin-top: 10px;
+    }
+    &:before {
+      counter-increment: li_count;
+      content: counter(li_count) '.';
+      font-weight: 900;
+      margin-right: 10px;
+      color: $lightpink;
+    }
+
+    // brタグの後のテキストにインデントを追加
+    br + * {
+      display: inline-block;
+      margin-left: 2em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
+    }
+  }
+}
+.ol-list-blue {
+  border: 5px solid $lightblue;
+  border-radius: 10px;
+  padding: 10px;
+  counter-reset: li_count;
+  margin: 20px 0 10px 0;
+  li {
+    padding: 0 10px;
+    font-size: 1.2em;
+    @media only screen and (max-width: 480px) {
+      margin-top: 10px;
+    }
+    &:before {
+      counter-increment: li_count;
+      content: counter(li_count) '.';
+      font-weight: 900;
+      margin-right: 10px;
+      color: $lightblue;
+    }
+
+    // brタグの後のテキストにインデントを追加
+    br + * {
+      display: inline-block;
+      margin-left: 2em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
+    }
+  }
+}
+
+.shop-reviews ul li {
+  background-color: white;
+  border: none;
+  color: $black;
+  font-weight: 400;
+  margin-top: 10px;
+}
+.shop-reviews {
+  display: block;
+  ul li::before {
+    margin-right: 10px;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f04b';
+  }
+  ul {
+    margin-bottom: 30px;
+  }
+  ul li {
+    // brタグの後のテキストにインデントを追加
+    br + * {
+      display: inline-block;
+      margin-left: 1.5em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
+    }
+  }
+  span {
+    background: black;
+    font-size: 1.4em;
+    color: white;
+    font-weight: 700;
+    padding: 3px 10px;
+  }
+}
+.kadomaru-li {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    padding: 0px 10px;
+    line-height: 2em;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+}
+
+ul.keisaigym-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2列にする */
+  gap: 10px; /* li同士の余白 */
+}
+.loop-list {
+  overflow: hidden;
+  width: 100%; /* 親に収める */
+}
+.loop-list ul li {
+  object-fit: cover;
+}
+.width-250 ul li {
+  width: 250px;
+  max-width: 250px;
+}
+.width-300 ul li {
+  width: 300px;
+}
+.border li {
+  border: 1px solid #000;
+}
+.kadokaku-li {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    padding: 0px 10px;
+    line-height: 2em;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+}
+.daen-li {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    padding: 0px 10px;
+    border-radius: 999px;
+    line-height: 2em;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+}
+.sib-plist {
+  li {
+    line-height: 2em;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 40px;
+    list-style: disc;
+    br + * {
+      display: inline-block;
+      margin-left: 0em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
+    }
+  }
+}
+.sib-nlist {
+  li {
+    line-height: 2em;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 40px;
+    list-style: decimal;
+    br + * {
+      display: inline-block;
+      margin-left: 0em; // before要素の分だけ左側に空白を作る
+      font-weight: 400;
     }
   }
 }

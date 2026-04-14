@@ -26,22 +26,28 @@ button {
   a {
     text-decoration: none;
   }
-  &.btn1-yel {
+  &.main {
+    background-color: $main;
+  }
+  &.sub {
+    background-color: $sub;
+  }
+  &.yel {
     background-color: $yellow;
   }
-  &.btn1-darkblue {
+  &.darkblue {
     background-color: $darkblue;
   }
-  &.btn1-blue {
+  &.blue {
     background-color: $blue;
   }
-  &.btn1-orange {
+  &.orange {
     background-color: $orange;
   }
-  &.btn1-green {
+  &.green {
     background-color: $green;
   }
-  &.btn1-glay {
+  &.glay {
     background-color: $glay;
   }
 }
@@ -101,7 +107,8 @@ button {
 .btn3 {
   text-align: center;
   color: $white;
-  border-radius: 9999px;
+  border-radius: 99px;
+  width: fit-content;
   padding: 1rem 3rem;
   font-size: 1.6rem;
   font-weight: 700;
@@ -117,7 +124,7 @@ button {
   a {
     text-decoration: none;
   }
-  &.btn3-darkblue {
+  &.darkblue {
     background-color: $darkblue;
   }
   &.btn3-yel {
@@ -198,7 +205,7 @@ button#top-button {
   display: none;
   text-align: center;
   color: white;
-  background-color: rgba(0, 30, 108, 0.8);
+  background-color: #03466ecc;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -215,5 +222,134 @@ button#top-button {
     line-height: 10px;
     font-size: 1.2rem;
     font-weight: 700;
+  }
+}
+a {
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+  }
+}
+$shadow-base: 0 4px 14px rgba(0, 0, 0, 0.06);
+$shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+.btn {
+  text-align: center;
+  border-radius: 999px;
+  padding: 1.2rem 4.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: all 0.4s ease 0.1s;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px $glay;
+  a {
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-3px);
+  }
+}
+.border-black {
+  border: 1px solid $black;
+}
+.btn-big {
+  text-align: center;
+  border-radius: 999px;
+  padding: 1.5rem 6rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: all 0.4s ease 0.1s;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px $glay;
+  a {
+    cursor: pointer;
+  }
+}
+//↓フロントページの駅ボタン
+.btn4 {
+  text-align: center;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  transition: all 0.4s ease 0.1s;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 150px;
+  a {
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 1.2rem;
+    width: 120px;
+  }
+}
+.inline {
+  display: inline-block;
+}
+.width20 {
+  width: 20%;
+}
+.width35 {
+  width: 35%;
+}
+.width50 {
+  width: 50%;
+}
+.width80 {
+  width: 80%;
+}
+
+.kirakira {
+  position: relative;
+}
+.kirakira::after {
+  animation: 4s 0s shine linear infinite;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  content: '';
+  height: 100%;
+  left: -20%;
+  position: absolute;
+  top: 0;
+  transform: skewX(-15deg);
+  width: 20%;
+}
+.kirakira:hover {
+  color: #fff;
+}
+@keyframes shine {
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.arrow::after {
+  position: absolute;
+  font-family: 'Font Awesome 5 Free';
+  right: 10px;
+  font-weight: 900;
+  content: '\f054';
+  @media only screen and (max-width: 480px) {
+    right: 20px;
+  }
+}
+.arrow-50::after {
+  position: absolute;
+  font-family: 'Font Awesome 5 Free';
+  right: 10px;
+  font-weight: 900;
+  content: '\f054';
+  top: 50%;
+  transform: translateY(-50%);
+  @media only screen and (max-width: 480px) {
+    right: 20px;
   }
 }

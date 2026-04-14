@@ -1,136 +1,101 @@
-<?php /** * Template Name: gym *//** * Template Post Type: post,gym_info */  get_header(); ?>
+<?php /** * Template Name: 都道府県一覧付き *//** * Template Post Type: post,gym_info */  get_header(); ?>
 block pageContent
   article
     section
       .container 
         div.breadcrumb <?php get_template_part('functions/breadcrumb'); ?>
-        h2.gym <?php echo get_the_title(); ?>
-        div.gymkind 
-          ul
-            <?php foreach(get_field('gym_kind')as $data):?>
-            li <?php echo $data;?>
-            <?php endforeach;?>
-        table
-          tr
-            th パーソナル対応
-            td <?php the_field('parsonal'); ?>
-          tr 
-            th 住所
-            td <?php the_field('address'); ?>
-          tr 
-            th アクセス
-            td <?php the_field('access'); ?>
-          tr 
-            th 駐車場
-            td <?php the_field('parking'); ?>
-          tr 
-            th 営業時間
-            td <?php the_field('business_hours'); ?>
-        h3.flex-center-center  
-          p 設備・サービス情報
-        div.slideshow
-          div#slideshow-image
-            img(src!= "<?php if (!empty(get_field('gym_photo01'))) :?><?php the_field('gym_photo01'); ?><?php endif; ?>")
-          ul#thumbnail.thumbnail
-            li: img(src!= "<?php if (!empty(get_field('gym_photo01'))) :?><?php the_field('gym_photo01'); ?><?php endif; ?>")
-            <?php if (!empty(get_field('gym_photo02'))) :?>
-            li: img(src!= "<?php the_field('gym_photo02'); ?>")
-            <?php endif; ?>
-            <?php if (!empty(get_field('gym_photo03'))) :?>
-            li: img(src!= "<?php the_field('gym_photo03'); ?>")
-            <?php endif; ?>
-            <?php if (!empty(get_field('gym_photo04'))) :?>
-            li: img(src!= "<?php the_field('gym_photo04'); ?>")
-            <?php endif; ?>
-            <?php if (!empty(get_field('gym_photo05'))) :?>
-            li: img(src!= "<?php the_field('gym_photo05'); ?>")
-            <?php endif; ?>
-        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js")
-        h4 設備
-        div.setsubi
-          ul
-            <?php foreach(get_field('facility')as $data):?>
-            li <?php echo $data;?>
-            <?php endforeach;?>
-        h4 支払い方法
-        div.setsubi
-          ul
-            <?php foreach(get_field('payment')as $data):?>
-            li <?php echo $data;?>
-            <?php endforeach;?>
-        h4 サービス情報
-        div.setsubi
-          ul 
-            <?php foreach(get_field('service_info')as $data):?>
-            li <?php echo $data;?>
-            <?php endforeach;?>
-        h3.flex-center-center  
-          p おすすめポイント
-        div.point
-          div
-          ul.recpoint <?php if (!empty(get_field('point1_title'))) :?>
-            li <?php the_field('point1_title'); ?>
-              p <?php the_field('point1_naiyou'); ?><?php endif; ?>
-              <?php if (!empty(get_field('point2_title'))) :?>
-            li <?php the_field('point2_title'); ?>
-              p <?php the_field('point2_naiyou'); ?><?php endif; ?>
-              <?php if (!empty(get_field('point3_title'))) :?>
-            li <?php the_field('point3_title'); ?>
-              p <?php the_field('point3_naiyou'); ?><?php endif; ?>
-        h3.flex-center-center 
-          p 料金プラン
-        div.planname <?php the_field('planname1'); ?>
-        div.planwaku
-          ul
-            li
-              div.gymplan-left.flex-center-center 料金
-              div.gymplan-right.flex-none-center <?php the_field('price1'); ?>
-            li 
-              div.gymplan-left.flex-center-center  利用可能時間
-              div.gymplan-right.flex-none-center <?php the_field('riyou_time1'); ?>
-            li
-              div.gymplan-left.flex-center-center  回数
-              div.gymplan-right.flex-none-center <?php the_field('use_range1'); ?>
-            li 
-              div.gymplan-left.flex-center-center  特記事項                 
-              div.gymplan-right.flex-none-center <?php the_field('notices1'); ?>
-        h3.h3_dotglay.flex-center-center 
-          p 初期費用・入会金
-        div.initialname <?php the_field('initial_cost_name'); ?>
-        div.initialwaku <?php the_field('initial_cost'); ?>
-        h3.h3_dotglay.flex-center-center 
-          p 地図・アクセス
-        div.access <?php the_field('access'); ?>
-          div.googlemap
-            <?php echo get_field('gym_googlemap'); ?>
-        h3.h3_dotglay.flex-center-center 
-          p 基本情報
-        div.flex-center-center 
-          table 
-            tr
-              th 施設名
-              td <?php the_field('gym_name'); ?>
-            tr
-              th 営業時間
-              td <?php the_field('business_hours'); ?>
-            tr 
-              th アクセス
-              td <?php the_field('access'); ?>
-            tr
-              th 駐車場
-              td <?php the_field('parking'); ?>
-        <?php if (!empty(get_field('aflink'))) :?>
-        div.btn-basyo
-          div.flex-center-center
-            button.btn1.btn1-blue
-              a(href!= "<?php echo get_field('aflink'); ?>" rel="nofollow") 見学やお申込みはこちらから
-          div.flex-center-center
-            button.btn1.btn1-orange
-              a(href="<?php echo get_field('aflink'); ?>" rel="nofollow") 公式サイトでもっと詳しく
-              <?php else:?>
-          div.officialhp
-            a(href!= "<?php echo get_field('official_link'); ?>" rel="nofollow") 公式サイトリンク
-              <?php endif; ?>
+        div <?php while ( have_posts() ) : the_post(); ?>
+        div.thum
+          <?php the_post_thumbnail(); ?>
+        h1 <?php echo get_the_title(); ?>
+        div 
+          <?php the_content(); ?>
+          <?php endwhile; ?>
+          input#tab-a.tab-input(type="" role="tab" name="tab-radio" value="usage" checked)
+          h3.tab-label-heading.selected
+            label.tab-label(for="tab-a") 関東
+
+          input#tab-b.tab-input(type="radio" role="tab" name="tab-radio" value="type")
+          h3.tab-label-heading
+            label.tab-label(for="tab-b") 近畿
+
+          input#tab-c.tab-input(type="radio" role="tab" name="tab-radio" value="maker")
+          h3.tab-label-heading
+            label.tab-label(for="tab-c") 中部
+          
+          input#tab-d.tab-input(type="radio" role="tab" name="tab-radio" value="maker")
+          h3.tab-label-heading
+            label.tab-label(for="tab-d") 北海道
+
+          input#tab-e.tab-input(type="radio" role="tab" name="tab-radio" value="maker")
+          h3.tab-label-heading
+            label.tab-label(for="tab-e") 東北
+
+          input#tab-f.tab-input(type="radio" role="tab" name="tab-radio" value="maker")
+          h3.tab-label-heading
+            label.tab-label(for="tab-f") 中国
+
+          input#tab-g.tab-input(type="radio" role="tab" name="tab-radio" value="maker")
+          h3.tab-label-heading
+            label.tab-label(for="tab-g") 四国
+
+          input#tab-h.tab-input(type="radio" role="tab" name="tab-radio" value="maker")
+          h3.tab-label-heading
+            label.tab-label(for="tab-h") 九州・沖縄
+
+          div.tab-panel.panel-a(role="tabpanel")
+            div
+              p 関東の中身
+
+          div.tab-panel.panel-b(role="tabpanel")
+            div
+              p 近畿の中身
+
+          div.tab-panel.panel-c(role="tabpanel")
+            div
+              p 中部の中身
+
+          div.tab-panel.panel-d(role="tabpanel")
+            div
+              p 北海道の中身
+
+          div.tab-panel.panel-e(role="tabpanel")
+            div
+              p 東北の中身
+
+          div.tab-panel.panel-f(role="tabpanel")
+            div
+              p 中国の中身
+
+          div.tab-panel.panel-g(role="tabpanel")
+            div
+              p 四国の中身
+
+          div.tab-panel.panel-h(role="tabpanel")
+            div
+              p 九州・沖縄の中身
+          <br>
+        div
+          button(type='button' data-tab='kanto').js-tabbtn.active 関東
+          button(type='button' data-tab='kinki').js-tabbtn 近畿
+          button(type='button' data-tab='chubu').js-tabbtn 中部
+          button(type='button' data-tab='hokkaido').js-tabbtn 北海道
+          button(type='button' data-tab='tohoku').js-tabbtn 東北
+          button(type='button' data-tab='chugoku').js-tabbtn 中国
+          button(type='button' data-tab='shikoku').js-tabbtn 四国
+          button(type='button' data-tab='kyushu').js-tabbtn 九州・沖縄
+        div 
+          div.js-tabbox(data-tab='kanto').active 関東の中身
+          div.js-tabbox(data-tab='kinki') 近畿の中身
+          div.js-tabbox(data-tab='chubu') 中部の中身
+          div.js-tabbox(data-tab='hokkaido') 北海道の中身
+          div.js-tabbox(data-tab='tohoku') 東北の中身
+          div.js-tabbox(data-tab='chugoku') 中国の中身
+          div.js-tabbox(data-tab='shikoku') 四国の中身
+          div.js-tabbox(data-tab='kyushu') 九州・沖縄の中身
+
+
+
     section 
 block append bodyScript
 <?php get_footer(); ?>

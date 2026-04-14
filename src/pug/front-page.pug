@@ -1,152 +1,127 @@
 <?php get_header(); ?>
-main.l-main.p-page.p-front-page
+  main.l-main.p-page.p-front-page.home
   article
     section
-      .container
-        img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/top-cover-img1.webp")
-        h2#prteinsearch.kon プロテイン検索
-        div.search
-          div.searchta
-            <?php include("searchform.php"); ?>
-        h2.kon 新規掲載プロテイン情報
-        div
-          <?php $args = array('post_type' => 'protein_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
-          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-        div.gymlist-waku
-          div.none.gymlist-gymkind
-            ul
-              li <?php $terms = get_the_terms($post->ID, 'protein_type'); foreach($terms as $term): echo $term->name; ?> <?php endforeach;?>
-          div.gymlist-caset
-            div.gymlist-name
-              a(href!= "<?php the_permalink(); ?>") <?php the_field('name'); ?>
-            div.flavor-list
-              ul
-                <?php $terms = get_the_terms($post->ID, 'protein_flavor'); foreach($terms as $term): { echo '<li>'; echo $term->name; echo '</li>'; }?> <?php endforeach;?>
-            div.gymlist-detail
-              div.detailthum  
-                img(src!= "<?php if (!empty(get_field('photo01'))) :?><?php echo get_template_directory_uri(); ?>/assets/img/protein/<?php the_field('photo01'); ?>.webp<?php endif; ?>" alt!="<?php the_field('altphoto01'); ?>")
-              div.detailpoint-waku
-                table.table-pc
-                  tr 
-                    th 1食分の量
-                    td <?php the_field('gpermeel'); ?>g
-                    th １食あたりのタンパク質量
-                    td <?php the_field('maxprotein'); ?>g 
-                  tr
-                    th １食あたりの価格（税込み）
-                    td ¥<?php the_field('pricepermeel'); ?>
-                    th 1gあたりの価格（税込み）
-                    td ¥<?php the_field('priceperg'); ?>
-                table.table-smp
-                  tr 
-                    th 1食分の量
-                    td <?php the_field('gpermeel'); ?>g
-                  tr
-                    th １食あたりのタンパク質量
-                    td <?php the_field('maxprotein'); ?>g 
-                  tr
-                    th １食あたりの価格（税込み）
-                    td ¥<?php the_field('pricepermeel'); ?>
-                  tr
-                    th 1gあたりの価格（税込み）
-                    td ¥<?php the_field('priceperg'); ?>
-                  div.textsmall ＊フレーパーにより異なる場合があります。
-                div.point-waku <?php the_excerpt(); ?>
-          div.gymlist-bottum
-          <?php if (!empty(get_field('aflink'))) :?>
-            button.btn2.btn2-blue
-              <?php echo get_field('aflink'); ?>
-          <?php endif; ?>
-            button.btn2.btn2-orange
-              a(href!= "<?php the_permalink(); ?>") 詳細ページはこちら
-          <?php endwhile;?>
-          <?php endif;?>  
-        h2#gymsearch.kon フィットネスジム・トレーニングジム検索
-        div.search
-          div.searchta
-            <?php include("gym-searchform.php"); ?>
-        h2.kon 新規掲載フィットネス・トレーニングジム
-        div
-          <?php $args = array('post_type' => 'gym_info','posts_per_page' => 5 ); $the_query = new WP_Query($args); if ($the_query->have_posts()) :?>
-          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-          div.gymlist-waku
-            div.gymlist-gymkind
-              ul
-                <?php foreach(get_field('gym_kind')as $data):?>
-                li <?php echo $data;?>
-                <?php endforeach;?>
-            div.gymlist-caset
-              div.gymlist-name 
-                a(href!= "<?php the_permalink(); ?>") <?php the_field('gym_name'); ?>
-              div 住所：<?php the_field('address'); ?>
-              div アクセス:<?php the_field('access'); ?>
-            div.setsubi
-              ul <?php foreach(get_field('facility')as $data):?>
-                li <?php echo $data;?>
-                <?php endforeach;?>
-            div.gymlist-detail
-              div.detailthum
-                <?php the_post_thumbnail(); ?>
-              div.detailpoint-waku
-                table.table-pc
-                  tr 
-                    th 営業時間
-                    td <?php the_field('business_hours'); ?>
-                    th 駐車場
-                    td <?php the_field('parking'); ?>
-                  tr
-                    th 初期費用
-                    td <?php the_field('initial_cost'); ?>
-                    th 月額・プラン料金
-                    td <?php the_field('price1'); ?>
-                table.table-smp
-                  tr 
-                    th 営業時間
-                    td <?php the_field('business_hours'); ?>
-                  tr
-                    th 駐車場
-                    td <?php the_field('parking'); ?>
-                  tr
-                    th 初期費用
-                    td <?php the_field('initial_cost'); ?>
-                  tr
-                    th 月額・プラン料金
-                    td <?php the_field('price1'); ?>
-                div.point-waku
-                  ul <?php if (!empty(get_field('point1_title'))) :?>
-                    li <?php the_field('point1_title'); ?><?php endif; ?>
-                      <?php if (!empty(get_field('point2_title'))) :?>
-                    li <?php the_field('point2_title'); ?><?php endif; ?>
-                      <?php if (!empty(get_field('point3_title'))) :?>
-                    li <?php the_field('point3_title'); ?><?php endif; ?> 
-              <?php if (!empty(get_field('aflink'))) :?>
-            div.gymlist-bottum
-              button.btn2-blue
-                a(href!= "<?php get_field('aflink'); ?>") 見学やお申込みはこちらから
-              button.btn2-orange
-                a(href!= "<?php get_field('aflink'); ?>") 公式サイトでもっと詳しく
-              <?php endif;?>
-          <?php endwhile;?>
-          <?php wp_reset_query(); ?>
-          <?php endif;?>
-        h2.kon フィットネスジム・トレーニングジム別に探す
-        div
-          div.oote-hako
-            div.oote 
-              a(href!="<?php echo esc_url('/gym-brand/rizap'); ?>")
-                div
-                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/rizap/rizap0.webp" alt="RIZAPを選ぶ理由")
-            div.oote 
-              a(href!="<?php echo esc_url('/gym-brand/rizapwoman'); ?>")
-                div
-                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/rizap/rizapwoman1.webp" alt="RIZAPWOMANを選ぶ理由")
-            div.oote 
-              a(href!="<?php echo esc_url('/gym-brand/beyond'); ?>")
-                div
-                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/beyond/beyond1.webp" alt="BEYONDを選ぶ理由")
-            div.oote 
-              a(href!="<?php echo esc_url('/gym-brand/chocozap'); ?>")
-                div
-                img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/gym/chocozap/chocozap1.webp" alt="chocoZAPを選ぶ理由")
+      .front-image.margin-0.spnone
+        img(src!="<?php echo get_template_directory_uri(); ?>/assets/img/common/torehaji-top-img.png", alt="トレハジ").margin-0
+      .front-image.margin-0.pcnone
+        img(src!="<?php echo get_template_directory_uri(); ?>/assets/img/common/sp-top-img.png", alt="トレハジ").margin-0  
+      .mw800.margin-0a.text-c
+        h1.hero-copy がんばりすぎなくていい。自分のペースで向き合う、カラダづくりのはじめ方。
+        p.text-l トレハジは、プロテインと自宅トレーニングを軸に、運動や食生活に不安のある初心者が、無理なく情報を選べるように整理したサポートメディアです。
+        p.text-l 食生活を見直すこと。
+        p.text-l 家でできる運動を知ること。
+        p.text-l 必要に応じて、パーソナルという選択肢を持つこと。
+        p.text-l トレハジは、このシンプルな3ステップを通して、続けやすい考え方と向き合い方をそっと支えます。
     section
+      .bgc-white.margin-t20a
+        .mw800.margin-0a.text-c
+          h2.font-corporate-logo-bold はじめてでも遠回りしない、3ステップのカラダづくり
+          p.text-l トレハジは「何をすればいいか分からない」を減らすために、<br />プロテイン → 自宅トレ → パーソナルという順番で情報を整理しています。<br />無理なく続けるための“選び方”を、あなたのペースで。<br />
+        .steps.sp-margin-10.text-c
+          .step-card
+            .main.font-corporate-logo-bold.font-16 STEP1：
+            h2.font-corporate-logo-bold.margin-l10 食生活から整える<br />（プロテインの基本）
+            img(src!="<?php echo get_template_directory_uri(); ?>/assets/img/common/protein-top.webp", alt="トレハジ").step-image.margin-0  
+            p.step-text.text-l どれを選ぶか、いつ飲むか、そもそも必要か
+            p.step-text.text-l 迷いやすいポイントを整理して、あなたに合う選び方のヒントをまとめます。
+            p.step-text.text-l ※体質や生活習慣により合う・合わないがあります。まずは無理のない範囲で。
+            p.step-text.text-l.font-w7 このSTEPでわかること：選び方・飲むタイミング・続け方
+            a(href="/protein/protein-guide").btn-link
+              button.btn.border-black プロテインの選び方を見る
+          .step-card
+            .main.font-corporate-logo-bold.font-16 STEP2：
+            h2.font-corporate-logo-bold.margin-l10 運動が苦手でも続けやすい、<br />自宅トレから
+            img(src!="<?php echo get_template_directory_uri(); ?>/assets/img/common/home-training-top.webp", alt="トレハジ").step-image.margin-0  
+            p.step-text.text-l 「まず何をやればいい？」を最短で解決。
+            p.step-text.text-l 運動が苦手な人・続かない人でも始めやすい内容を中心に、
+            p.step-text.text-l 器具なし・短時間・フォームの基本など、続けるためのコツをまとめています。
+            p.step-text.text-l.font-w7 このSTEPでわかること：初心者メニュー・フォーム・習慣化のコツ
+            a(href="/home-training/home-training-beginner")
+              button.btn.border-black 自宅トレの基本メニューを見る
+          .step-card
+            .main.font-corporate-logo-bold.font-16 STEP3：
+            h2.font-corporate-logo-bold.margin-l10 ひとりで続けにくいときは<br />（パーソナルという選択肢）
+            img(src!="<?php echo get_template_directory_uri(); ?>/assets/img/common/personal-gym-top.webp", alt="トレハジ").step-image.margin-0  
+            p.step-text.text-l ひとりで続けにくいとき、フォームが不安なとき、環境を変えたいとき。
+            p.step-text.text-l パーソナルジムの選び方や比較ポイントを、初心者目線で整理します。
+            p.step-text.text-l ※無理におすすめするものではなく、「必要な人が迷わないため」の情報です。
+            p.step-text.text-l.font-w7 このSTEPでわかること：ジム比較・料金の見方・失敗しない選び方
+            a(href="/personal-gym/personal-gym-beginner-guide")
+              button.btn.border-black ジム選びのマニュアルを見る
+    section.bgc-white.mw800.margin-0a
+      .bgc-white.margin-t20a
+        .mw800.margin-0a.text-c
+          h2.font-corporate-logo-bold 今すぐ使える体づくりを支える便利ツール
+          p.text-l インストール不要のブラウザタイマーとプロテインのコスパを計算できるツールをご用意しました。
+        .steps.sp-margin-10.text-c
+          .step-card
+            h3.font-corporate-logo-bold.margin-l10 プロテインコスパ計算ツール
+            img(src!="https://torehaji.com//wp-content/uploads/2026/02/protein-cost-calculator.webp", alt="プロテインのコスパを計算する電卓とプロテイン容器のイラスト").step-image.margin-0  
+            p.step-text.text-l 容量の違いや、割引率を考慮したコスパを計算できるツールです。
+            p.step-text.text-l 1回あたりの金額や、製品100gあたりの金額を計算できます。
+            p.step-text.text-l タンパク質含有量が分かれば、タンパク質100gあたりの金額も計算できます。
+            a(href="/protein-cost-calculator").btn-link
+              button.btn.border-black プロテインコスパ計算ツールを見る
+          .step-card
+            h3.font-corporate-logo-bold.margin-l10 インストール不要のブラウザタイマー
+            img(src!="https://torehaji.com//wp-content/uploads/2026/02/home-workout-timer.webp", alt="スマホのブラウザタイマーを見ながら自宅でトレーニングする30代日本人女性").step-image.margin-0  
+            p.step-text.text-l アプリのダウンロードは不要で、ブラウザですぐに使えるタイマーです。
+            p.step-text.text-l それぞれの時間をタップすれば、すぐにタイマーがはじまります。
+            p.step-text.text-l 時間を設定する必要はありません。
+            a(href="/browser-timer").btn-link
+              button.btn.border-black インストール不要のブラウザタイマーを見る
+    section.bgc-white.mw800.margin-0a
+      h2.ko-midashi.font-corporate-logo-bold 人気の記事
+      .margin-b20 トレハジの中でも、特に読まれている初心者向け記事です。
+      div.flexbox-sb.article-list
+        article.box-kiji
+          div.thum.shadow.border-radius
+            a(href="/protein/protein-cost-performance")
+              img(src!="https://torehaji.com/wp-content/uploads/2026/01/protein-cost-performance.webp", alt="コスパ最強プロテインランキング｜自宅トレ向けに厳選した5選").margin-0  
+          h3.text-cut.pcnone.article-title
+            a(href="/protein/protein-guide") コスパ最強プロテインランキング｜自宅トレ向けに厳選した5選
+          h3.text-cut.spnone.article-title
+            a(href="/protein/protein-guide") コスパ最強プロテインランキング｜自宅トレ向けに厳選した5選
+        article.box-kiji
+          div.thum.shadow.border-radius
+            a(href="/protein/protein-guide")
+              img(src!="https://torehaji.com/wp-content/uploads/2025/09/protein-guide.webp", alt="【保存版】初めてのプロテイン選びと飲み方ガイド｜初心者が迷わない完全入門").margin-0  
+          h3.text-cut.pcnone.article-title
+            a(href="/protein/protein-guide") 【保存版】初めてのプロテイン選びと飲み方ガイド｜初心者が迷わない完全入門
+          h3.text-cut.spnone.article-title
+            a(href="/protein/protein-guide") 【保存版】初めてのプロテイン選びと飲み方ガイド｜初心者が迷わない完全入門
+        article.box-kiji 
+          div.thum.shadow.border-radius
+            a(href="/protein/whey-protein-wpc-wpi-wph")
+              img(src!="https://torehaji.com/wp-content/uploads/2025/10/whey-protein-wpc-wpi-wph.webp", alt="ホエイプロテイン完全ガイド｜WPC・WPI・WPHの違いと選び方").margin-0  
+          h3.text-cut.pcnone.article-title
+            a(href="/protein/whey-protein-wpc-wpi-wph") ホエイプロテイン完全ガイド｜WPC・WPI・WPHの違いと選び方
+          h3.text-cut.spnone.article-title
+            a(href="/protein/whey-protein-wpc-wpi-wph") ホエイプロテイン完全ガイド｜WPC・WPI・WPHの違いと選び方
+        article.box-kiji 
+          div.thum.shadow.border-radius
+            a(href="/protein/protein-overdose-risk")
+              img(src!="https://torehaji.com/wp-content/uploads/2025/11/protein-overdose-risk-side-effects.webp", alt="プロテインの飲みすぎは危険？副作用と正しい飲み方の注意点").margin-0  
+          h3.text-cut.pcnone.article-title
+              a(href="/protein/protein-overdose-risk") プロテインの飲みすぎは危険？副作用と正しい飲み方の注意点
+          h3.text-cut.spnone.article-title
+              a(href="/protein/protein-overdose-risk") プロテインの飲みすぎは危険？副作用と正しい飲み方の注意点
+    section.bgc-white.mw800.margin-0a
+      h2.ko-midashi.font-corporate-logo-bold 新着記事
+      div.flexbox-sb.article-list
+        <?php $args=array('post_type' => array('protein','home_training','personal_gym'),'posts_per_page'=>6,'orderby'=>'date','order'=>'DESC');$the_query=new WP_Query($args);if($the_query->have_posts()):while($the_query->have_posts()):$the_query->the_post();?><article class="box-kiji"><div class="thum shadow border-radius"><a href="<?php the_permalink(); ?>"><img src="<?= the_post_thumbnail_url() ?>" alt="<?= get_post_meta(get_post_thumbnail_id(),'_wp_attachment_image_alt',true)?:'トレハジ画像準備中' ?>"></a></div><h3 class="text-cut pcnone article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3><h3 class="text-cut spnone article-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3></article><?php endwhile;wp_reset_postdata();endif; ?>
+    section.bgc-white.mw800.margin-0a
+      div(itemscope itemtype="https://schema.org/Organization")
+        meta(itemprop="name" content="株式会社Simple is Best")
+      h2.ko-midashi.font-corporate-logo-bold 編集長からごあいさつ
+      p 
+        strong はじめまして、「トレハジ」の編集長をしているトレパンです。
+      p 運動や食生活についての情報は多く、<br />何から始めればいいのか迷ってしまう方も多いと感じています。
+      p このサイトでは、<br />プロテインに関する基礎的な考え方や食生活の整え方、<br />自宅で無理なく取り入れやすい運動の情報、<br />そして、ひとりで続けにくい場合の選択肢としてのパーソナルジムまで、<br />初心者の方が判断しやすいよう、段階的に情報を整理しています。<br />
+      p 特定の方法や結果をすすめるものではなく、<br />「続けやすさ」「わかりやすさ」「安心感」を大切にしながら、<br />ご自身に合った向き合い方を考えるための参考になれば嬉しいです。
+      h2.ko-midashi.font-corporate-logo-bold トレハジについて
+      p トレハジは、運動や食生活に関する情報を、<br />初心者にもわかりやすく整理して届けることを目的としたメディアです。
+      p 特定の方法や結果を保証するものではなく、<br />一人ひとりが自分に合った選択を考えるための参考情報を提供しています。
+      p 運営：株式会社　Simple is Best
 <?php get_footer(); ?>

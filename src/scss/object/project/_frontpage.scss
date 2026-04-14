@@ -1,5 +1,4 @@
 @use "../../foundation/import" as *;
-@use "../../colorlayout" as *;
 
 /* -------------------------------
  *  common
@@ -107,4 +106,212 @@ td.searchtd {
   @media only screen and (max-width: 480px) {
     margin: 10px 0;
   }
+}
+.mw720 {
+  max-width: 720px;
+  @media only screen and (max-width: 480px) {
+    max-width: 420px;
+  }
+}
+.mw800 {
+  max-width: 800px;
+  @media only screen and (max-width: 480px) {
+    max-width: 80%;
+  }
+}
+.mw80 {
+  max-width: 80%;
+}
+.font-1 {
+  font-size: 0.8em;
+}
+.thum-mini img {
+  height: 150px;
+  width: 150px;
+  min-width: 150px;
+  margin: 0;
+}
+.mh200 {
+  max-height: 200px;
+}
+.overflow-y {
+  overflow-y: scroll;
+}
+.overflow-x {
+  overflow-x: scroll;
+}
+@keyframes loop-animation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animetion-list {
+  animation-name: loop-animation;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  width: calc(100% * 12);
+}
+.slide {
+  flex: 0 0 12.5%;
+}
+.animetion-list li {
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+.animetion-list:hover {
+  animation-play-state: paused;
+}
+.ob-cover-img img {
+  object-fit: cover;
+}
+.front-image img {
+  width: 100vw;
+  object-fit: cover;
+  object-position: center;
+}
+.triangle-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $main;
+  height: calc(tan(60deg) * 30px / 2);
+  width: 150px;
+  clip-path: polygon(0 0, 100% 0, 0 70%);
+}
+.triangle-down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: $sub;
+  height: calc(tan(60deg) * 30px / 2);
+  width: 150px;
+  clip-path: polygon(100% 30%, 100% 100%, 0 100%);
+}
+.max-width90 {
+  max-width: 90%;
+}
+.max-w60 {
+  max-width: 60%;
+}
+.max-w9-6 {
+  max-width: 90%;
+  @media only screen and (max-width: 480px) {
+    max-width: 60%;
+  }
+}
+.max-w100 {
+  max-width: 100%;
+}
+.yt-shorts-wrapper iframe {
+  width: 240px;
+  height: 426px; /* Shortsの縦横比 (9:16) を維持 */
+  border: none;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.hero-copy {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  letter-spacing: 0.03em;
+  line-height: 1.55;
+  color: #2a2a2a;
+}
+.hero-sub {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  color: #444;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .hero-copy {
+    font-size: 21px;
+  }
+  .hero-sub {
+    font-size: 14px;
+  }
+}
+
+.youtube {
+  font-size: 50px;
+}
+a.youtube {
+  color: $youtube;
+}
+// =====================================
+//  3ステップ導線カード（step-card）
+// =====================================
+
+$radius: 16px;
+$shadow-base: 0 4px 14px rgba(0, 0, 0, 0.06);
+$shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+.step-card {
+  display: block;
+  background: #fff;
+  border-radius: $radius;
+  padding: 24px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #f2f2f2;
+  box-shadow: $shadow-base;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+  .step-number {
+    color: #a4e0f5; // トレ（ブルー）
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .step-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #2a2a2a;
+    line-height: 1.4;
+  }
+
+  .step-image {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .step-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+  }
+}
+
+// =====================================
+// レイアウト（3カード横並び → SPは縦）
+// =====================================
+
+.steps {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.border-radius {
+  border-radius: 16px;
 }

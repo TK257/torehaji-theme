@@ -59,7 +59,7 @@
     border-radius: 6px;
     box-shadow: 2px 2px 2px gray;
     a {
-      width: 180px;
+      width: auto;
       height: 40px;
       max-height: 40px;
       text-decoration: none;
@@ -87,5 +87,13 @@
     &.item_official {
       background-color: $official;
     }
+  }
+}
+.rakuten-item {
+  table {
+    margin: 15px auto;
+  }
+  table tr {
+    border: none;
   }
 }

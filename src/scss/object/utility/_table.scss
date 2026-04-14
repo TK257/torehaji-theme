@@ -1,4 +1,6 @@
 @use "../../foundation/import" as *;
+@use "../../colorlayout" as *;
+@use "../../layout/base" as *;
 
 /* -------------------------------
  *  table components
@@ -21,14 +23,205 @@ td {
   }
 }
 .table-pc {
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     display: none;
   }
 }
 .table-smp {
   margin-left: 0;
   width: 100%;
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: $mobile-breakpoint + 1px) {
     display: none;
+  }
+}
+.personal_table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 700px;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+.personal_table {
+  td,
+  th {
+    border-bottom: 2px solid $glay;
+    padding: 1em;
+  }
+
+  th {
+    padding: 1em 0;
+  }
+}
+.personal_table th {
+  border-bottom: 2px solid $blue;
+  background-color: #fff;
+  font-weight: bold;
+  text-align: center;
+  width: 30%;
+  min-width: 4em;
+}
+.personal_table tr {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.base-info-table {
+  margin: 15px 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 700px;
+}
+
+.base-info-table th {
+  border-bottom: 2px solid $glay;
+  background-color: #fff;
+  font-weight: bold;
+  text-align: center;
+  width: 30%;
+  min-width: 4em;
+}
+.base-info-table tr {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+.base-info-table td {
+  border-bottom: 1px solid $glay;
+}
+.compa-table {
+  width: 100%;
+  margin: 0;
+  white-space: nowrap;
+  th {
+    color: #fff;
+    padding: 12px;
+    width: auto;
+  }
+  td {
+    padding: 10px 12px;
+    text-align: center;
+    .table-l {
+      text-align: left;
+    }
+  }
+
+  thead th {
+    background-color: #314093;
+    color: #fff;
+  }
+  thead th:nth-child(odd) {
+    background-color: #314093;
+  }
+  tbody td:nth-child(odd) {
+    background-color: #f7f7f8;
+  }
+  thead th:nth-child(even) {
+    background-color: #3c469c;
+  }
+  tbody td:nth-child(even) {
+    background-color: #ffffff;
+  }
+  tbody th {
+    text-align: left;
+    background-color: #bac4fb3d;
+    color: $black;
+  }
+  thead th:nth-child(1),
+  tbody th:nth-child(1) {
+    max-width: 200px;
+    white-space: pre-wrap;
+    min-width: 200px;
+  }
+}
+.compa-table a {
+  color: $clearblue;
+  border-bottom: 1px solid;
+}
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: scroll; // 横スクロールを有効化
+  margin: 0 auto; // 中央揃え
+  padding-bottom: 10px; // スクロールバーの視認性を向上
+}
+.nomal-table {
+  width: 100%;
+  margin: 0;
+  white-space: nowrap;
+  th {
+    padding: 12px;
+    width: auto;
+    color: $white;
+    background-color: #314093;
+  }
+  td {
+    padding: 10px 12px;
+    text-align: center;
+    .table-l {
+      text-align: left;
+    }
+  }
+}
+.table-wrap {
+  max-width: 800px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* スマホでの慣性スクロール */
+
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+    margin: 0 -20px; /* スマホでは画面端まで広げる */
+  }
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    max-width: 100%;
+    margin: 0 -15px; /* より小さいスマホでは余白を調整 */
+  }
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* スクロール発生させたい最小幅を指定 */
+}
+.basic-table {
+  width: 100%;
+  margin: 0;
+  white-space: nowrap;
+  th {
+    color: #fff;
+    padding: 12px;
+    width: auto;
+  }
+  td {
+    padding: 10px 12px;
+    text-align: center;
+    &.text-l {
+      text-align: left;
+    }
+  }
+
+  thead th {
+    background-color: #1a3d8f;
+    color: #fff;
+  }
+  thead th:nth-child(odd) {
+    background-color: #1a3d8f;
+  }
+  tbody td:nth-child(odd) {
+    background-color: #f7f7f8;
+  }
+  thead th:nth-child(even) {
+    background-color: #3767d4;
+  }
+  tbody td:nth-child(even) {
+    background-color: #ffffff;
+  }
+  tbody th {
+    text-align: left;
+    background-color: #bac4fb3d;
+    color: $black;
+  }
+  thead th:nth-child(1),
+  tbody th:nth-child(1) {
+    white-space: pre-wrap;
   }
 }

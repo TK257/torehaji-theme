@@ -16,86 +16,10 @@ function add_link_files()
 //}
 //add_action('after_setup_theme', 'output_title');
 
-//======================================================================
-// カスタム投稿タイプを自作（投稿ページ用）
-//======================================================================
-function self_made_post_type()
-{
-  register_post_type(
-    'gym_info',
-    array(
-      'label' => 'ジム検索', //表示名
-      'public'        => true, //公開状態
-      'exclude_from_search' => false, //検索対象に含めるか
-      'show_ui' => true, //管理画面に表示するか
-      'show_in_menu' => true, //管理画面のメニューに表示するか
-      'menu_position' => 5, //管理メニューの表示位置を指定
-      'hierarchical' => false, //階層構造を持たせるか
-      'has_archive'   => true, //この投稿タイプのアーカイブを作成するか
-      'taxonomies' => array('gym_brand', 'gym_area'), //カテゴリ
-      "rewrite" => array(
-        "slug" => 'gym-info', //URL用のスラッグ
-        "with_front" => true
-      ),
-      'supports' => array(
-        'title',
-        'editor',
-        'comments',
-        'excerpt',
-        'thumbnail',
-        'custom-fields',
-        'post-formats',
-        'trackbacks',
-        'revisions',
-        'author'
-      ), //編集画面で使用するフィールド
-    )
-  );
-}
-add_action('init', 'self_made_post_type', 1);
-//カスタム投稿をカテゴリーページで一覧表示
-function my_main_query($query)
-{
-  if (is_admin() || !$query->is_main_query())
-    return;
-
-  if ($query->is_category() || $query->is_tag()) {
-    $query->set('post_type', array('post', 'gym_info'));
-
-    return;
-  }
-}
-add_action('pre_get_posts', 'my_main_query');
-// カスタム投稿タイプを自作終了
-
-// ジム情報用の地域カテゴリーを読み込む
-require_once(dirname(__FILE__) . '/functions/gym_area.php');
-// ジムブランド用のカテゴリー読み込む
-require_once(dirname(__FILE__) . '/functions/gym_brand.php');
-// プロテインのカスタム投稿を読み込む
-require_once(dirname(__FILE__) . '/functions/protein_info.php');
-// プロテインのブランドタグ読み込む
-require_once(dirname(__FILE__) . '/functions/protein_brand.php');
-// プロテインの種類タグ読み込む
-require_once(dirname(__FILE__) . '/functions/protein_type.php');
-// プロテインの味タグ読み込む
-require_once(dirname(__FILE__) . '/functions/protein_flavor.php');
-// マガジンのカスタム投稿を読み込む
-require_once(dirname(__FILE__) . '/functions/magazine.php');
-// マガジン用のカテゴリ読み込む
-require_once(dirname(__FILE__) . '/functions/magazine_cat.php');
-// マガジン用のタグ読み込む
-require_once(dirname(__FILE__) . '/functions/magazine_tag.php');
-// 筋トレメニューのカスタム投稿を読み込む
-require_once(dirname(__FILE__) . '/functions/kin_training.php');
-// 筋トレメニューのカテゴリ読み込む
-require_once(dirname(__FILE__) . '/functions/kin_training_cat.php');
-// 筋トレメニューのタグ読み込む
-require_once(dirname(__FILE__) . '/functions/kin_training_tag.php');
 // カスタムクエリパラメータの追加
 require_once(dirname(__FILE__) . '/functions/query_vars.php');
 // WP管理画面にブランドと味を表示
-require_once(dirname(__FILE__) . '/functions/wp_custom_column.php');
+//require_once(dirname(__FILE__) . '/functions/wp_custom_column.php');
 // 計算用ショートカット読み込む
 require_once(dirname(__FILE__) . '/functions/keisan.php');
 // 商品リンクのショートカット読み込む
@@ -104,7 +28,12 @@ require_once(dirname(__FILE__) . '/functions/items.php');
 require_once(dirname(__FILE__) . '/functions/h2img.php');
 // h2画像差し込みのショートカット読み込む
 require_once(dirname(__FILE__) . '/functions/contributor_iframe.php');
-
+// パーソナルジムのショートコード読み込み用
+require_once(dirname(__FILE__) . '/functions/short-code.php');
+// 管理画面にターム名表示読み込み用
+require_once(dirname(__FILE__) . '/functions/admin-term.php');
+// FAQのmicrodata読み込み用
+require_once(dirname(__FILE__) . '/functions/faqitems.php');
 //アイキャッチ画像の機能を有効化
 add_theme_support('post-thumbnails');
 
@@ -131,59 +60,90 @@ function get_description()
 
 //OGPここから	
 // メタタグ用タイトル出力
+// メタタグ用タイトル出力
 function seo_meta_title()
 {
-  if (is_singular('gym_info')) {
-    // タクソノミーページ
-    return esc_html(get_the_title()) . 'の入会情報・基本情報・外観画像・料金プラン・月会費・おすすめポイント|ジム検索なら' . get_bloginfo('name');
-  } else if (is_singular('protein_info')) {
-    // プロテインの個別ページ
-    return esc_html(get_the_title()) . 'の栄養成分・価格比較・おすすめポイント|' . get_bloginfo('name');
-  } else if (is_tax('protein_type')) {
-    // プロテインの種類一覧
-    return esc_html(get_the_title()) . 'の一覧|' . get_bloginfo('name');
-  } else if (is_tax('protein_brand')) {
-    // プロテインのブランド一覧
-    return esc_html(get_the_title()) . 'の一覧|' . get_bloginfo('name');
-  } else if (is_tax('protein_flavor')) {
-    // プロテインの味一覧
-    return esc_html(get_the_title()) . 'の一覧|' . get_bloginfo('name');
-  } else if (is_tax('gym_brand', 'beyond')) {
-    return  'BEYONDを選ぶ理由、メリット・デメリットを解説|ジム検索なら' . get_bloginfo('name');
-    //ビヨンド一覧ページのタイトル
-  } else if (is_tax('gym_brand', 'rizap')) {
-    //ライザップ一覧ページのタイトル
-    return 'RIZAPを選ぶ理由、メリット・デメリットを解説|ジム検索なら' . get_bloginfo('name');
-  } else if (is_tax('gym_brand', 'rizapwoman')) {
-    //ライザップウーマン一覧ページのタイトル
-    return 'RIZAPWOMANを選ぶ理由、メリット・デメリットを解説|ジム検索なら' . get_bloginfo('name');
-  } else if (is_tax('gym_brand', 'chocozap')) {
-    //chocoZAP一覧ページのタイトル
-    return 'chocoZAPを選ぶ理由、メリット・デメリットを解説|ジム検索なら' . get_bloginfo('name');
-  } else if (is_tax('gym_area')) { //エリア一覧
-    return esc_html(get_queried_object()->name) . 'のフィットネスジム・トレーニングジム一覧|ジム検索なら' . get_bloginfo('name');
-  } else if (is_page('gym_info')) {
-    // タクソノミーページ
-    return esc_html(get_the_title()) . 'の基本情報|' . get_bloginfo('name');
-  } else if (is_page() || is_singular()) {
-    // 固定ページ・シングルページ
-    return esc_html(get_the_title()) . '|' . get_bloginfo('name');
-  } else {
+  // トップページ・一覧トップ
+  if (is_front_page() || is_home()) {
     return get_bloginfo('name');
   }
+
+  // 固定ページ
+  if (is_page()) {
+    global $post;
+
+    if (!empty($post->post_name)) {
+
+      // トレハジについて（/about）
+      if ($post->post_name === 'about') {
+        return 'トレハジについて｜運営方針・制作ポリシー・運営者情報';
+      }
+
+      // 運営会社（/company）
+      if ($post->post_name === 'company') {
+        return '運営会社情報｜株式会社Simple is Best';
+      }
+    }
+
+    // 固定ページ共通
+    if (!empty($post->post_title)) {
+      return esc_html($post->post_title) . '｜' . get_bloginfo('name');
+    }
+
+    return get_bloginfo('name');
+  }
+
+  // 投稿ページ
+  if (is_singular()) {
+    return esc_html(get_the_title()) . '｜' . get_bloginfo('name');
+  }
+
+  // フォールバック
+  return get_bloginfo('name');
 }
+
 // メタタグ用ディスクリプション出力
 function seo_meta_description()
 {
-  if (is_page() || is_singular()) {
-    // 固定ページ・シングルページ
-    return esc_html(get_the_excerpt()); //抜粋を表示させている
-  } else if (is_tax('gym_area')) { //エリア一覧
-    return esc_html(get_queried_object()->name) . '内のフィットネスジム・トレーニングジムを一覧でご紹介。|ジム検索なら' . get_bloginfo('name');
-  } else {
+  // トップページ・一覧トップ
+  if (is_front_page() || is_home()) {
     return get_bloginfo('description');
   }
+
+  // 固定ページ
+  if (is_page()) {
+    global $post;
+
+    if (!empty($post->post_name)) {
+
+      // トレハジについて（/about）
+      if ($post->post_name === 'about') {
+        return 'トレハジは、プロテインや自宅トレを通じて、運動初心者が無理なく体づくりを始めるための情報を整理・解説するメディアです。運営方針・制作ポリシー・広告方針についてご紹介しています。';
+      }
+
+      // 運営会社（/company）
+      if ($post->post_name === 'company') {
+        return 'トレハジを運営する株式会社Simple is Bestの会社情報ページです。運営主体、事業内容、責任範囲、広告や情報の取り扱い方針について掲載しています。';
+      }
+    }
+
+    // 固定ページ共通（個別指定がない場合）
+    if (!empty($post->post_excerpt)) {
+      return esc_html(strip_tags($post->post_excerpt));
+    }
+
+    return get_bloginfo('description');
+  }
+
+  // 投稿ページ
+  if (is_singular()) {
+    return esc_html(strip_tags(get_the_excerpt()));
+  }
+
+  // フォールバック
+  return get_bloginfo('description');
 }
+
 // カテゴリーページの説明をディスクリプション出力する設定
 function get_meta_description_from_category()
 {
@@ -198,12 +158,17 @@ function get_meta_description_from_category()
 // メタタグ用OGPイメージ出力
 function seo_meta_ogp()
 {
+  // 固定で使う画像URL（フルURLで指定してください）
+  $default_og_image = 'https://torehaji.com/wp-content/themes/git-torehaji/assets/img/logo/Torehaji-default.png';
+
   if (is_singular()) {
-    return get_the_post_thumbnail_url(get_the_ID(), 'full');
+    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+    return $thumbnail ? $thumbnail : $default_og_image;
   } else {
-    return '/BULK-UP/app/public/wp-content/themes/bulkupver1/assets/img/logo/BULKUP正方形ロゴ.png';
+    return $default_og_image;
   }
 }
+
 
 // メタタグ用ページタイプ出力
 function seo_meta_type()
@@ -253,14 +218,6 @@ function add_taxonomy_custom_fields($content, $column_name, $term_id)
   }
   return $content;
 }
-//ショートコードテスト
-function testshort_func($atts, $content = null)
-{
-  return '挿入する文字列';
-}
-add_shortcode('testshort', 'testshort_func');
-//アイキャッチ画像のサムネイル取得を有効にする
-add_theme_support('post-thumbnails');
 // 固定ページの親ページID取得
 function get_parent_page_ID()
 {
@@ -279,15 +236,6 @@ function is_date_archive()
     return true;
   }
 }
-//ショートコードを使ったプロテインテーブルphpファイルの呼び出し方法　使い方は[tpphp file='test']
-function my_php_Include($params = array())
-{
-  extract(shortcode_atts(array('file' => 'default'), $params));
-  ob_start();
-  include(STYLESHEETPATH . "/tableprotein/$file.php");
-  return ob_get_clean();
-}
-add_shortcode('tpphp', 'my_php_Include');
 // 寄稿者に画像アップロード権限を付与
 if (current_user_can('contributor') && !current_user_can('upload_files')) {
   add_action('admin_init', 'allow_contributor_uploads');
@@ -305,4 +253,143 @@ remove_action('do_feed_rss2', 'do_feed_rss2');
 remove_action('do_feed_atom', 'do_feed_atom');
 remove_action('wp_head', 'feed_links', 2);
 remove_action('wp_head', 'feed_links_extra', 3);
+//すべての画像生成を停止する
+function resize_disabled($sizes)
+{
+  $sizes = array();
+  return $sizes;
+}
+add_filter('intermediate_image_sizes', 'resize_disabled');
+add_filter('big_image_size_threshold', '__return_false');
+//phpの読み込み
+require_once(dirname(__FILE__) . '/functions/personal_gym.php');
+require_once(dirname(__FILE__) . '/functions/fitness_gym.php');
+require_once(dirname(__FILE__) . '/functions/training_gear.php');
+require_once(dirname(__FILE__) . '/functions/protein.php');
+require_once(dirname(__FILE__) . '/functions/home_training.php');
+require_once(dirname(__FILE__) . '/functions/area.php');
+require_once(dirname(__FILE__) . '/functions/gym_tag.php');
+require_once(dirname(__FILE__) . '/functions/gear_category.php');
+require_once(dirname(__FILE__) . '/functions/gear_tag.php');
+require_once(dirname(__FILE__) . '/functions/affiliate_code.php');
+require_once(dirname(__FILE__) . '/functions/noindex.php');
+require_once(dirname(__FILE__) . '/functions/afi-product.php');
+require_once(dirname(__FILE__) . '/functions/protein-cost.php');
 //END
+//星を表示する
+add_action('wp_enqueue_scripts', 'enqueue_custom_star_rating_script');
+function enqueue_custom_star_rating_script()
+{
+  wp_enqueue_script('jquery');
+  wp_add_inline_script('jquery', '
+        jQuery(document).ready(function($) {
+            $(".star5_rating").each(function(index, e) {
+                let starRate = $(this).data("rate");
+                let widthRate = Math.round((starRate / 5) * 100);
+                let css = \'.star5_rating[data-rate="\' + starRate + \'"]:after{width:\' + widthRate + \'%;}\';
+                let style = $("<style>").text(css);
+                $("body").append(style);
+            });
+        });
+    ');
+}
+//END
+//更新日付を一覧ページに出す方法
+function add_modified_column($columns)
+{
+  $columns['modified'] = '更新日時';
+  return $columns;
+}
+
+function show_modified_column($column, $post_id)
+{
+  if ($column === 'modified') {
+    echo get_the_modified_date('Y-m-d H:i', $post_id);
+  }
+}
+
+function modified_column_register_for_custom_post_type()
+{
+  $post_types = ['personal_gym', 'training_gear', 'fitness_gym', 'home_training', 'protein']; // ←カスタム投稿タイプのスラッグを追加
+  foreach ($post_types as $post_type) {
+    add_filter("manage_edit-{$post_type}_columns", 'add_modified_column');
+    add_action("manage_{$post_type}_posts_custom_column", 'show_modified_column', 10, 2);
+  }
+}
+add_action('admin_init', 'modified_column_register_for_custom_post_type');
+
+function modified_column_register_sortable($columns)
+{
+  $columns['modified'] = 'modified';
+  return $columns;
+}
+// ソート可能なカラムを各カスタム投稿タイプに追加
+add_filter('manage_edit-personal_gym_sortable_columns', 'modified_column_register_sortable');
+add_filter('manage_edit-training_gear_sortable_columns', 'modified_column_register_sortable');
+add_filter('manage_edit-fitness_gym_sortable_columns', 'modified_column_register_sortable');
+add_filter('manage_edit-protein_sortable_columns', 'modified_column_register_sortable');
+add_filter('manage_edit-home_training_sortable_columns', 'modified_column_register_sortable');
+function modified_orderby_custom_column($query)
+{
+  if (!is_admin() || !$query->is_main_query()) return;
+
+  if ($query->get('orderby') === 'modified') {
+    $query->set('orderby', 'modified');
+  }
+}
+add_action('pre_get_posts', 'modified_orderby_custom_column');
+/**
+ * 全投稿タイプにID列を追加
+ */
+add_filter('manage_posts_columns', function ($columns) {
+  $new = [];
+  foreach ($columns as $key => $label) {
+    $new[$key] = $label;
+    if ($key === 'cb') {
+      $new['post_id'] = 'ID';
+    }
+  }
+  return $new;
+}, 5);
+
+add_action('manage_posts_custom_column', function ($column, $post_id) {
+  if ($column === 'post_id') {
+    echo (int) $post_id;
+  }
+}, 10, 2);
+/**
+ * 管理画面の投稿一覧でID列の幅を調整
+ */
+add_action('admin_head', function () {
+  echo '<style>
+    /* 投稿ID列の幅を固定 */
+    .wp-list-table .column-post_id {
+      width: 40px;
+      text-align: left;
+      white-space: nowrap;
+    }
+  </style>';
+});
+/**
+ * ID列をソート可能にする（全投稿タイプ）
+ */
+add_action('admin_init', function () {
+  $post_types = get_post_types(['public' => true], 'names');
+
+  foreach ($post_types as $post_type) {
+    add_filter("manage_edit-{$post_type}_sortable_columns", function ($columns) {
+      $columns['post_id'] = 'ID';
+      return $columns;
+    });
+  }
+});
+
+/**
+ * ソート時に post_id → ID に変換
+ */
+add_filter('request', function ($vars) {
+  if (isset($vars['orderby']) && $vars['orderby'] === 'post_id') {
+    $vars['orderby'] = 'ID';
+  }
+  return $vars;
+});

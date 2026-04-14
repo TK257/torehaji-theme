@@ -3,6 +3,53 @@
 /* -------------------------------
  *  text components
  * ---------------------------- */
-.textsmall {
-  font-size: small;
+.font-08 {
+  font-size: 0.8em;
+}
+.font-12 {
+  font-size: 1.2em;
+}
+.font-14 {
+  font-size: 1.4em;
+}
+.font-16 {
+  font-size: 1.6em;
+}
+.font-18 {
+  font-size: 1.8em;
+}
+.font-2 {
+  font-size: 2em;
+}
+.font-50 {
+  font-size: 50px;
+}
+
+.text-c {
+  text-align: center;
+}
+.text-r {
+  text-align: right;
+}
+.text-l {
+  text-align: left;
+}
+.text-cut {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.font-color-glay {
+  color: $glay;
+}
+.font-w7 {
+  font-weight: 700;
+}
+
+.font-corporate-logo-bold {
+  font-family: 'Corporate-Logo-Bold-ver3', sans-serif;
+}
+.small {
+  font-size: 80%;
 }

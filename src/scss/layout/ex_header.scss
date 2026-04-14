@@ -1,0 +1,99 @@
+@use "../foundation/import" as *;
+
+/* -------------------------------
+ *  header
+ * ---------------------------- */
+.l-header {
+  grid-area: header;
+}
+header {
+  background: url("../img/common/header_bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 0%;
+  aspect-ratio: 41/18;
+  @media only screen and (max-width: 480px) {
+    max-width: 100%;
+  }
+  .logo img {
+    margin-left: 24px;
+    height: auto;
+    max-width: 200px;
+    @media only screen and (max-width: 480px) {
+      max-width: 100px;
+    }
+  }
+  h1 {
+    margin: 0;
+    line-height: 1em;
+  }
+}
+.nav-menu {
+  display: none;
+  @media only screen and (max-width: 480px) {
+    display: block;
+    font-size: 2.5em;
+    color: $main;
+    margin-left: 15px;
+  }
+}
+.logo-top {
+  height: auto;
+  margin: auto;
+  @media only screen and (max-width: 480px) {
+    height: auto;
+    width: 50%;
+  }
+}
+.header-afmongon {
+  background-color: $black;
+  text-align: center;
+  color: $white;
+}
+.sp-nav {
+  position: absolute;
+  left: 0;
+  display: none;
+  z-index: 1000;
+  width: 60%;
+  background-color: $main;
+  opacity: 0.8;
+  color: $white;
+  padding: 20px;
+  font-size: 0.6em;
+  border-radius: 0 10px 10px 0;
+}
+.global-nav {
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+  display: flex;
+  li {
+    margin-right: 30px;
+    text-align: right;
+  }
+}
+.global-nav-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 35px;
+  background: linear-gradient(90deg, #f2a3f0 0%, #a4e0f5 100%);
+  font-size: 1em;
+  line-height: 2em;
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+}
+.sp-nav-list {
+  width: 100%;
+  padding: 0 10%;
+  font-size: 1.5rem;
+  text-align: left;
+  list-style: none;
+  li {
+    margin: 1rem;
+    a {
+      text-decoration: none;
+    }
+  }
+}

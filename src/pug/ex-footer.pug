@@ -1,0 +1,32 @@
+footer#footer
+  section
+    ul
+      li 
+        a(href="/company/") 運営会社
+      li
+        a(href="/privacy-policy/") プライバシーポリシー
+      li 
+        a(href="/terms/") 利用規約
+      li 
+        a(href="https://docs.google.com/forms/d/e/1FAIpQLScsA_er2rSFTm9mfAhMGSZhlvMvoE1RHUk_Y9bN6aMRn0gjNQ/viewform?usp=header" rel="nofollow") お問合せ
+      li 
+        a(href="/news/") おしらせ
+    div.text-c.margin-tb10
+      a(href="/")
+        img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/logo/site_logo_clear.png")
+    .text-c.affiliate-note
+      | 当サイトにはアフィリエイト広告（成果報酬型広告）が含まれています。
+      br
+      | 当サイトは、Amazon.co.jpを宣伝しリンクすることによって紹介料を獲得できる、
+      | Amazonアソシエイト・プログラムの参加者です。
+    .text-c
+      small ©︎ Simple is Best Corp. All Rights Reserved.
+    .text-c
+      | This site is protected by reCAPTCHA and the Google
+      a(href="https://policies.google.com/privacy")  Privacy Policy
+      |   and 
+      a(href="https://policies.google.com/terms")  Terms of Service
+      |   apply.
+button#top-button(type="button") <i class="fa-solid fa-angle-up"></i><br>TOP
+<?php wp_footer(); ?>            
+// footer end 

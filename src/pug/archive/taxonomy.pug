@@ -1,0 +1,21 @@
+<?php get_header(); ?>
+block pageContent
+  article
+    section
+      .container
+        div.breadcrumb <?php get_template_part('breadcrumb'); ?>
+        h1.eriah1 <?php single_term_title(); ?>の記事一覧
+        div.flexbox-sb  
+          <?php if(have_posts()): ?><?php while(have_posts()): the_post(); ?>          
+            div.box-kiji
+              a.flexbox-sp(href!= "<?php the_permalink(); ?>")
+                h3.pcnone.text-cut
+                  <?php the_title(); ?>
+                div.thum
+                  <?php the_post_thumbnail(); ?>
+                h3.spnone.text-cut
+                  <?php the_title(); ?>
+            <?php endwhile;?>
+            <?php endif;?> 
+        div <?php get_template_part('functions/pagenation'); ?>
+<?php get_footer(); ?>

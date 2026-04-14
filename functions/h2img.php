@@ -16,7 +16,6 @@ add_shortcode('h2img', 'get_h2img');
 //出力
 //'<h2>h2タイトル</h2><img src="'.get_template_directory_uri().'/assets/img/common/' .magazine/1111/filename.jpg . '" alt=" $alt ">';
 /*END h2画像を挿入できるショートコード
-
 /*画像を挿入できるショートコード
 ----------------------------------- */
 function get_imginsert($attr)
@@ -48,4 +47,3 @@ add_shortcode('gifinsert', 'get_gifinsert');
 //[gifinsert filename=magazine/記事ID/photo_01.gif alt=alt]
 //出力
 //'<img src="'.get_template_directory_uri().'/assets/img/' .magazine/1111/filename.gif . '" alt=" $alt ">';
-/*END 画像を挿入できるショートコード

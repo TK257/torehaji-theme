@@ -1,5 +1,4 @@
 @use "../../foundation/import" as *;
-@use "../../colorlayout" as *;
 
 /* -------------------------------
  *  common
@@ -8,33 +7,13 @@
 /* -------------------------------
  *  02_******
  * ---------------------------- */
-h3.page {
-  margin: 15px 0 0;
-}
-ul.page {
-  li {
-    list-style: square;
-  }
-}
-ul.page-privacy {
-  margin: 1em 0 1em 1.5em;
-  list-style: disc;
-  li {
-    margin: 0.5em 0;
-    display: list-item;
-    list-style: disc;
-  }
-}
 .page_base {
   margin: 30px auto;
-  padding: 16px 42px 36px;
-  border-radius: 10px;
+  padding: 16px 0 36px;
   box-shadow: 0 0 8px gray;
   margin: 10px 30px;
-  //background-color: #fffbfa;
-  //border: solid 1px #fffbfa;
   @media only screen and (max-width: 767px) {
-    padding: 24px 0;
+    padding: 12px 0;
     margin: 0;
   }
 }
@@ -44,19 +23,22 @@ ul.page-privacy {
     padding: 0 12px;
   }
 }
-//ジム特集ページ
-h1.gymp {
-  border-left: solid 10px $orange;
-  border-bottom: 10px solid $darkblue;
-  padding-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 2em;
+.page_formal {
+  margin: 30px auto;
+  padding: 16px 0 36px;
+  box-shadow: 0 0 8px gray;
+  margin: 10px 30px;
+  border-radius: 5px;
+  @media only screen and (max-width: 480px) {
+    padding: 12px 0;
+    margin: 0;
+  }
+  h2 {
+    font-size: 1.2em;
+    text-align: left;
+  }
 }
-h2.gymp {
-  border-left: solid 10px $darkblue;
-  padding-left: 20px;
-}
-h1.center {
-  text-align: center;
+.logo-cam {
+  margin: 0 auto;
+  max-width: 70%;
 }

@@ -1,29 +1,17 @@
 <?php
-/* ■ 税込価格を返すショートコード
+/* 複利計算
 ----------------------------------- */
-function get_zeikomi($attr)
+function get_fukuri($attr)
 {
   extract(shortcode_atts(array(
-    'k' => "",
-    'zeiritsu' => 1.1,
-  ), $attr));
-  return number_format(floor($k * $zeiritsu));
-}
-add_shortcode('price', 'get_zeikomi');
-/*END ■ 税込価格を返すショートコード*使い方はこれ [price k=税抜き価格]
------------------------------------ */
-/* ■ 税込み価格を割った数字を返すショートコード
------------------------------------ */
-function get_unit_price($attr)
-{
-  extract(shortcode_atts(array(
-    'k' => "",
-    'amount' => "",
+    'ganpon' => "",
+    'riritsu' => "",
+    'kikan' => "",
 
   ), $attr));
-  return number_format(($k * 1.1) / $amount, 1);
+  return number_format($ganpon * (1 + $riritsu / 1) ^ (1 * $kikan));
 }
-add_shortcode('per_price', 'get_unit_price');
+add_shortcode('fukuri', 'get_fukuri');
 /*END ■ 税込み価格を割った数字を返すショートコード
-*使い方はこれ [per_price k=税抜き価格 amount=割りたい母数 ,表示したい小数点 ]
+*使い方はこれ [fukuri ganpon=元本 riritsu=想定利回り kikan=運用期間 ]
 ----------------------------------- */

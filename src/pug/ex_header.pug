@@ -1,0 +1,16 @@
+doctype
+html(<?php language_attributes(); ?>)
+  head
+    include ./components/_head.pug
+  <body <?php body_class(); ?>>
+    header.flexbox-align#header
+      #nav-button.nav-menu <i class="fa-solid fa-bars"></i>
+        <nav class="sp-nav">
+          <?php wp_nav_menu(); ?>
+        </nav>
+      div
+        <?php if (is_front_page() || is_home()): ?>  <h1><a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/site_logo_clear.png" alt="<?php bloginfo('name'); ?>"></a></h1><?php else: ?>  <div><a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/site_logo_clear.png" alt="<?php bloginfo('name'); ?>"></a></div><?php endif; ?>
+      a#headerbtn(href="https://docs.google.com/forms/d/e/1FAIpQLScsA_er2rSFTm9mfAhMGSZhlvMvoE1RHUk_Y9bN6aMRn0gjNQ/viewform?usp=header" rel="nofollow").padding-15
+        button.btn3.btn3-darkpink お問合せ
+    <?php wp_nav_menu( array('container' => 'nav','container_class' => 'global-nav-wrapper','menu_class' => 'global-nav','items_wrap'      => '<ul class="%2$s">%3$s</ul>',) ); ?>
+// header end 

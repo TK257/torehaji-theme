@@ -1,5 +1,4 @@
 @use "../foundation/import" as *;
-@use "../colorlayout" as *;
 
 /* -------------------------------
  *  header
@@ -8,31 +7,28 @@
   grid-area: header;
 }
 header {
-  background-color: $white;
-  box-shadow: 0 0 8px gray;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: auto;
-  @media (min-width: 769px) {
+  .logo img {
+    margin-left: 24px;
     height: auto;
+    max-width: 50%;
+    @media only screen and (max-width: 480px) {
+      max-width: 50%;
+    }
   }
-}
-.header-waku {
-  display: flex;
-  align-items: center;
-  height: 54px;
-  @media (min-width: 769px) {
-    height: auto;
+  h1 {
+    margin: 0;
+    line-height: 1em;
   }
 }
 .nav-menu {
-  color: $darkblue;
-  margin-left: 20px;
-  font-size: 2.5rem;
-  @media (min-width: 769px) {
-    display: none;
+  font-size: 3em;
+  color: $main;
+  margin-left: 15px;
+  @media only screen and (max-width: 480px) {
+    display: block;
+    font-size: 2.5em;
+    color: $main;
+    margin-left: 15px;
   }
 }
 .logo-top {
@@ -49,14 +45,42 @@ header {
   color: $white;
 }
 .sp-nav {
-  position: absolute;
-  left: 0;
   display: none;
+  position: absolute;
+  right: 0;
+  text-align: right;
   z-index: 1000;
-  width: 60%;
-  background-color: $darkblue;
-  opacity: 0.9;
+  width: 20%;
+  background-color: $main;
+  opacity: 0.8;
   color: $white;
+  padding: 20px;
+  font-size: 0.4em;
+  border-radius: 10px;
+  @media only screen and (max-width: 480px) {
+    width: 60%;
+  }
+}
+.global-nav {
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+  display: flex;
+  li {
+    margin-right: 30px;
+    text-align: right;
+  }
+}
+.global-nav-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  height: 35px;
+  background: linear-gradient(90deg, #f2a3f0 0%, #a4e0f5 100%);
+  font-size: 1em;
+  line-height: 2em;
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
 }
 .sp-nav-list {
   width: 100%;

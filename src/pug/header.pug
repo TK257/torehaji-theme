@@ -2,14 +2,12 @@ doctype
 html(<?php language_attributes(); ?>)
   head
     include ./components/_head.pug
-  body
-    header
-      .header-waku
-        #nav-button.nav-menu <i class="fa-solid fa-bars"></i>
-          <?php include("header-sp-menu.php"); ?>
-        a.logo-top(href="/")
-          img(src!= "<?php echo get_template_directory_uri(); ?>/assets/img/logo/BULKUPtopsp_min.png" alt="BULKUPのサイトロゴ")
-        a#headerbtn(href="/contact")
-          button.btn3.btn3-darkpink 掲載をご検討の方へ
-      .header-afmongon 当サイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。
+  body(<?php body_class(); ?>)
+    header.flexbox-nowrap.margin-r15#header
+      div
+        <?php if (is_front_page() || is_home()): ?>  <div><a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/torehaji_site_logo.png" alt="<?php bloginfo('name'); ?>"></a></div><?php else: ?>  <h1><a href="/" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/torehaji_site_logo.png" alt="<?php bloginfo('name'); ?>"></a></h1><?php endif; ?>
+      #nav-button.nav-menu <i class="fa-solid fa-bars"></i>
+        <nav class="sp-nav">
+          <?php wp_nav_menu(); ?>
+        </nav>
 // header end 

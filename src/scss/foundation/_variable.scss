@@ -3,20 +3,21 @@
  * ---------------------------- */
 $default-color: #333 !default;
 $default-font-size: 1.6rem !default;
-$default-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic Medium", "Yu Gothic", YuGothic, Meiryo, sans-serif !default;
+$default-font-family: 'Noto Sans JP', sans-serif !default;
+$default-font-weight: 400 !default;
 $default-line-height: 1.75 !default;
 $default-letter-spacing: 0.1rem !default;
 $default-border-radius: 8px !default;
 $default-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s !default;
-$default-text-shadow: 2px 2px 8px rgba(0,0,0,.5) !default;
-$default-box-shadow: 0 2px 4px rgba(0,0,0,.25) !default;
-$default-box-shadow-inner: 0 0 8px rgba(0,0,0,.25) inset !default;
+$default-text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5) !default;
+$default-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !default;
+$default-box-shadow-inner: 0 0 8px rgba(0, 0, 0, 0.25) inset !default;
 
 /* -------------------------------
  *  hover style
  * ---------------------------- */
 $hover-color: #999 !default;
-$hover-box-shadow: 0 0 16px rgba(0,0,0,0.15) !default;
+$hover-box-shadow: 0 0 16px rgba(0, 0, 0, 0.15) !default;
 
 /* -------------------------------
  *  screen size & breakpoint
@@ -42,9 +43,10 @@ $breakpoint-list: (
 /* -------------------------------
  *  font family
  * ---------------------------- */
-$font-sans-serif: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, "Yu Gothic Medium", "Yu Gothic", YuGothic, Meiryo, sans-serif !default;
-$font-serif: "Times New Roman", YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif !default;
-$font-monospace: SFMono, Consolas, "Roboto Mono", "Courier New", Courier, Meiryo, monospace !default;
+$font-sans-serif: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Hiragino Sans',
+  'Hiragino Kaku Gothic ProN', Arial, 'Yu Gothic Medium', 'Yu Gothic', YuGothic, Meiryo, sans-serif !default;
+$font-serif: 'Times New Roman', YuMincho, 'Yu Mincho', 'Hiragino Mincho ProN', 'MS PMincho', serif !default;
+$font-monospace: SFMono, Consolas, 'Roboto Mono', 'Courier New', Courier, Meiryo, monospace !default;
 
 /* -------------------------------
  *  space size
@@ -64,16 +66,16 @@ $space-XXXS: 4px !default;
 /* -------------------------------
  *  font size
  * ---------------------------- */
-$font-XXXXL: 4.0rem !default;
+$font-XXXXL: 4rem !default;
 $font-XXXL: 3.2rem !default;
 $font-XXL: 2.8rem !default;
 $font-XL: 2.4rem !default;
-$font-L: 2.0rem !default;
+$font-L: 2rem !default;
 $font-M: 1.8rem !default;
 $font-R: 1.6rem !default;
 $font-S: 1.4rem !default;
 $font-XS: 1.2rem !default;
-$font-XXS: 1.0rem !default;
+$font-XXS: 1rem !default;
 $font-XXXS: 0.8rem !default;
 
 /* -------------------------------
@@ -102,23 +104,23 @@ $letter-spacing-title: 0.2rem !default;
  *  layer order
  * ---------------------------- */
 $layer-order-list: (
-  fixed-content-default: 100, 
-  fixed-content-alert: 200, 
-  drawer-navi: 300, 
-  dialog: 400, 
+  fixed-content-default: 100,
+  fixed-content-alert: 200,
+  drawer-navi: 300,
+  dialog: 400,
   loading-screen: 500
 ) !default;
 @function layer-order($layer-order-key) {
-  @return #{map-get($layer-order-list, $layer-order-key)}
+  @return #{map-get($layer-order-list, $layer-order-key)};
 }
 
 /* -------------------------------
  *  directory path
  * ---------------------------- */
 $directory-path-list: (
-  document-root: "/", 
-  images-directory: "assets/img/"
+  document-root: '/',
+  images-directory: 'assets/img/'
 ) !default;
 @function directory-path($directory-path-key) {
-  @return #{map-get($directory-path-list, $directory-path-key)}
+  @return #{map-get($directory-path-list, $directory-path-key)};
 }

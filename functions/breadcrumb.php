@@ -7,79 +7,82 @@
   if (!is_front_page() && !is_home()) {
     if (is_page()) {
       // 固定ページ
-      if (get_parent_page_ID()) {
+      if ($post->post_parent) {
         $postId = $post->ID;
         $parentPostArry = array_reverse(get_post_ancestors($post));
-        // 固定ページ（親・先祖ページ）
+        $parentPages = 0;
         foreach ($parentPostArry as $index => $parentsPostId) {
           echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-          echo '<a href="' . esc_url(get_the_permalink($parentsPostId)) . '" itemprop="item"><span itemprop="name">' . esc_html(get_the_title($parentsPostId)) . '</span></a>';
+          echo '<a href="' . esc_url(get_permalink($parentsPostId)) . '" itemprop="item"><span itemprop="name">' . esc_html(get_the_title($parentsPostId)) . '</span></a>';
           echo '<meta itemprop="position" content="' . ($index + 2) . '" /></li>';
           $parentPages = $index + 1;
         }
-        // 固定ページ（子ページ）
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-        echo '<a href="' . esc_url(get_the_permalink($postId)) . '" itemprop="item"><span itemprop="name">' . esc_html(get_the_title($postId)) . '</span></a>';
+        echo '<a href="' . esc_url(get_permalink($postId)) . '" itemprop="item"><span itemprop="name">' . esc_html(get_the_title($postId)) . '</span></a>';
         echo '<meta itemprop="position" content="' . ($parentPages + 2) . '" /></li>';
       } else {
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-        echo '<a href="' . esc_url(get_the_permalink()) . '" itemprop="item"><span itemprop="name">' . esc_html(single_post_title('', false)) . '</span></a>';
+        echo '<a href="' . esc_url(get_permalink()) . '" itemprop="item"><span itemprop="name">' . esc_html(get_the_title()) . '</span></a>';
         echo '<meta itemprop="position" content="2" /></li>';
       }
-    } else if (is_post_type_archive()) {
+    } elseif (is_post_type_archive()) {
       $postTypeObject = get_post_type_object(get_post_type());
-      $postTypeName = $postTypeObject->labels->name;
-      if (is_date_archive()) {
-        // 日付アーカイブページ
+      $postTypeName = $postTypeObject ? $postTypeObject->labels->name : 'アーカイブ';
+      if (is_date()) {
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-        echo '<a href="' . get_post_type_archive_link(get_post_type()) . '" itemprop="item"><span itemprop="name">' . $postTypeName . '</span></a>';
+        echo '<a href="' . esc_url(get_post_type_archive_link(get_post_type())) . '" itemprop="item"><span itemprop="name">' . esc_html($postTypeName) . '</span></a>';
         echo '<meta itemprop="position" content="2" /></li>';
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-        echo '<a href="' . esc_url(home_url('/')) . $wp_query->query['year'] . '/' . $wp_query->query['monthnum'] . '/?post_type=' . $wp_query->query['post_type'] . '"><span itemprop="name">' . get_query_var('year') . '年' . get_query_var('monthnum') . '月の投稿一覧</span></a>';
+        echo '<a href="' . esc_url(get_month_link(get_query_var('year'), get_query_var('monthnum'))) . '" itemprop="item"><span itemprop="name">' . get_query_var('year') . '年' . get_query_var('monthnum') . '月の投稿一覧</span></a>';
         echo '<meta itemprop="position" content="3" /></li>';
       } else {
-        // アーカイブページ
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-        echo '<a href="' . get_post_type_archive_link(get_post_type()) . '" itemprop="item"><span itemprop="name">' . $postTypeName . '</span></a>';
+        echo '<a href="' . esc_url(get_post_type_archive_link(get_post_type())) . '" itemprop="item"><span itemprop="name">' . esc_html($postTypeName) . '</span></a>';
         echo '<meta itemprop="position" content="2" /></li>';
       }
-    } else if (is_tax()) {
+    } elseif (is_tax()) {
       // タクソノミーページ
-      $postTypeObject = get_post_type_object(get_post_type());
-      $postTypeName = $postTypeObject->labels->name;
-      $taxonomySlug = get_query_var('taxonomy');
-      $termName = urldecode(get_query_var('term'));
+      $taxonomy = get_query_var('taxonomy');
+      $term = get_queried_object();
+      if ($term && $taxonomy) {
+        $postType = get_taxonomy($taxonomy)->object_type[0] ?? 'post';
+        $postTypeObject = get_post_type_object($postType);
+        $postTypeName = $postTypeObject ? $postTypeObject->labels->name : 'アーカイブ';
+        echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+        echo '<a href="' . esc_url(get_post_type_archive_link($postType)) . '" itemprop="item"><span itemprop="name">' . esc_html($postTypeName) . '</span></a>';
+        echo '<meta itemprop="position" content="2" /></li>';
+        echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+        echo '<a href="' . esc_url(get_term_link($term, $taxonomy)) . '" itemprop="item"><span itemprop="name">' . esc_html($term->name) . '</span></a>';
+        echo '<meta itemprop="position" content="3" /></li>';
+      } else {
+        // デバッグ用: タクソノミー情報が取得できない場合
+        echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+        echo '<span itemprop="name">タクソノミーエラー</span>';
+        echo '<meta itemprop="position" content="2" /></li>';
+      }
+    } elseif (is_singular()) {
+      $postType = get_post_type();
+      $postTypeObject = get_post_type_object($postType);
+      $postTypeName = $postTypeObject ? $postTypeObject->labels->name : '投稿';
       echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<a href="' . get_post_type_archive_link(get_post_type()) . '" itemprop="item"><span itemprop="name">' . $postTypeName . '</span></a>';
+      echo '<a href="' . esc_url(get_post_type_archive_link($postType)) . '" itemprop="item"><span itemprop="name">' . esc_html($postTypeName) . '</span></a>';
       echo '<meta itemprop="position" content="2" /></li>';
       echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<a href="' . get_term_link($termName, $taxonomySlug) . '" itemprop="item"><span itemprop="name">' . esc_html(single_term_title('', false)) . '</span></a>';
+      echo '<a href="' . esc_url(get_permalink()) . '" itemprop="item"><span itemprop="name">' . esc_html(get_the_title()) . '</span></a>';
       echo '<meta itemprop="position" content="3" /></li>';
-    } else if (is_singular(get_post_type())) {
-      // シングルページ
-      $postTypeObject = get_post_type_object(get_post_type());
-      $postTypeName = $postTypeObject->labels->name;
+    } elseif (is_author()) {
+      $author = get_queried_object();
       echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<a href="' . get_post_type_archive_link(get_post_type()) . '" itemprop="item"><span itemprop="name">' . $postTypeName . '</span></a>';
+      echo '<a href="' . esc_url(get_author_posts_url($author->ID)) . '" itemprop="item"><span itemprop="name">' . esc_html($author->display_name) . 'の記事一覧</span></a>';
       echo '<meta itemprop="position" content="2" /></li>';
+    } elseif (is_search()) {
       echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<a href="' . esc_url(get_the_permalink()) . '" itemprop="item"><span itemprop="name">' . esc_html(single_post_title('', false)) . '</span></a>';
-      echo '<meta itemprop="position" content="3" /></li>';
-    } else if (is_author()) {
-      // 投稿者アーカイブページ
-      global $post;
-      $author = get_userdata($post->post_author);
-      echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<a href="' . get_author_posts_url(get_the_author_meta('ID')) . '" itemprop="item"><span itemprop="name">' . $author->display_name . 'の記事一覧</span></a>';
+      echo '<span itemprop="name">キーワード検索結果</span>';
       echo '<meta itemprop="position" content="2" /></li>';
-    } else if (is_search()) {
-      // 検索結果ページ
+    } elseif (is_404()) {
       echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<span itemprop="name">キーワード検索結果</span><meta itemprop="position" content="2" /></li>';
-    } else if (is_404()) {
-      // 404ページ
-      echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
-      echo '<span itemprop="name">Page Not Found</span><meta itemprop="position" content="2" /></li>';
+      echo '<span itemprop="name">お探しのページが見つかりません</span>';
+      echo '<meta itemprop="position" content="2" /></li>';
     }
   }
   ?>
